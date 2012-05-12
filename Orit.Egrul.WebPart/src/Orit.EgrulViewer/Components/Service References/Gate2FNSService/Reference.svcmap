@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8d8f34a2-9801-41ce-9bf7-c9b088b88b0d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://193.46.207.194:8000/Gate2FNSService.svc/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="cb4c660a-eaac-40ee-b3d5-3f4bd5677ae5" SourceId="1" SourceUrl="http://193.46.207.194:8000/Gate2FNSService.svc/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="3a0e0f29-65dc-43df-8b3e-aa5a4607f365" SourceId="1" SourceUrl="http://193.46.207.194:8000/Gate2FNSService.svc/mex" />
+    <MetadataFile FileName="FNS.xsd" MetadataType="Schema" ID="d2d85660-4412-4ca2-b70b-c6ddb845862b" SourceId="1" SourceUrl="http://193.46.207.194:8000/Gate2FNSService.svc/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="0b99c32c-5d68-47ea-a4b1-ff4963771061" SourceId="1" SourceUrl="http://193.46.207.194:8000/Gate2FNSService.svc/mex" />
+    <MetadataFile FileName="Gate2FNSServiceLibrary.xsd" MetadataType="Schema" ID="ba2b2b69-67d2-4d57-ae8b-38fb9bb43a90" SourceId="1" SourceUrl="http://193.46.207.194:8000/Gate2FNSService.svc/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="8c6a7a60-8a8b-4244-8289-f0aa1a131118" SourceId="1" SourceUrl="http://193.46.207.194:8000/Gate2FNSService.svc/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

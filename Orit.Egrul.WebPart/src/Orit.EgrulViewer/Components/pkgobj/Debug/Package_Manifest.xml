@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Solution xmlns="http://schemas.microsoft.com/sharepoint/" SolutionId="70b0d75c-70fc-4b4f-981f-8b3ddb28a8cf" ResetWebServer="TRUE">
+  <CodeAccessSecurity>
+    <PolicyItem>
+      <PermissionSet class="NamedPermissionSet" version="1">
+        <IPermission class="SharePointPermission" version="1" ObjectModel="True" />
+        <IPermission class="WebPartPermission" version="1" Connections="True" />
+        <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="Execution" />
+        <IPermission class="SmtpPermission" version="1" Access="Connect" />
+        <IPermission class="AspNetHostingPermission" version="1" Level="Minimal" />
+      </PermissionSet>
+      <Assemblies>
+        <Assembly Name="$SharePoint.Project.AssemblyName$" Version="$SharePoint.Project.AssemblyVersion$" PublicKeyBlob="$SharePoint.Project.AssemblyPublicKeyBlob$" />
+      </Assemblies>
+    </PolicyItem>
+  </CodeAccessSecurity>
+  <Assemblies>
+    <Assembly Location="EO.Pdf.dll" DeploymentTarget="GlobalAssemblyCache" />
+    <Assembly Location="EO.Web.dll" DeploymentTarget="GlobalAssemblyCache" />
+    <Assembly Location="itextsharp.dll" DeploymentTarget="GlobalAssemblyCache" />
+    <Assembly Location="itextsharp.xtra.dll" DeploymentTarget="GlobalAssemblyCache" />
+    <Assembly Location="itextsharp.xmlworker.dll" DeploymentTarget="GlobalAssemblyCache" />
+    <Assembly Location="Orit.EgrulViewer.Components.dll" DeploymentTarget="GlobalAssemblyCache">
+      <SafeControls>
+        <SafeControl Assembly="Orit.EgrulViewer.Components, Version=1.0.0.0, Culture=neutral, PublicKeyToken=22d60dabbca5b3e8" Namespace="Orit.EgrulViewer.Components" TypeName="*" />
+      </SafeControls>
+    </Assembly>
+  </Assemblies>
+  <TemplateFiles>
+    <TemplateFile Location="Images\Orit_EgrulViewer\WebPartIcon_EgrulViewer.gif" />
+    <TemplateFile Location="CONTROLTEMPLATES\Orit_EgrulViewer\EgrulViewerUserControl.ascx" />
+    <TemplateFile Location="Images\Orit_EgrulViewer\ListIcon_ErgulTemplatesList.gif" />
+    <TemplateFile Location="Images\Orit_EgrulViewer\pdf.png" />
+    <TemplateFile Location="Images\Orit_EgrulViewer\FeatureIcon_EgrulViewer.gif" />
+  </TemplateFiles>
+  <FeatureManifests>
+    <FeatureManifest Location="Orit_EgrulViewer_EgrulViewer\Feature.xml" />
+  </FeatureManifests>
+</Solution>

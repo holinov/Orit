@@ -1,0 +1,5 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+   <S:Body>
+      <ns:TestResponse xmlns:ns="http://ws.unisoft/">1</ns:TestResponse>
+   </S:Body>
+</S:Envelope>

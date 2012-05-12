@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<!-- EDIT THIS FILE: This file contains default parameters for the deployment process -->
+	<!-- Deploymentscript SPSF Version 3.2 -->
+
+	<!-- Use the following property group to define application specific parameters-->
+	<PropertyGroup>
+		<ApplicationName>Orit.EgrulViewer</ApplicationName>
+		<ApplicationTitle>Orit.EgrulViewer</ApplicationTitle>
+		<ApplicationVersion>1.0.0.0</ApplicationVersion>
+		<MOSSRequired>false</MOSSRequired>
+		<MinimalSharePointVersion>14.0.0.0</MinimalSharePointVersion>
+	</PropertyGroup>
+
+	<!-- Options for solution deployment -->
+	<PropertyGroup>
+		<!-- Set ForceSolutionDeployment to true to have parameter -force in deploysolution -->
+		<ForceSolutionDeployment>true</ForceSolutionDeployment>
+		<!-- Set DeployToAllContentUrls to true to deploy all wsp solutions to all content web applications -->
+		<DeployToAllContentUrls>true</DeployToAllContentUrls>
+		<!-- Sleep timer after deployment, important in large farms -->
+		<DeploymentSleep>1000</DeploymentSleep>
+		<!-- Set DisplayWizards to true if wizards should be displayed for config values if parameters are missing -->
+		<DisplayWizards>false</DisplayWizards>
+		<RestartSPTimer>false</RestartSPTimer>
+		<RestartSPAdmin>false</RestartSPAdmin>
+		<RestartSPUserCodeHost>false</RestartSPUserCodeHost>
+		<RestartIIS>false</RestartIIS>
+	</PropertyGroup>
+
+	<!-- DEFAULT Environment settings -->
+	<!-- If the solution is deployed on an unknown machine, these settings will be used -->
+	<ItemGroup>
+		<!-- Optional: Specify here the web applications for solution deployment, separated with ';', e.g. http://WEBAPP:80;http://WEBAPP:81 -->
+		<!-- Remember to set $(DeployToAllContentUrls) to false if used -->
+		<DeployToWebApplications Include=" " />
+		<!-- Optional: Specify here the site collections for deployment of sandboxed solutions, e.g. http://site1;http://site2 -->
+		<DeploySandboxedSolutionsToSites Include="http://mrrdviz_stage " />
+		<!-- Optional: Specify wsp solutions which need to be installed in the farm as prerequisite';', e.g. solutionname1.wsp;solutionname2.wsp -->
+		<PreRequisiteSolutions Include=" " />
+	</ItemGroup>
+	<PropertyGroup>
+		<SiteUrl>http://mrrdviz_stage</SiteUrl>
+	</PropertyGroup>
+
+	<!-- Environment machine names -->
+	<!-- Here you can setup your machine names for each environment you want to deploy the package -->
+	<PropertyGroup>
+		<!-- Enter the uppercase computername for each environment (as displayed when running SET in cmd.exe) -->
+		<!-- Add as many environments as neccesary -->
+		<ENV1>MRRDVIZ_STAGE</ENV1>
+		<ENV2></ENV2>
+	</PropertyGroup>
+
+
+	<!-- Override specific default parameters for each environment, e.g. for server with name 'MRRDVIZ_STAGE' (or ENV1) -->
+	<!-- You can use system environment variables like $(Computername), $(USERDOMAIN), $(USERNAME) for the condition -->
+	<!-- You can custom parameters in deployment like $(SampleProperty) -->
+
+	<!-- ENV1 Environment specific settings -->
+	<ItemGroup Condition="'$(Computername)' == '$(ENV1)'">
+		<DeployToWebApplications Include=" " />
+		<DeploySandboxedSolutionsToSites Include="http://mrrdviz_stage " />
+		<PreRequisiteSolutions Include=" " />
+	</ItemGroup>
+	<PropertyGroup Condition="'$(Computername)' == '$(ENV1)'">
+		<SiteUrl>http://mrrdviz_stage</SiteUrl>
+		<SampleProperty>SampleValue</SampleProperty>
+	</PropertyGroup>
+
+	<!-- ENV2 Environment specific settings -->
+	<ItemGroup Condition="'$(Computername)' == '$(ENV2)'">
+		<DeployToWebApplications Include=" " />
+		<DeploySandboxedSolutionsToSites Include=" " />
+		<PreRequisiteSolutions Include=" " />
+	</ItemGroup>
+	<PropertyGroup Condition="'$(Computername)' == '$(ENV2)'">
+		<SiteUrl></SiteUrl>
+		<SampleProperty>SampleValue</SampleProperty>
+	</PropertyGroup>
+</Project>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+************************************************************************
+       Company: Orit
+   Application: Orit.EgrulViewer
+  Created date: 2012-04-11 13:05:51Z
+    Created by: NVXLAB\holinov
+  Feature Name: EgrulViewer
+ Feature Title: EgrulViewer Feature
+   Description: EgrulViewer Feature Description
+       History: Initial Version 1.0.0.0 
+************************************************************************
+-->
+<!-- Code initially generated with SharePoint Software Factory 2010, Version 3.2 , spsf.codeplex.com -->
+<Feature xmlns="http://schemas.microsoft.com/sharepoint/">
+	<ElementManifests></ElementManifests>
+</Feature>

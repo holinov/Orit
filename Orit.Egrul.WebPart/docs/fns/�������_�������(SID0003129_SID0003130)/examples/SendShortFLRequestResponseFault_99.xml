@@ -1,0 +1,13 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+	<S:Body>
+		<soap:Fault xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+			<faultcode>S:Server</faultcode>
+			<faultstring>GetFullFLResponseFault_99</faultstring>
+			<detail>
+				<Документ ВерсФорм="4.01" ИдДок="fef858cb-ad4f-45dc-a7e1-6816e3bcb1d4" КодОбр="99" Ошибка="Произошла внутренняя ошибка в АИС ФЦОД (Ид=716608)" xmlns="http://ws.unisoft/EGRNXX/Response">
+					<СвЮЛ ОКОГУ="13312" НаимЮЛ=" Федеральная Налоговая Служба" ИННЮЛ="7707329152" ОГРН="1047707030513"/>
+				</Документ>
+			</detail>
+		</soap:Fault>
+	</S:Body>
+</S:Envelope>

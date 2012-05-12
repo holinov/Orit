@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputType>Library</OutputType>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Orit.EgrulViewer</RootNamespace>
+    <AssemblyName>Orit.EgrulViewer</AssemblyName>
+    <DropLocation>$(SolutionDir)ApplicationDeployment\Output\$(Configuration)</DropLocation>
+    <SPSFDropLocation>$(DropLocation)\$(BuildNumber)</SPSFDropLocation>
+    <SPSFDeploymentFilesFolder>DeploymentFiles</SPSFDeploymentFilesFolder>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Deployment.msbuild" />
+    <None Include="DeploymentTargets.msbuild" />
+    <None Include="ParametersDefault.msbuild" />
+    <None Include="ParametersUserInput.msbuild" />
+    <None Include="DeploymentFiles\StartDeploy.bat" />
+    <None Include="DeploymentFiles\StartRedeploy.bat" />
+    <None Include="DeploymentFiles\StartUndeploy.bat" />
+    <None Include="DeploymentFiles\StartUpgrade.bat" />
+    <None Include="MSBuild\SPALM.MSBuildTasks.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Output\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Target Name="CreateSPSFPackage">
+    <Message Text="Creating SharePoint Package to $(SPSFDropLocation)" Importance="high" />
+    <CreateItem Include="$(SolutionDir)$(ProjectName)\$(SPSFDeploymentFilesFolder)\**\*.*">
+      <Output TaskParameter="Include" ItemName="DefaultDeploymentFiles" />
+    </CreateItem>
+    <Copy SourceFiles="@(DefaultDeploymentFiles)" DestinationFolder="$(SPSFDropLocation)\%(RecursiveDir)" SkipUnchangedFiles="false" />
+    <CreateItem Include="$(SolutionDir)$(ProjectName)\MSBuild\*.dll">
+      <Output TaskParameter="Include" ItemName="MSBuildFilesDefault" />
+    </CreateItem>
+    <Copy SourceFiles="@(MSBuildFilesDefault)" DestinationFolder="$(SPSFDropLocation)\MSBuild\%(RecursiveDir)" SkipUnchangedFiles="false" />
+    <CreateItem Include="$(SolutionDir)$(ProjectName)\*.msbuild">
+      <Output TaskParameter="Include" ItemName="MSBuildFiles" />
+    </CreateItem>
+    <Copy SourceFiles="@(MSBuildFiles)" DestinationFolder="$(SPSFDropLocation)\%(RecursiveDir)" SkipUnchangedFiles="false" />
+    <Message Text="Find deployment package here: $(SPSFDropLocation)" Importance="high" />
+  </Target>
+  <Target Name="CleanSPSFAll">
+    <Message Text="------ SPSF: Deleting complete application output in &quot;$(SPSFDropLocation)&quot; ------" Importance="high" />
+    <RemoveDir Directories="$(SPSFDropLocation)" ContinueOnError="true" />
+  </Target>
+  <Target Name="AfterBuild">
+    <CallTarget Targets="CreateSPSFPackage" />
+  </Target>
+</Project>

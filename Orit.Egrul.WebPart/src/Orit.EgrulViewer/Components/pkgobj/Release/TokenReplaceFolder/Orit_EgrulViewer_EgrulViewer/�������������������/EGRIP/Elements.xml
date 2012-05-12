@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Code initially generated with SharePoint Software Factory 2010, Version 3.2 , spsf.codeplex.com -->
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+	<ListInstance
+		Title="Шаблоны выписок ЕГРЮЛ\ЕГРИП"
+		Description="Шаблоны выписок ЕГРЮЛ\ЕГРИП"
+		FeatureId="628d164b-f49e-436e-9db4-1a1c3eb0aaa5"
+		Id="A795C24A-9759-4FE7-A5BC-0AC89FBA8091"
+		Url="Lists/EgrulTemplates"
+		OnQuickLaunch="FALSE"
+		RootWebOnly="FALSE"
+		TemplateType="10000" />
+</Elements>

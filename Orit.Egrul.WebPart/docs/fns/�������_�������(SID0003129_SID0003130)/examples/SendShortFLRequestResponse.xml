@@ -1,0 +1,137 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+   <S:Header>
+      <wsse:Security S:actor="http://smev.gosuslugi.ru/actors/smev">
+         <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+            <ds:SignedInfo>
+               <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+               <ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#gostr34102001-gostr3411"/>
+               <ds:Reference URI="#body">
+                  <ds:Transforms>
+                     <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+                     <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+                  </ds:Transforms>
+                  <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#gostr3411"/>
+                  <ds:DigestValue>vboVzD3xCb54spxi8v9NPgOWuJSB3W4OYOWHd+CDVU8=</ds:DigestValue>
+               </ds:Reference>
+            </ds:SignedInfo>
+            <ds:SignatureValue>PTDBB9ZTA9owqzlqYaT4Gdcfjv8BgU4WgqLU2/XnAbQo9Bb+gj0EybWPcbFxSFMqvGur0dlVncKE
+rv4SEp/Nxw==</ds:SignatureValue>
+            <ds:KeyInfo>
+               <wsse:SecurityTokenReference>
+                  <wsse:Reference URI="#SenderCertificate"/>
+               </wsse:SecurityTokenReference>
+            </ds:KeyInfo>
+         </ds:Signature>
+         <wsu:Timestamp wsu:Id="Timestamp-68BD72F6BC4D4FEEBC13148639337568">
+            <wsu:Created>2011-09-01T07:58:53Z</wsu:Created>
+            <wsu:Expires>2011-09-01T08:03:53Z</wsu:Expires>
+         </wsu:Timestamp>
+         <wsse:BinarySecurityToken EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary" ValueType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3" wsu:Id="SenderCertificate">MIIDbzCCAx6gAwIBAgIKT0n0JwAAAAACbzAIBgYqhQMCAgMweTEXMBUGCSqGSIb3DQEJARYIY2FA
+cnQucnUxCzAJBgNVBAYTAlJVMRUwEwYDVQQHDAzQnNC+0YHQutCy0LAxJDAiBgNVBAoMG9Ce0JDQ
+niDQoNC+0YHRgtC10LvQtdC60L7QvDEUMBIGA1UEAxMLUlRLIFRlc3QgQ0EwHhcNMTEwNzE0MTEx
+MzAwWhcNMTIwNzE0MTEyMjAwWjBSMQswCQYDVQQGEwJSVTFDMEEGA1UEAx46BCIENQRBBEIEPgQy
+BEsEOQAgBEEENQRABEIEOAREBDgEOgQwBEIAIAQkBB0EIQAgBC0EHwAtBB4EEjBjMBwGBiqFAwIC
+EzASBgcqhQMCAiQABgcqhQMCAh4BA0MABEBoEKpxwOzL7/rR/NzVm6UKW1IUROTXkzzx587jlJPf
+Qa3PdOMhSVlEZcwEL9+qcJBFkszomWQ+rXmqcCFAHS2+o4IBqzCCAacwCwYDVR0PBAQDAgTwMCYG
+A1UdJQQfMB0GByqFAwICIgYGCCsGAQUFBwMCBggrBgEFBQcDBDAdBgNVHQ4EFgQUxpxy+ssufWhK
+y2NS1P/bqZchrGowHwYDVR0jBBgwFoAU3FNp0mLQ2/bwWr2CT1PAxNXwP1cwZgYDVR0fBF8wXTBb
+oFmgV4ZVaHR0cDovL2QwMHBndWNlcnQwMS4wMC5lZ292LmxvY2FsL3JhL2NkcC9kYzUzNjlkMjYy
+ZDBkYmY2ZjA1YWJkODI0ZjUzYzBjNGQ1ZjAzZjU3LmNybDCBkwYIKwYBBQUHAQEEgYYwgYMwOwYI
+KwYBBQUHMAGGL2h0dHA6Ly9kMDBwZ3VjZXJ0MDEuMDAuZWdvdi5sb2NhbC9vY3NwL29jc3Auc3Jm
+MEQGCCsGAQUFBzAChjhodHRwOi8vZDAwcGd1Y2VydDAxLjAwLmVnb3YubG9jYWwvcmEvY2RwL3Rl
+c3RfY2FfcnRrLmNydDAyBgkrBgEEAYI3FQoEJTAjMAkGByqFAwICIgYwCgYIKwYBBQUHAwIwCgYI
+KwYBBQUHAwQwCAYGKoUDAgIDA0EAYEEdhOpMor9QE22T4hUP1jJVnZ9aA0XgsxsjBzjhzfMwAI4g
+L2YgBUvKQNa+iWVyg8u+BHHGCrVF9GyGXQIuzA==</wsse:BinarySecurityToken>
+      </wsse:Security>
+   </S:Header>
+   <S:Body wsu:Id="body">
+      <ws:SendShortFLRequestResponse xmlns:ws="http://ws.unisoft/">
+         <smev:Message xmlns:smev="http://smev.gosuslugi.ru/rev110801">
+            <smev:Sender>
+               <smev:Code>13312</smev:Code>
+               <smev:Name>ФНС</smev:Name>
+            </smev:Sender>
+            <smev:Recipient>
+               <smev:Code>13242</smev:Code>
+               <smev:Name>ИС_ОВ_Отправителя</smev:Name>
+            </smev:Recipient>
+            <smev:Originator>
+               <smev:Code>originator_code</smev:Code>
+               <smev:Name>ПГУ</smev:Name>
+            </smev:Originator>
+            <smev:TypeCode>6</smev:TypeCode>
+            <smev:Date>2011-09-01T07:58:53Z</smev:Date>
+         </smev:Message>
+         <smev:MessageData xmlns:smev="http://smev.gosuslugi.ru/rev110801">
+            <smev:AppData wsu:Id="fns-AppData">
+               <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                  <ds:SignedInfo>
+                     <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+                     <ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#gostr34102001-gostr3411"/>
+                     <ds:Reference URI="#fns-AppData">
+                        <ds:Transforms>
+                           <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+                           <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+                        </ds:Transforms>
+                        <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#gostr3411"/>
+                        <ds:DigestValue>yoKTsN1IvDUnfDKJtL0AVUBiN1Fr2XU9ljbPCnkCmP4=</ds:DigestValue>
+                     </ds:Reference>
+                  </ds:SignedInfo>
+                  <ds:SignatureValue>CQmTLEh+hL3D76XXEt3kr5Qy+VxYkRk50aN6w+Qoph3p7c70uvKCMdLigXckw5AGCYDTff6OlhBk
+fX0NBUCPeQ==</ds:SignatureValue>
+                  <ds:KeyInfo>
+                     <ds:X509Data>
+                        <ds:X509Certificate>MIIC+DCCAqegAwIBAgIKGA4BxAACAADQGzAIBgYqhQMCAgMwZTEgMB4GCSqGSIb3DQEJARYRaW5m
+b0BjcnlwdG9wcm8ucnUxCzAJBgNVBAYTAlJVMRMwEQYDVQQKEwpDUllQVE8tUFJPMR8wHQYDVQQD
+ExZUZXN0IENlbnRlciBDUllQVE8tUFJPMB4XDTEwMTIxMzA3MjcxOFoXDTE0MTAwNDA3MDk0MVow
+OjELMAkGA1UEBhMCUlUxEjAQBgNVBAoTCUNyeXB0b1BybzEXMBUGA1UEAxMOMTkyLjE2OC4yMDAu
+NDYwYzAcBgYqhQMCAhMwEgYHKoUDAgIkAAYHKoUDAgIeAQNDAARA3/WPywOV0l7V6gsl3SPSXcP7
+uH4ZY7p9zGdvwF+tprFeGaTULgg0e27StDWSc5elRNJpE9UnQPvLwLIiyyLjt6OCAWAwggFcMAsG
+A1UdDwQEAwIC5DATBgNVHSUEDDAKBggrBgEFBQcDATAdBgNVHQ4EFgQU3hyXG6V3d59+HTn5T3SW
+6KoptvAwHwYDVR0jBBgwFoAUbY9eBdlfrJEXlB6VmgUwODd6ECowVQYDVR0fBE4wTDBKoEigRoZE
+aHR0cDovL3d3dy5jcnlwdG9wcm8ucnUvQ2VydEVucm9sbC9UZXN0JTIwQ2VudGVyJTIwQ1JZUFRP
+LVBSTygyKS5jcmwwgaAGCCsGAQUFBwEBBIGTMIGQMDMGCCsGAQUFBzABhidodHRwOi8vd3d3LmNy
+eXB0b3Byby5ydS9vY3NwbmMvb2NzcC5zcmYwWQYIKwYBBQUHMAKGTWh0dHA6Ly93d3cuY3J5cHRv
+cHJvLnJ1L0NlcnRFbnJvbGwvcGtpLXNpdGVfVGVzdCUyMENlbnRlciUyMENSWVBUTy1QUk8oMiku
+Y3J0MAgGBiqFAwICAwNBAOHYdpliAIg9b9snawMDCHmuDy2K7uoa3nnFkHc8dq1tdXEReAh4Oxj8
+2TxdLKSO0k1NGhyMpPFHYzasDedIVu0=</ds:X509Certificate>
+                     </ds:X509Data>
+                  </ds:KeyInfo>
+               </ds:Signature>
+               <Документ ВерсФорм="4.01" ИдДок="520ed2a6-c2b8-4ed4-987f-565176cbc5bd" xmlns="http://ws.unisoft/EGRNXX/ResponseKSIP">
+                  <Ответ ДатаВып="2011-09-01" ИдЗапрос="81a37d1c-fd45-451c-b746-a43f6ed689e4">
+                     <СвИП ДатаОГРНИП="2004-10-14" ИННФЛ="352700029778" КодВидИП="1" НаимВидИП="Индивидуальный предприниматель" ОГРНИП="304301728800074">
+                        <ФИО Имя="Имя 304301728800074" Отчество="Отчество 304301728800074" Фамилия="Фамилия 304301728800074"/>
+                        <СвСтатус ДатаНачДейств="2004-10-14" КодСтатус="001" НаимСтатус="Действующее"/>
+                        <АдресРФ Дом="0" Индекс="414000" Кварт="0" КодАдрКладр="300000010000991" КодРегион="30" Корпус="0">
+                           <Регион НаимРегион="Астраханская" ТипРегион="обл"/>
+                           <Город НаимГород="Астрахань" ТипГород="г"/>
+                           <Улица НаимУлица="Литейная 1-я" ТипУлица="ул"/>
+                        </АдресРФ>
+                        <СвРегОрг КодНО="3017" НаимНО="Инспекция Федеральной налоговой службы по Советскому району г. Астрахани"/>
+                        <СведУчетНО ДатаПостУч="1997-02-05">
+                           <СвНО КодНО="3017" НаимНО="ГНИ по Советскому району г.Астрахани"/>
+                        </СведУчетНО>
+                     </СвИП>
+                  </Ответ>
+                  <Ответ ДатаВып="2011-09-01" ИдЗапрос="179fc939-9cae-49d2-afbb-8838b4dcae02">
+                     <СвИП ДатаОГРНИП="2004-10-14" ИННФЛ="352700029778" КодВидИП="1" НаимВидИП="Индивидуальный предприниматель" ОГРНИП="304301728800074">
+                        <ФИО Имя="Имя 304301728800074" Отчество="Отчество 304301728800074" Фамилия="Фамилия 304301728800074"/>
+                        <СвСтатус ДатаНачДейств="2004-10-14" КодСтатус="001" НаимСтатус="Действующее"/>
+                        <АдресРФ Дом="0" Индекс="414000" Кварт="0" КодАдрКладр="300000010000991" КодРегион="30" Корпус="0">
+                           <Регион НаимРегион="Астраханская" ТипРегион="обл"/>
+                           <Город НаимГород="Астрахань" ТипГород="г"/>
+                           <Улица НаимУлица="Литейная 1-я" ТипУлица="ул"/>
+                        </АдресРФ>
+                        <СвРегОрг КодНО="3017" НаимНО="Инспекция Федеральной налоговой службы по Советскому району г. Астрахани"/>
+                        <СведУчетНО ДатаПостУч="1997-02-05">
+                           <СвНО КодНО="3017" НаимНО="ГНИ по Советскому району г.Астрахани"/>
+                        </СведУчетНО>
+                     </СвИП>
+                  </Ответ>
+               </Документ>
+            </smev:AppData>
+         </smev:MessageData>
+      </ws:SendShortFLRequestResponse>
+   </S:Body>
+</S:Envelope>

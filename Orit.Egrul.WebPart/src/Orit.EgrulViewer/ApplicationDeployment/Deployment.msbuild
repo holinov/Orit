@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- NORMALLY THIS FILE SHOULD NOT BE EDITED -->
+  <!-- Deploymentscript SPSF Version 3.2 -->
+
+  <!-- This file contains a typical deployment process for wsp solutions. To perform actions  
+  after deployment (e.g. to activate feature) use the DeploymentTargets.msbuild. -->
+
+  <!-- Importing custom targets -->
+  <Import Project="DeploymentTargets.msbuild"/>
+
+  <!-- Importing default parameters for deployment -->
+  <Import Project="ParametersDefault.msbuild"/>
+
+  <!-- Importing parameters which can be entered by the user -->
+  <Import Project="ParametersUserInput.msbuild"/>
+
+  <UsingTask AssemblyFile="MSBuild\SPALM.MSBuildTasks.dll" TaskName="SPALM.PreConditions"/>
+  <UsingTask AssemblyFile="MSBuild\SPALM.MSBuildTasks.dll" TaskName="SPALM.Deployment"/>
+
+  <ItemGroup>
+    <AvailableWSPSolutions Condition="'@(AvailableWSPSolutions)' == ''" Include="Solutions\**\*.wsp" />
+    <AvailableSandboxedSolutions Condition="'@(AvailableSandboxedSolutions)' == ''" Include="SandboxedSolutions\**\*.wsp" />
+  </ItemGroup>
+
+  <Target Name="Deploy" DependsOnTargets="    
+    CheckSystemPreConditions;    
+    GetUserValuesDeploy;
+    BeforeDeploy;
+    AddAndDeployFarmSolutions;    
+    AddAndDeploySandboxedSolutions;
+    RestartServices;
+    AfterDeploy">
+    <Message Text="Deployment finished" Importance="high" />
+  </Target>
+
+  <Target Name="Upgrade" DependsOnTargets="
+    CheckSystemPreConditions;      
+    GetUserValuesUpgrade;
+    BeforeUpgrade;
+    UpgradeFarmSolutions;
+    UpgradeSandboxedSolutions;
+    RestartServices;
+    AfterUpgrade">
+    <Message Text="Upgrade finished" Importance="high" />
+  </Target>
+
+  <Target Name="Redeploy" DependsOnTargets="
+    Undeploy;
+    Deploy">
+    <Message Text="Redeployment finished" Importance="high" />
+  </Target>
+
+  <Target Name="Undeploy" DependsOnTargets="
+    CheckSystemPreConditions;    
+    GetUserValuesUndeploy;
+    BeforeUndeploy;
+    RetractAndDeleteFarmSolutions;
+    RetractAndDeleteSandboxedSolutions;
+    RestartServices;
+    AfterUndeploy">
+    <Message Text="Undeployment finished" Importance="high" />
+  </Target>
+  
+  <!-- ********* SECTION Standard Targets *********** -->
+  <!-- The following section contains standard targets which need to be changed rarely -->
+
+  <Target Name="CheckSystemPreConditions">
+    <!-- Use this target to check preconditions before the deployment, this target should be called before every deployment, deployment will not continue if a precondition fails -->
+    <Message Text="Checking System Preconditions" Importance="high" />
+    <SPALM.PreConditions TaskAction="DisplayMSBuildExtensionVersion" ContinueOnError="false" />
+    <SPALM.PreConditions TaskAction="CheckWSSInstalled" ContinueOnError="false" />
+    <SPALM.PreConditions TaskAction="CheckMOSSInstalled" Condition="'$(MOSSRequired)' == 'true'" ContinueOnError="false" />
+    <SPALM.PreConditions TaskAction="CheckUserIsAdministrator" Condition="'@(AvailableWSPSolutions)' != ''" ContinueOnError="false" />
+    <SPALM.PreConditions TaskAction="CheckAdminServiceRunning" Condition="'@(AvailableWSPSolutions)' != ''" ContinueOnError="false" />
+    <SPALM.PreConditions TaskAction="CheckTimerServiceRunning" Condition="'@(AvailableWSPSolutions)' != ''" ContinueOnError="false" />
+    <SPALM.PreConditions TaskAction="GetPowerShellConsolePath" ContinueOnError="false">
+      <Output TaskParameter="PowerShellConsolePath" PropertyName="PowerShellConsolePath"/>
+    </SPALM.PreConditions>
+    <CreateProperty Value="powershell.exe -psconsolefile &quot;$(PowerShellConsolePath)&quot;">
+      <Output TaskParameter="Value" PropertyName="PS" />
+    </CreateProperty>
+    <SPALM.PreConditions TaskAction="GetSTSADMPath" ContinueOnError="false">
+      <Output TaskParameter="STSADMPath" PropertyName="STSADM"/>
+    </SPALM.PreConditions>
+	<CreateProperty Value="&quot;$(STSADM)&quot;">
+		<Output TaskParameter="Value" PropertyName="STSADM" />
+	</CreateProperty>
+    <SPALM.PreConditions TaskAction="CheckMinimalVersionInstalled" Condition="'$(MinimalSharePointVersion)' != ''" MinimalVersion="$(MinimalSharePointVersion)" ContinueOnError="false" />
+    <Message Text="Checking System Preconditions finished" Importance="high" />
+    <Message Text=" " Importance="high" />
+  </Target>
+
+  <Target Name="AddAndDeployFarmSolutions" Condition="'@(AvailableWSPSolutions)' != ''">
+    <SPALM.Deployment
+      TaskAction="AddAndDeploySolutions"
+      Solutions="@(AvailableWSPSolutions)"
+      WebApplications="@(DeployToWebApplications)"
+      AllContentUrls="$(DeployToAllContentUrls)"
+      Force="$(DeploySolutionWithForce)"
+      AllowGACDeployment="True"
+      AllowCASPolicies="True"
+      Overwrite="True"
+      Retries="3"
+      WaitMilliSecondsAfterFinish="$(DeploymentSleep)" />
+  </Target>
+
+  <Target Name="UpgradeFarmSolutions" Condition="'@(AvailableWSPSolutions)' != ''" >
+    <SPALM.Deployment
+      TaskAction="UpgradeSolutions"
+      Solutions="@(AvailableWSPSolutions)"
+      Retries="3"
+      WaitMilliSecondsAfterFinish="$(DeploymentSleep)" />
+  </Target>
+
+  <Target Name="RetractAndDeleteFarmSolutions" Condition="'@(AvailableWSPSolutions)' != ''" >
+    <SPALM.Deployment
+      TaskAction="RetractAndDeleteSolutions"
+      Solutions="@(AvailableWSPSolutions)"
+      Retries="3"
+      WaitMilliSecondsAfterFinish="$(DeploymentSleep)" />
+  </Target>
+
+  <Target Name="AddAndDeploySandboxedSolutions" Condition="'@(AvailableSandboxedSolutions)' != ''">
+    <SPALM.Deployment
+      TaskAction="AddAndDeploySandboxedSolutions"
+      Solutions="@(AvailableSandboxedSolutions)"
+      Sites="@(DeploySandboxedSolutionsToSites)"
+      Retries="3"
+      WaitMilliSecondsAfterFinish="$(DeploymentSleep)" />
+  </Target>
+
+  <Target Name="UpgradeSandboxedSolutions" Condition="'@(AvailableSandboxedSolutions)' != ''">
+    <SPALM.Deployment
+      TaskAction="UpgradeSandboxedSolutions"
+      Solutions="@(AvailableSandboxedSolutions)"
+      Sites="@(DeploySandboxedSolutionsToSites)"
+      Retries="3"
+      WaitMilliSecondsAfterFinish="$(DeploymentSleep)" />
+  </Target>
+
+  <Target Name="RetractAndDeleteSandboxedSolutions" Condition="'@(AvailableSandboxedSolutions)' != ''">
+    <SPALM.Deployment
+      TaskAction="RetractAndDeleteSandboxedSolutions"
+      Solutions="@(AvailableSandboxedSolutions)"
+      Sites="@(DeploySandboxedSolutionsToSites)"
+      Retries="3"
+      WaitMilliSecondsAfterFinish="$(DeploymentSleep)" />
+  </Target>
+  
+  <Target Name="RunIISReset" >
+    <!-- This target resets IIS web server to reload assemblies -->
+    <Message Text="Performing iisreset" Importance="high" />
+    <Exec Command="iisreset" ContinueOnError="true" />
+    <Message Text="Performing iisreset finished" Importance="high" />
+    <Message Text=" " Importance="high" />
+  </Target>
+
+  <Target Name="RestartServices" >
+    <Message Text="Restarting Services" Importance="high" />
+    <CallTarget Targets="RestartSPTimer" Condition="'$(RestartSPTimer)' == 'true'" />
+    <CallTarget Targets="RestartSPAdmin" Condition="'$(RestartSPAdmin)' == 'true'" />
+    <CallTarget Targets="RestartSPUserCodeHost" Condition="'$(RestartSPUserCodeHost)' == 'true'" />
+    <CallTarget Targets="RestartIIS" Condition="'$(RestartIIS)' == 'true'" />
+    <Message Text="Restarting Services finished" Importance="high" />
+    <Message Text=" " Importance="high" />
+  </Target>
+
+  <Target Name="RestartSPTimer" >
+    <!-- This target recycles the OWS timer to reload assemblies e.g. with timer jobs -->
+    <SPALM.Deployment TaskAction="RestartSPTimer" />      
+  </Target>
+
+  <Target Name="RestartSPAdmin" >
+    <!-- This target recycles the SPAdmin to reload assemblies -->
+    <SPALM.Deployment TaskAction="RestartSPAdmin" />    
+  </Target>
+
+  <Target Name="RestartSPUserCodeHost" >
+    <!-- This target recycles the SPAdmin to reload sandboxed assemblies  -->
+    <SPALM.Deployment TaskAction="RestartSPUserCodeHost" />    
+  </Target>
+
+  <Target Name="RestartIIS" >
+    <!-- This target restarts the IIS  -->
+    <SPALM.Deployment TaskAction="RestartIIS" />
+  </Target>
+
+</Project>

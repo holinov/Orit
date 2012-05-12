@@ -1,0 +1,6 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.unisoft/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:TestRequest>1</ws:TestRequest>
+   </soapenv:Body>
+</soapenv:Envelope>

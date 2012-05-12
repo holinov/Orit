@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Code initially generated with SharePoint Software Factory 2010, Version 3.2 , spsf.codeplex.com -->
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+	<Field
+		Group="Orit"
+		DisplayName="Шаблон XSLT"
+		ID="{642CCC76-EF0F-4A93-B7FB-E382F7755550}"
+		SourceID="http://schemas.microsoft.com/sharepoint/v3"
+		StaticName="XsltTemplate"
+		Name="XsltTemplate"
+		Type="Note"
+		Sortable="FALSE"
+		NumLines="6"
+		Required="FALSE"
+		AppendOnly="FALSE"
+		UnlimitedLengthInDocumentLibrary="TRUE"
+		RichText="FALSE"
+		Description="Шаблон XSLT"></Field>
+</Elements>

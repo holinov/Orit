@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- EDIT THIS FILE to perform actions before or after a deployment -->
+  <!-- Deploymentscript SPSF Version 3.2 -->
+	
+  <!-- Add PowerShell commands by using SharePoint Software Factory 2010 Powershell Snippets (right click -> Insert Snippet) -->
+
+  <!-- use this target to perform operations before a deployment -->
+  <Target Name="BeforeDeploy">
+    <!-- add action here -->
+  </Target>
+
+  <!-- use this target to perform operations after a successful deployment -->
+  <Target Name="AfterDeploy">
+    <!-- Sample STSADM commands
+    <Exec Command="$(STSADM) -o activatefeature -name '[feature name]' -url $(SiteUrl) -force" />
+	<Exec Command="$(STSADM) -o activatefeature -name [feature guid] -url $(SiteUrl) -force" />
+    -->
+    <!-- Sample PowerShell commands
+    <Exec Command="$(PS) -command &quot;. New-SPSite -Url '$(SiteUrl)' -OwnerAlias '$(USERDOMAIN)\$(USERNAME)' -Name 'Test Site' -Template 'STS#0'&quot;" />
+    <Exec Command="$(PS) -command &quot;. Install-SPFeature -Path '[feature name]' -Force&quot;" />
+    <Exec Command="$(PS) -command &quot;. Enable-SPFeature -Identity '[feature name]' -Url '$(SiteUrl)' -Force&quot;" ContinueOnError="true" />
+    <Exec Command="$(PS) -command &quot;. Enable-SPFeature -Identity [feature guid] -Url '$(SiteUrl)' -Force&quot;" ContinueOnError="true" />
+    -->
+  </Target>
+
+  <!-- use this target to perform operations before upgrade -->
+  <Target Name="BeforeUpgrade">
+    <!-- add action here -->
+  </Target>
+
+  <!-- use this target to perform operations after a successful upgrade -->
+  <Target Name="AfterUpgrade">
+    <!-- add action here -->
+  </Target>
+
+  <!-- use this target to perform operations before undeployment -->
+  <Target Name="BeforeUndeploy">
+    <!-- Sample STSADM commands 
+    <Exec Command="$(STSADM) -o deactivatefeature -name '[feature name]' -url $(SiteUrl)" ContinueOnError="true" />
+    <Exec Command="$(STSADM) -o deactivatefeature -id [feature guid] -url $(SiteUrl)" ContinueOnError="true" />
+    -->
+    <!-- Sample PowerShell commands
+    <Exec Command="$(PS) -command &quot;. Disable-SPFeature -Identity '[feature name]' -Url '$(SiteUrl)' -Confirm:$false -Force &quot;" ContinueOnError="true" />
+    <Exec Command="$(PS) -command &quot;. Uninstall-SPFeature -Identity '[feature name]' -Confirm:$false -Force &quot;" ContinueOnError="true" />
+    <Exec Command="$(PS) -command &quot;. Remove-SPSite -Identity '$(SiteUrl)' -Confirm:$false &quot;" ContinueOnError="true" />
+    -->
+  </Target>
+
+  <!-- use this target to perform operations after a successful undeployment -->
+  <Target Name="AfterUndeploy">
+    <!-- add action here -->
+  </Target>
+
+</Project>

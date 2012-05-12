@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Code initially generated with SharePoint Software Factory 2010, Version 3.2 , spsf.codeplex.com -->
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+	<ListTemplate
+		Name="ErgulTemplatesList"
+		DisplayName="Шаблоны выписок ЕГРЮЛ ЕГРИП"
+		Description="Шаблоны выписок ЕГРЮЛ ЕГРИП"
+		Type="10000"
+		BaseType="1"
+		Default="False"
+		OnQuickLaunch="FALSE"
+		Category="Libraries"
+		DisableAttachments="FALSE"
+		DisallowContentTypes="FALSE"
+		VersioningEnabled="TRUE"
+		FolderCreation="FALSE"
+		EnableModeration="False"
+		SecurityBits="11"
+		Sequence="1000"
+		Image="/_layouts/images/Orit_EgrulViewer/ListIcon_ErgulTemplatesList.gif"
+		Hidden="FALSE"
+		HiddenList="FALSE" />
+</Elements>

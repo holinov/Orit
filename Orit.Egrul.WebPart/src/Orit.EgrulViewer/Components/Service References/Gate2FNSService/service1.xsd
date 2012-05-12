@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/FNS" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Gate2FNSServiceLibrary" />
+  <xs:element name="GetShortInfo_UL">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="str" nillable="true" type="xs:string" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/FNS" minOccurs="0" name="type" type="q1:ItemChoiceType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetShortInfo_ULResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Gate2FNSServiceLibrary" minOccurs="0" name="GetShortInfo_ULResult" nillable="true" type="q2:ShortInfoResponseUL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RequestGetLongInfo_UL">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="str" nillable="true" type="xs:string" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/FNS" minOccurs="0" name="type" type="q3:ItemChoiceType" />
+        <xs:element minOccurs="0" name="CaseNum" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RequestGetLongInfo_ULResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Gate2FNSServiceLibrary" minOccurs="0" name="RequestGetLongInfo_ULResult" nillable="true" type="q4:LongInfoResponseUL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLongInfo_UL">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="docId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLongInfo_ULResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Gate2FNSServiceLibrary" minOccurs="0" name="GetLongInfo_ULResult" nillable="true" type="q5:LongInfoResponseUL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetShortInfo_FL">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="str" nillable="true" type="xs:string" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/FNS" minOccurs="0" name="type" type="q6:ItemChoiceType4" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetShortInfo_FLResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Gate2FNSServiceLibrary" minOccurs="0" name="GetShortInfo_FLResult" nillable="true" type="q7:ShortInfoResponseFL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RequestGetLongInfo_FL">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="str" nillable="true" type="xs:string" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/FNS" minOccurs="0" name="type" type="q8:ItemChoiceType4" />
+        <xs:element minOccurs="0" name="CaseNum" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RequestGetLongInfo_FLResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Gate2FNSServiceLibrary" minOccurs="0" name="RequestGetLongInfo_FLResult" nillable="true" type="q9:LongInfoResponseFL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLongInfo_FL">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="docId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLongInfo_FLResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Gate2FNSServiceLibrary" minOccurs="0" name="GetLongInfo_FLResult" nillable="true" type="q10:LongInfoResponseFL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!-- edited with XMLSpy v2006 rel. 3 U (http://www.altova.com) by В. Г. Бессалый (GNIVC FNS RF) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"  elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="Документ">
+		<xs:annotation>
+			<xs:documentation>Ответ-квитанция на запрос сведений о юридических лицах (индивидуальных предпринимателях) из ЕГРЮЛ (ЕГРИП)</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="СвЮЛ">
+					<xs:annotation>
+						<xs:documentation>Сведения о юридическом лице (органе государственной власти, ином государственном органе, суде, органе государственных внебюджетных фондов, органе местного самоуправления), подтверждающем прием сведений</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:attribute name="ОКОГУ" use="required">
+							<xs:annotation>
+								<xs:documentation>Код органа государственной власти по общероссийскому классификатору ОКОГУ</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:length value="5"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="НаимЮЛ" use="required">
+							<xs:annotation>
+								<xs:documentation>Наименование юридического лица</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:minLength value="1"/>
+									<xs:maxLength value="1000"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="ИННЮЛ" type="ИННЮЛТип" use="required">
+							<xs:annotation>
+								<xs:documentation>ИНН юридического лица</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+						<xs:attribute name="ОГРН" type="ОГРНТип" use="required">
+							<xs:annotation>
+								<xs:documentation>Основной государственный регистрационный номер юридического лица</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="ВерсФорм" use="required">
+				<xs:annotation>
+					<xs:documentation>Версия формата</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="5"/>
+						<xs:enumeration value="4.01"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="ИдДок" use="optional">
+				<xs:annotation>
+					<xs:documentation>Идентификатор документа (пакета запросов)</xs:documentation>
+					<xs:documentation>Указывается код GUID, соответствующий поступившему пакету запросов. Отсутствует, если при приеме сообщения выявлены ошибки не позволяющие определить указанный код</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="36"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="КодОбр" use="required">
+				<xs:annotation>
+					<xs:documentation>Код обработки</xs:documentation>
+					<xs:documentation>01 – запрашиваемые сведения не найдены.
+51 – запрос принят в обработку (используется при асинхронном запросе); 
+52 – ответ не готов (используется при асинхронном запросе);
+81 - несовпадение сигнатур цифровой подписи;
+82 - ошибка форматно-логического контроля (резерв, может не использоваться);
+83 – отсутствует запрос с указанным идентификатором запроса  и видом запрошенных сведений от данного органа (используется при асинхронном запросе);
+84 - СКП выдан УЦ, не входящим в сеть доверия ФНС России, или срок действия СКП истек, или СКП отозван;
+85 - неверный OID в СКП (резерв, может не использоваться);
+86 - не совпадают реквизиты запроса и СКП (резерв, может не использоваться);
+87 - обмен сведениями с обратившимся государственным органом не согласован;
+88 - неуникальный идентификатор запроса (ранее был получен запрос с таким идентификатором);
+99 - системная ошибка</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="2"/>
+						<xs:enumeration value="01"/>
+						<xs:enumeration value="51"/>
+						<xs:enumeration value="52"/>
+						<xs:enumeration value="81"/>
+						<xs:enumeration value="82"/>
+						<xs:enumeration value="83"/>
+						<xs:enumeration value="84"/>
+						<xs:enumeration value="85"/>
+						<xs:enumeration value="86"/>
+						<xs:enumeration value="87"/>
+						<xs:enumeration value="88"/>
+						<xs:enumeration value="99"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="Ошибка" use="optional">
+				<xs:annotation>
+					<xs:documentation>Текст сообщения об ошибке</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="500"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="ИННЮЛТип">
+		<xs:annotation>
+			<xs:documentation>Идентификационный номер налогоплательщика - организации</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="10"/>
+			<xs:pattern value="([0-9]{1}[1-9]{1}|[1-9]{1}[0-9]{1})[0-9]{8}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ОГРНТип">
+		<xs:annotation>
+			<xs:documentation>Основной  государственный регистрационный номер юридического лица  </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="13"/>
+			<xs:pattern value="[0-9]{13}"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

@@ -1,0 +1,13 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+   <S:Body>
+      <soap:Fault xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+         <faultcode>S:Server</faultcode>
+         <faultstring>GetFullULResponseFault_83</faultstring>
+         <detail>
+            <Документ ВерсФорм="4.01" ИдДок="fef858cb-ad4f-45dc-a7e1-6816e3bcb1d4" КодОбр="83" Ошибка="Запрос fef858cb-ad4f-45dc-a7e1-6816e3bcb1d4 отсутствует в очереди ФЦОД ФНС" xmlns="http://ws.unisoft/EGRNXX/Response">
+               <СвЮЛ ОКОГУ="13312" НаимЮЛ=" Федеральная Налоговая Служба" ИННЮЛ="7707329152" ОГРН="1047707030513"/>
+            </Документ>
+         </detail>
+      </soap:Fault>
+   </S:Body>
+</S:Envelope>

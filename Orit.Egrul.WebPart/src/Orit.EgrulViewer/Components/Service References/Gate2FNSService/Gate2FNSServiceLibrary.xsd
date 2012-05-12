@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Gate2FNSServiceLibrary" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Gate2FNSServiceLibrary" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ShortInfoResponseUL">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GateInfoORДокументОтвет" nillable="true" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ShortInfoResponseUL" nillable="true" type="tns:ShortInfoResponseUL" />
+  <xs:complexType name="GateInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GateReturnCode" type="tns:GateReturnCode" />
+      <xs:element minOccurs="0" name="RequestId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GateInfo" nillable="true" type="tns:GateInfo" />
+  <xs:simpleType name="GateReturnCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="InQueue" />
+      <xs:enumeration value="RequestAcceptedByFNS">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">51</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NotReady">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">52</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="GateReturnCode" nillable="true" type="tns:GateReturnCode" />
+  <xs:complexType name="FaultRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ErrorType" type="tns:ErrorType" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FaultRequest" nillable="true" type="tns:FaultRequest" />
+  <xs:simpleType name="ErrorType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FNSServiceFault" />
+      <xs:enumeration value="GateServiceFault" />
+      <xs:enumeration value="ClientWrongArgument" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ErrorType" nillable="true" type="tns:ErrorType" />
+  <xs:complexType name="LongInfoResponseUL">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GateInfoORДокумент5" nillable="true" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LongInfoResponseUL" nillable="true" type="tns:LongInfoResponseUL" />
+  <xs:complexType name="ShortInfoResponseFL">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GateInfoORДокументОтвет1" nillable="true" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ShortInfoResponseFL" nillable="true" type="tns:ShortInfoResponseFL" />
+  <xs:complexType name="LongInfoResponseFL">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GateInfoORДокумент9" nillable="true" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LongInfoResponseFL" nillable="true" type="tns:LongInfoResponseFL" />
+</xs:schema>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- This file contains targets which are used by projects in the solution to create wsp solution files -->
+  <!-- Author: Torsten Mandelkow -->
+  <!-- Author: Matthias Einig -->
+  <!-- SPSF Version 3.2 -->
+
+  <!-- Directory for the solution is different in DesktopBuild and TeamBuild -->
+  <PropertyGroup>
+    <BaseDir Condition="Exists('$(MSBuildProjectDirectory)')">$(MSBuildProjectDirectory)\..\</BaseDir>
+    <BaseDir Condition="!Exists('$(MSBuildProjectDirectory)')">$(SolutionDir)</BaseDir>
+  </PropertyGroup>
+
+  <!-- Activate Quality Check for Release build configurations -->
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release'">
+    <!-- Deactivate StyleCop -->
+    <StyleCopEnabled>False</StyleCopEnabled>
+  <!-- Deactivate ShareCop-->
+    <ShareCopEnabled>False</ShareCopEnabled>
+    <!-- Deactivate FXCop-->
+    <FxCopEnabled>False</FxCopEnabled>
+    <!-- Deactivate SPDisposeChecker Code Analysis-->
+    <SPDisposeCheckerEnabled>False</SPDisposeCheckerEnabled>
+    <!-- Deactivate VSTS Code Analysis-->
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+  </PropertyGroup>
+
+  <!-- Deactivate Quality Check for other build configurations -->
+  <PropertyGroup Condition=" '$(Configuration)' != 'Release'">
+    <!-- Deactivate StyleCop -->
+    <StyleCopEnabled>false</StyleCopEnabled>
+    <!-- Deactivate ShareCop-->
+    <ShareCopEnabled>false</ShareCopEnabled>
+    <!-- Deactivate FXCop-->
+    <FxCopEnabled>false</FxCopEnabled>
+    <!-- Deactivate SPDisposeChecker Code Analysis-->
+    <SPDisposeCheckerEnabled>false</SPDisposeCheckerEnabled>
+    <!-- Deactivate VSTS Code Analysis-->
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+  </PropertyGroup>
+
+  <!-- Set Quality Check settings -->
+  <PropertyGroup >
+	<CodeAnalysisResultsFolder>$(IntermediateOutputPath)CodeAnalysisResults</CodeAnalysisResultsFolder>
+	<!-- StyleCop -->
+	<StyleCopOverrideSettingsFile>$(BaseDir)Settings.StyleCop</StyleCopOverrideSettingsFile>
+	<StyleCopOutputFile>$(CodeAnalysisResultsFolder)\StyleCopViolations.xml</StyleCopOutputFile>
+	<!-- ShareCop -->
+	<ShareCopSettingsFile>$(BaseDir)Settings.ShareCop</ShareCopSettingsFile>
+	<ShareCopOutputFile>$(CodeAnalysisResultsFolder)\ShareCopViolations.xml</ShareCopOutputFile>
+	<!-- FxCop-->
+	<FxCopSettingsFile>$(BaseDir)Settings.FxCop</FxCopSettingsFile>
+	<FxCopXSLFile>$(BaseDir)FXCopConsoleOutput.xsl</FxCopXSLFile>
+	<FxCopDictionaryFile>$(BaseDir)FxCopDictionary.xml</FxCopDictionaryFile>
+	<FxCopOutputFile>$(CodeAnalysisResultsFolder)\FxCopViolations.xml</FxCopOutputFile>
+	<FxCopMetricsOutputFile>$(CodeAnalysisResultsFolder)\FxCopMetrics.xml</FxCopMetricsOutputFile>
+	<!-- SPDisposeChecker-->
+	<SPDisposeCheckerOutputFile>$(CodeAnalysisResultsFolder)\SPDisposeCheckerViolations.xml</SPDisposeCheckerOutputFile>
+  </PropertyGroup>
+
+  <!-- Sandboxed Solution Settings-->
+  <PropertyGroup>
+    <SolutionTargetFolder>Solutions</SolutionTargetFolder>
+    <SolutionTargetFolder Condition="'$(SandboxedSolution)' == 'True'">SandboxedSolutions</SolutionTargetFolder>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- WSP file is copied to the following directory in the project -->
+    <!-- Variable DropLocation can be overwritten in TeamBuild with the according path -->
+    <DropLocation>$(BaseDir)ApplicationDeployment\Output\$(Configuration)</DropLocation>
+    <SPSFDropLocation>$(DropLocation)\$(BuildNumber)\</SPSFDropLocation>
+  </PropertyGroup>
+
+  <Target Name="CopyWSPToDeploymentFolder">
+    <CreateItem Include="$(OutDir)\$(TargetName).wsp">
+      <Output TaskParameter="Include" ItemName="WSPFile" />
+    </CreateItem>
+    <Message Condition="'@(WSPFile)' != ''" Text=" " Importance="high" />
+    <Message Condition="'@(WSPFile)' != ''" Text="------ SPSF: Copy WSP File to deployment folder ------" Importance="high" />
+    <Message Condition="'@(WSPFile)' != ''" Text="Copying '@(WSPFile)' to '$(SPSFDropLocation)\$(SolutionTargetFolder)'" Importance="high" />
+    <Copy Condition="'@(WSPFile)' != ''" SourceFiles="@(WSPFile)" DestinationFolder="$(SPSFDropLocation)\$(SolutionTargetFolder)\%(RecursiveDir)" SkipUnchangedFiles="false" />
+    <Message Text="Find deployment package here: $(SPSFDropLocation)" Importance="high" />
+    <Message Text=" " Importance="high" />
+  </Target>
+  
+  <!-- Properties for VS 2010 SharePoint Template -->
+  <PropertyGroup Condition="'$(LayoutPath)' != ''">
+    <AfterBuildDependsOn>$(AfterBuildDependsOn);CreatePackage;CopyWSPToDeploymentFolder</AfterBuildDependsOn>
+  </PropertyGroup>
+
+  <!-- Properties for VS 2010 SharePoint Template -->
+  <PropertyGroup Condition="'$(LayoutPath)' != ''">
+    <AfterBuildDependsOn>$(AfterBuildDependsOn);FixPackageManifest;CreatePackage;CopyWSPToDeploymentFolder</AfterBuildDependsOn>
+  </PropertyGroup>
+  
+  <!-- Import Quality Check Targets if existing and if DesktopBuild-->
+  <Import Condition="'$(BuildingInsideVisualStudio)'=='true' AND Exists('$(MSBuildExtensionsPath)\Microsoft\StyleCop\v4.4\Microsoft.StyleCop.Targets')" Project="$(MSBuildExtensionsPath)\Microsoft\StyleCop\v4.4\Microsoft.StyleCop.Targets" />
+  <Import Condition="'$(BuildingInsideVisualStudio)'=='true' AND Exists('$(MSBuildExtensionsPath)\SharePointCodeAnalysis\ShareCop.targets')" Project="$(MSBuildExtensionsPath)\SharePointCodeAnalysis\ShareCop.targets" />
+  <Import Condition="'$(BuildingInsideVisualStudio)'=='true' AND Exists('$(BaseDir)FxCop.targets')" Project="$(BaseDir)FxCop.targets" />
+  <Import Condition="'$(BuildingInsideVisualStudio)'=='true' AND Exists('$(BaseDir)SPDisposeChecker.targets')" Project="$(BaseDir)SPDisposeChecker.targets" />
+  
+  <!-- The following section contains a fix for a known problem with CAS policies in Visual Studio SharePoint Tools. See http://support.microsoft.com/kb/2022463 for more information -->
+  <UsingTask TaskName="FixPackageManifestTask" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll">
+    <ParameterGroup>
+      <Manifest ParameterType="Microsoft.Build.Framework.ITaskItem" Required="true" />
+    </ParameterGroup>
+    <Task>
+      <Reference Include="System.Xml" />
+      <Reference Include="System.Xml.Linq" />
+      <Using Namespace="System.IO" />
+      <Using Namespace="System.Xml.Linq" />
+      <Code Type="Fragment" Language="cs"><![CDATA[
+
+      string fullPath = Manifest.GetMetadata("FullPath");
+      if (File.Exists(fullPath))
+      {
+        var doc = XDocument.Load(fullPath);
+        var ns = XNamespace.Get("http://schemas.microsoft.com/sharepoint/");
+        var permissionSetElements = doc.Descendants(ns + "PermissionSet");
+        foreach (var permissionSetElement in permissionSetElements)
+        {
+          permissionSetElement.SetAttributeValue("class", null);
+        }
+        doc.Save(fullPath);
+      }
+
+      ]]></Code>
+    </Task>
+  </UsingTask>
+
+  <PropertyGroup>
+    <CreatePackageDependsOn>
+      $(CreatePackageDependsOn);
+      FixPackageManifest
+    </CreatePackageDependsOn>
+  </PropertyGroup>
+
+  <Target Name="FixPackageManifest">
+    <Message Text="SPSF: Applying fix for CAS policies" Importance="high" />
+    <FixPackageManifestTask Manifest="$(LayoutPath)%(EnumeratedFiles.Package)\manifest.xml" />
+  </Target>
+
+</Project>

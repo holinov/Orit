@@ -1,0 +1,13 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+	<S:Body>
+		<soap:Fault xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+			<faultcode>S:Server</faultcode>
+			<faultstring>GetFullFLResponseFault_52</faultstring>
+			<detail>
+				<Документ ВерсФорм="4.01" ИдДок="2b1d96d5-be7c-4644-ab5c-54f844d1fd2d" КодОбр="52" Ошибка="Ответ не готов (2b1d96d5-be7c-4644-ab5c-54f844d1fd2d)" xmlns="http://ws.unisoft/EGRNXX/Response">
+					<СвЮЛ ОКОГУ="13312" НаимЮЛ=" Федеральная Налоговая Служба" ИННЮЛ="7707329152" ОГРН="1047707030513"/>
+				</Документ>
+			</detail>
+		</soap:Fault>
+	</S:Body>
+</S:Envelope>

@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Orit.EgrulViewer.Components</RootNamespace>
+    <AssemblyName>Orit.EgrulViewer.Components</AssemblyName>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>$(SolutionDir)\Orit.EgrulViewer.snk</AssemblyOriginatorKeyFile>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <ProjectTypeGuids>{BB1F664B-9266-4fd6-B973-E1E44974B511};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SandboxedSolution>False</SandboxedSolution>
+    <AssemblyDeploymentTarget>GlobalAssemblyCache</AssemblyDeploymentTarget>
+    <ProjectGuid>{BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0}</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EO.Pdf">
+      <HintPath>..\EO.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="EO.Web">
+      <HintPath>..\EO.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker">
+      <HintPath>..\itextsharp.xmlworker.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xtra">
+      <HintPath>..\itextsharp.xtra.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Security" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\Gate2FNSService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="WebParts\EgrulViewer\EgrulViewer.cs" />
+    <Compile Include="WebParts\EgrulViewer\EgrulViewerUserControl.ascx.cs">
+      <DependentUpon>EgrulViewerUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebParts\EgrulViewer\EgrulViewerUserControl.ascx.designer.cs">
+      <DependentUpon>EgrulViewerUserControl.ascx.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Fields\XsltTemplate\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{97706ce3-da82-4093-bec9-54bbe49ef29b}</SharePointProjectItemId>
+    </None>
+    <None Include="ListDefinitions\ErgulTemplatesList\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e14a9e6a-db62-4fff-be8f-b568b4f9d43e}</SharePointProjectItemId>
+    </None>
+    <None Include="ListInstances\ERGUL\EGRIP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{b5d94bbd-18c6-499e-b0aa-7c55708a4ca7}</SharePointProjectItemId>
+    </None>
+    <None Include="Service References\Gate2FNSService\configuration91.svcinfo" />
+    <None Include="Service References\Gate2FNSService\configuration.svcinfo" />
+    <None Include="Service References\Gate2FNSService\Orit.EgrulViewer.Components.Gate2FNSService.LongInfoResponseFL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Gate2FNSService\Orit.EgrulViewer.Components.Gate2FNSService.LongInfoResponseUL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Gate2FNSService\Orit.EgrulViewer.Components.Gate2FNSService.ShortInfoResponseFL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Gate2FNSService\Orit.EgrulViewer.Components.Gate2FNSService.ShortInfoResponseUL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Gate2FNSService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Fields\XsltTemplate\Elements.xml" />
+    <Content Include="ListDefinitions\ErgulTemplatesList\EditDlg.htm" />
+    <Content Include="ListDefinitions\ErgulTemplatesList\Elements.xml" />
+    <Content Include="ListDefinitions\ErgulTemplatesList\FileDlg.htm" />
+    <Content Include="ListDefinitions\ErgulTemplatesList\Repair.aspx" />
+    <Content Include="ListDefinitions\ErgulTemplatesList\schema.xml" />
+    <Content Include="ListDefinitions\ErgulTemplatesList\Upload.aspx" />
+    <Content Include="ListInstances\ERGUL\EGRIP\Elements.xml" />
+    <Content Include="Template\Images\Orit_EgrulViewer\ListIcon_ErgulTemplatesList.gif" />
+    <Content Include="Template\Images\Orit_EgrulViewer\pdf.png" />
+    <Content Include="WebParts\EgrulViewer\EgrulViewerUserControl.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="WebParts\EgrulViewer\WebPartIcon_EgrulViewer.gif" />
+    <None Include="Web.config" />
+    <None Include="Features\Orit_EgrulViewer_EgrulViewer\Orit_EgrulViewer_EgrulViewer.feature">
+      <FeatureId>{4137459f-36e5-4e13-a272-8091caa720d8}</FeatureId>
+    </None>
+    <None Include="Package\Package.package">
+      <PackageId>70B0D75C-70FC-4B4F-981F-8B3DDB28A8CF</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="Service References\Gate2FNSService\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Gate2FNSService\FNS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Gate2FNSService\Gate2FNSServiceLibrary.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Gate2FNSService\service.wsdl" />
+    <None Include="Service References\Gate2FNSService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Gate2FNSService\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Template\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{3cf24361-e3fa-4e77-ad83-58dbf6c29dc6}</SharePointProjectItemId>
+    </None>
+    <Content Include="WebParts\EgrulViewer\EgrulViewer.webpart" />
+    <None Include="WebParts\EgrulViewer\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{43bfdd42-98b7-416c-a6bb-ff17aed65efc}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ContentTypes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Features\Orit_EgrulViewer_EgrulViewer\Orit_EgrulViewer_EgrulViewer.Template.xml">
+      <DependentUpon>Orit_EgrulViewer_EgrulViewer.feature</DependentUpon>
+    </Content>
+    <Content Include="Template\Images\Orit_EgrulViewer\FeatureIcon_EgrulViewer.gif" />
+    <Content Include="WebParts\EgrulViewer\Elements.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\Gate2FNSService\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" />
+  <Import Condition="!Exists('$(MSBuildProjectDirectory)\..\SharePointTargets.targets')" Project="$(SolutionDir)\SharePointTargets.targets" />
+  <Import Condition=" Exists('$(MSBuildProjectDirectory)\..\SharePointTargets.targets')" Project="$(MSBuildProjectDirectory)\..\SharePointTargets.targets" />
+  <Target Name="BeforeBuild" DependsOnTargets="$(BeforeBuildDependsOn)" />
+  <Target Name="AfterBuild" DependsOnTargets="$(AfterBuildDependsOn)" />
+</Project>

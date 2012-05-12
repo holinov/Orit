@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- Change this file to define input values which the user should enter before deployment -->
+  <!-- Deploymentscript SPSF Version 3.2 -->
+
+  <UsingTask AssemblyFile="MSBuild\SPALM.MSBuildTasks.dll" TaskName="SPALM.UserInput"/>
+  <UsingTask AssemblyFile="MSBuild\SPALM.MSBuildTasks.dll" TaskName="SPALM.Dialogs"/>
+
+  <Target Name="GetUserValuesDeploy">
+	<!-- Welcome Dialog
+	<SPALM.Dialogs
+		TaskAction="Status"
+		Title="Installing $(ApplicationTitle)"
+		HelpText="The setup will install application $(ApplicationTitle), Version $(ApplicationVersion). Click Ok to proceed or cancel to stop installation." />
+	 -->
+	<CallTarget Targets="GetWebApplicationsForSolutionDeployment" Condition="'@(AvailableWSPSolutions)' != '' AND '@(DeployToWebApplications)' == ''" />
+	<CallTarget Targets="GetSiteCollectionsForSandboxedSolutionDeployment" Condition="'@(AvailableSandboxedSolutions)' != '' AND '@(DeploySandboxedSolutionsToSites)' == ''" />
+  </Target>
+
+  <Target Name="GetUserValuesUndeploy">
+	<!-- Welcome Dialog
+	<SPALM.Dialogs
+		TaskAction="Status"
+		Title="Uninstalling $(ApplicationTitle)"
+		HelpText="The setup will uninstall application $(ApplicationTitle), Version $(ApplicationVersion). Click Ok to proceed or cancel to stop installation." />
+	 -->
+	<CallTarget Targets="GetSiteCollectionsForSandboxedSolutionDeployment" Condition="'@(AvailableSandboxedSolutions)' != '' AND '@(DeploySandboxedSolutionsToSites)' == ''" />
+  </Target>
+
+  <Target Name="GetUserValuesUpgrade">
+	<!-- Welcome Dialog
+	<SPALM.Dialogs
+		TaskAction="Status"
+		Title="Upgrading $(ApplicationTitle)"
+		HelpText="The setup will upgrade application $(ApplicationTitle), Version $(ApplicationVersion). Click Ok to proceed or cancel to stop installation." />
+	-->
+	<CallTarget Targets="GetSiteCollectionsForSandboxedSolutionDeployment" Condition="'@(AvailableSandboxedSolutions)' != '' AND '@(DeploySandboxedSolutionsToSites)' == ''" />
+  </Target>
+
+  <Target Name="GetWebApplicationsForSolutionDeployment">
+	<!-- WebApplication selection dialog -->
+	<Message Importance="high" Text="Gathering WebApplications for deployment from user input dialog." />
+	<SPALM.Dialogs
+	  Condition="'$(DeployToAllContentUrls)' != 'true'"
+	  TaskAction="SelectWebApplication"
+	  Title="Select web application"
+	  HelpText="The package contains solutions which must be deployed to web applications. Please select a web application for the solution deployment">
+	  <Output TaskParameter="UserSelection" ItemName="DeployToWebApplications"/>
+	</SPALM.Dialogs>
+  </Target>
+
+  <Target Name="GetSiteCollectionsForSandboxedSolutionDeployment">
+	<!-- Show Site Collection selection dialog if sandboxed solutions are in the project and parameter DeploySandboxedSolutionsToSites is empty -->
+	<Message Importance="high" Text="Gathering SiteCollections for deployment from user input dialog." />
+	<SPALM.Dialogs
+	  TaskAction="SelectSiteCollections"
+	  Title="Select Site Collection"
+	  HelpText="The package contains sandboxed solutions which must be deployed to a site colletion. Please select a site collection for the solution deployment">
+	  <Output TaskParameter="UserSelection" ItemName="DeploySandboxedSolutionsToSites"/>
+	</SPALM.Dialogs>
+  </Target>
+
+  <!--
+  <SPALM.Dialogs
+	TaskAction="UserCredentials"
+	Title="Enter credentials for sitecollection"
+	HelpText="Enter user credentials for site collection admin 1 for site collection"
+	UserName="$(USERDOMAIN)\$(USERNAME)">
+	<Output TaskParameter="UserName" PropertyName="SiteCollectionAdminUserName"/>
+	<Output TaskParameter="Password" PropertyName="SiteCollectionAdminPassword"/>
+  </SPALM.Dialogs>
+
+  <SPALM.Dialogs
+	TaskAction="Prompt"
+	Title="Enter Site collection name to active the feature"
+	HelpText="Enter name of the site collection">
+	<Output TaskParameter="UserResponse" PropertyName="SiteCollectionName"/>
+  </SPALM.Dialogs>
+
+  <SPALM.Dialogs
+	TaskAction="Status"
+	Title="Install Now?"
+	HelpText="You entered the following values:\n\nWeb Applications: @(DeployToWebApplications)\nUserName:$(SiteCollectionAdminUserName), Password: [hidden]\nSite Collection:$(SiteCollectionName)\n\nInstall now?"
+	ContinueOnError="false"
+	/>
+  -->
+
+  <!-- Testing output of entered values
+  <Message Text="SiteCollectionName = $(SiteCollectionName)" Importance="high" />
+  <Message Text="SiteCollectionAdminUserName = $(SiteCollectionAdminUserName)" Importance="high" />
+  <Message Text="SiteCollectionAdminPassword = $(SiteCollectionAdminPassword)" Importance="high" />
+  -->
+
+</Project>

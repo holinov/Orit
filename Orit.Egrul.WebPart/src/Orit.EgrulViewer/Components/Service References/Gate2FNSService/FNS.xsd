@@ -1,0 +1,1528 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/FNS" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/FNS" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:simpleType name="ДокументКодОбр">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Item01" />
+      <xs:enumeration value="Item51" />
+      <xs:enumeration value="Item52" />
+      <xs:enumeration value="Item81" />
+      <xs:enumeration value="Item82" />
+      <xs:enumeration value="Item83" />
+      <xs:enumeration value="Item84" />
+      <xs:enumeration value="Item85" />
+      <xs:enumeration value="Item86" />
+      <xs:enumeration value="Item87" />
+      <xs:enumeration value="Item88" />
+      <xs:enumeration value="Item99" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ДокументКодОбр" nillable="true" type="tns:ДокументКодОбр" />
+  <xs:simpleType name="ДокументОтветКодОбр">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Item01" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ДокументОтветКодОбр" nillable="true" type="tns:ДокументОтветКодОбр" />
+  <xs:complexType name="ДокументОтветСвЮЛ">
+    <xs:sequence>
+      <xs:element name="адресРФField" nillable="true" type="tns:АдрРФТипВып" />
+      <xs:element name="датаОГРНField" type="xs:dateTime" />
+      <xs:element name="иННField" nillable="true" type="xs:string" />
+      <xs:element name="кППField" nillable="true" type="xs:string" />
+      <xs:element name="наимЮЛПолнField" nillable="true" type="xs:string" />
+      <xs:element name="наимЮЛСокрField" nillable="true" type="xs:string" />
+      <xs:element name="оГРНField" nillable="true" type="xs:string" />
+      <xs:element name="свРегОргField" nillable="true" type="tns:ДокументОтветСвЮЛСвРегОрг" />
+      <xs:element name="свСтатусField" nillable="true" type="tns:ДокументОтветСвЮЛСвСтатус" />
+      <xs:element name="сведУправлДеятField" nillable="true" type="tns:ДокументОтветСвЮЛСведУправлДеят" />
+      <xs:element name="сведУчетНОField" nillable="true" type="tns:ДокументОтветСвЮЛСведУчетНО" />
+      <xs:element name="сумКапField" type="xs:decimal" />
+      <xs:element name="сумКапFieldSpecified" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументОтветСвЮЛ" nillable="true" type="tns:ДокументОтветСвЮЛ" />
+  <xs:complexType name="АдрРФТипВып">
+    <xs:sequence>
+      <xs:element name="городField" nillable="true" type="tns:АдрРФТипВыпГород" />
+      <xs:element name="домField" nillable="true" type="xs:string" />
+      <xs:element name="индексField" nillable="true" type="xs:string" />
+      <xs:element name="квартField" nillable="true" type="xs:string" />
+      <xs:element name="кодАдрКладрField" nillable="true" type="xs:string" />
+      <xs:element name="кодРегионField" nillable="true" type="xs:string" />
+      <xs:element name="корпусField" nillable="true" type="xs:string" />
+      <xs:element name="населПунктField" nillable="true" type="tns:АдрРФТипВыпНаселПункт" />
+      <xs:element name="районField" nillable="true" type="tns:АдрРФТипВыпРайон" />
+      <xs:element name="регионField" nillable="true" type="tns:АдрРФТипВыпРегион" />
+      <xs:element name="улицаField" nillable="true" type="tns:АдрРФТипВыпУлица" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="АдрРФТипВып" nillable="true" type="tns:АдрРФТипВып" />
+  <xs:complexType name="АдрРФТипВыпГород">
+    <xs:sequence>
+      <xs:element name="наимГородField" nillable="true" type="xs:string" />
+      <xs:element name="типГородField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="АдрРФТипВыпГород" nillable="true" type="tns:АдрРФТипВыпГород" />
+  <xs:complexType name="АдрРФТипВыпНаселПункт">
+    <xs:sequence>
+      <xs:element name="наимНаселПунктField" nillable="true" type="xs:string" />
+      <xs:element name="типНаселПунктField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="АдрРФТипВыпНаселПункт" nillable="true" type="tns:АдрРФТипВыпНаселПункт" />
+  <xs:complexType name="АдрРФТипВыпРайон">
+    <xs:sequence>
+      <xs:element name="наимРайонField" nillable="true" type="xs:string" />
+      <xs:element name="типРайонField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="АдрРФТипВыпРайон" nillable="true" type="tns:АдрРФТипВыпРайон" />
+  <xs:complexType name="АдрРФТипВыпРегион">
+    <xs:sequence>
+      <xs:element name="наимРегионField" nillable="true" type="xs:string" />
+      <xs:element name="типРегионField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="АдрРФТипВыпРегион" nillable="true" type="tns:АдрРФТипВыпРегион" />
+  <xs:complexType name="АдрРФТипВыпУлица">
+    <xs:sequence>
+      <xs:element name="наимУлицаField" nillable="true" type="xs:string" />
+      <xs:element name="типУлицаField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="АдрРФТипВыпУлица" nillable="true" type="tns:АдрРФТипВыпУлица" />
+  <xs:complexType name="ДокументОтветСвЮЛСвРегОрг">
+    <xs:sequence>
+      <xs:element name="кодНОField" nillable="true" type="xs:string" />
+      <xs:element name="наимНОField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументОтветСвЮЛСвРегОрг" nillable="true" type="tns:ДокументОтветСвЮЛСвРегОрг" />
+  <xs:complexType name="ДокументОтветСвЮЛСвСтатус">
+    <xs:sequence>
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="кодСтатусЮЛField" nillable="true" type="xs:string" />
+      <xs:element name="наимСтатусЮЛField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументОтветСвЮЛСвСтатус" nillable="true" type="tns:ДокументОтветСвЮЛСвСтатус" />
+  <xs:complexType name="ДокументОтветСвЮЛСведУправлДеят">
+    <xs:sequence>
+      <xs:element name="сведДолжнФЛField" nillable="true" type="tns:ArrayOfДокументОтветСвЮЛСведУправлДеятСведДолжнФЛ" />
+      <xs:element name="упрКомпИнField" nillable="true" type="tns:ДокументОтветСвЮЛСведУправлДеятУпрКомпИн" />
+      <xs:element name="упрКомпРосField" nillable="true" type="tns:ДокументОтветСвЮЛСведУправлДеятУпрКомпРос" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументОтветСвЮЛСведУправлДеят" nillable="true" type="tns:ДокументОтветСвЮЛСведУправлДеят" />
+  <xs:complexType name="ArrayOfДокументОтветСвЮЛСведУправлДеятСведДолжнФЛ">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ДокументОтветСвЮЛСведУправлДеятСведДолжнФЛ" nillable="true" type="tns:ДокументОтветСвЮЛСведУправлДеятСведДолжнФЛ" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfДокументОтветСвЮЛСведУправлДеятСведДолжнФЛ" nillable="true" type="tns:ArrayOfДокументОтветСвЮЛСведУправлДеятСведДолжнФЛ" />
+  <xs:complexType name="ДокументОтветСвЮЛСведУправлДеятСведДолжнФЛ">
+    <xs:sequence>
+      <xs:element name="видДолжнField" nillable="true" type="xs:string" />
+      <xs:element name="иННФЛField" nillable="true" type="xs:string" />
+      <xs:element name="наимВидДолжнField" nillable="true" type="xs:string" />
+      <xs:element name="наимДолжнField" nillable="true" type="xs:string" />
+      <xs:element name="оГРНИПField" nillable="true" type="xs:string" />
+      <xs:element name="фИОField" nillable="true" type="tns:ФИОТип" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументОтветСвЮЛСведУправлДеятСведДолжнФЛ" nillable="true" type="tns:ДокументОтветСвЮЛСведУправлДеятСведДолжнФЛ" />
+  <xs:complexType name="ФИОТип">
+    <xs:sequence>
+      <xs:element name="имяField" nillable="true" type="xs:string" />
+      <xs:element name="отчествоField" nillable="true" type="xs:string" />
+      <xs:element name="фамилияField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ФИОТип" nillable="true" type="tns:ФИОТип" />
+  <xs:complexType name="ДокументОтветСвЮЛСведУправлДеятУпрКомпИн">
+    <xs:sequence>
+      <xs:element name="адрИнField" nillable="true" type="xs:string" />
+      <xs:element name="иННField" nillable="true" type="xs:string" />
+      <xs:element name="наимСтрField" nillable="true" type="xs:string" />
+      <xs:element name="наимЮЛПолнField" nillable="true" type="xs:string" />
+      <xs:element name="оКСМField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументОтветСвЮЛСведУправлДеятУпрКомпИн" nillable="true" type="tns:ДокументОтветСвЮЛСведУправлДеятУпрКомпИн" />
+  <xs:complexType name="ДокументОтветСвЮЛСведУправлДеятУпрКомпРос">
+    <xs:sequence>
+      <xs:element name="иННField" nillable="true" type="xs:string" />
+      <xs:element name="наимЮЛПолнField" nillable="true" type="xs:string" />
+      <xs:element name="оГРНField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументОтветСвЮЛСведУправлДеятУпрКомпРос" nillable="true" type="tns:ДокументОтветСвЮЛСведУправлДеятУпрКомпРос" />
+  <xs:complexType name="ДокументОтветСвЮЛСведУчетНО">
+    <xs:sequence>
+      <xs:element name="датаПостУчField" type="xs:dateTime" />
+      <xs:element name="датаСнУчField" type="xs:dateTime" />
+      <xs:element name="датаСнУчFieldSpecified" type="xs:boolean" />
+      <xs:element name="свНОField" nillable="true" type="tns:ДокументОтветСвЮЛСведУчетНОСвНО" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументОтветСвЮЛСведУчетНО" nillable="true" type="tns:ДокументОтветСвЮЛСведУчетНО" />
+  <xs:complexType name="ДокументОтветСвЮЛСведУчетНОСвНО">
+    <xs:sequence>
+      <xs:element name="кодНОField" nillable="true" type="xs:string" />
+      <xs:element name="наимНОField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументОтветСвЮЛСведУчетНОСвНО" nillable="true" type="tns:ДокументОтветСвЮЛСведУчетНОСвНО" />
+  <xs:simpleType name="ItemChoiceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ИННЮЛ" />
+      <xs:enumeration value="ОГРН" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ItemChoiceType" nillable="true" type="tns:ItemChoiceType" />
+  <xs:complexType name="ДокументОтвет">
+    <xs:sequence>
+      <xs:element name="itemField" nillable="true" type="xs:anyType" />
+      <xs:element name="датаВыпField" type="xs:dateTime" />
+      <xs:element name="идЗапросField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументОтвет" nillable="true" type="tns:ДокументОтвет" />
+  <xs:complexType name="ДокументСвЮЛ4">
+    <xs:sequence>
+      <xs:element name="датаВыпField" type="xs:dateTime" />
+      <xs:element name="датаОГРНField" type="xs:dateTime" />
+      <xs:element name="иННField" nillable="true" type="xs:string" />
+      <xs:element name="оГРНField" nillable="true" type="xs:string" />
+      <xs:element name="свАдресField" nillable="true" type="tns:ДокументСвЮЛСвАдрес" />
+      <xs:element name="свДержРеестрАОField" nillable="true" type="tns:ДокументСвЮЛСвДержРеестрАО" />
+      <xs:element name="свДоляОООField" nillable="true" type="tns:ДокументСвЮЛСвДоляООО" />
+      <xs:element name="свЗапДействField" nillable="true" type="tns:ArrayOfДокументСвЮЛСвЗапДейств" />
+      <xs:element name="свЗапНеДействField" nillable="true" type="tns:ArrayOfДокументСвЮЛСвЗапНеДейств" />
+      <xs:element name="свЛицензияField" nillable="true" type="tns:ArrayOfДокументСвЮЛСвЛицензия" />
+      <xs:element name="свНаимЮЛField" nillable="true" type="tns:ДокументСвЮЛСвНаимЮЛ" />
+      <xs:element name="свОКВЭДField" nillable="true" type="tns:ArrayOfДокументСвЮЛСвОКВЭД" />
+      <xs:element name="свОбрЮЛField" nillable="true" type="tns:ДокументСвЮЛСвОбрЮЛ" />
+      <xs:element name="свПодраздField" nillable="true" type="tns:ArrayOfДокументСвЮЛСвПодразд" />
+      <xs:element name="свПреемствField" nillable="true" type="tns:ДокументСвЮЛСвПреемств" />
+      <xs:element name="свПрекрЮЛField" nillable="true" type="tns:ДокументСвЮЛСвПрекрЮЛ" />
+      <xs:element name="свРегПФField" nillable="true" type="tns:ДокументСвЮЛСвРегПФ" />
+      <xs:element name="свРегФССField" nillable="true" type="tns:ДокументСвЮЛСвРегФСС" />
+      <xs:element name="свСтатус_РОField" nillable="true" type="tns:ДокументСвЮЛСвСтатус_РО" />
+      <xs:element name="свУправлДеятField" nillable="true" type="tns:ДокументСвЮЛСвУправлДеят" />
+      <xs:element name="свУстКапField" nillable="true" type="tns:ДокументСвЮЛСвУстКап" />
+      <xs:element name="свУчетНОField" nillable="true" type="tns:ДокументСвЮЛСвУчетНО" />
+      <xs:element name="свУчредитField" nillable="true" type="tns:ДокументСвЮЛСвУчредит" />
+      <xs:element name="сведУмУКField" nillable="true" type="tns:ДокументСвЮЛСведУмУК" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛ4" nillable="true" type="tns:ДокументСвЮЛ4" />
+  <xs:complexType name="ДокументСвЮЛСвАдрес">
+    <xs:sequence>
+      <xs:element name="адресРФField" nillable="true" type="tns:АдрРФТипВып1" />
+      <xs:element name="гРНField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвАдрес" nillable="true" type="tns:ДокументСвЮЛСвАдрес" />
+  <xs:complexType name="АдрРФТипВып1">
+    <xs:sequence>
+      <xs:element name="городField" nillable="true" type="tns:АдрРФТипВыпГород1" />
+      <xs:element name="домField" nillable="true" type="xs:string" />
+      <xs:element name="индексField" nillable="true" type="xs:string" />
+      <xs:element name="квартField" nillable="true" type="xs:string" />
+      <xs:element name="кодАдрКладрField" nillable="true" type="xs:string" />
+      <xs:element name="кодРегионField" nillable="true" type="xs:string" />
+      <xs:element name="корпусField" nillable="true" type="xs:string" />
+      <xs:element name="населПунктField" nillable="true" type="tns:АдрРФТипВыпНаселПункт1" />
+      <xs:element name="районField" nillable="true" type="tns:АдрРФТипВыпРайон1" />
+      <xs:element name="регионField" nillable="true" type="tns:АдрРФТипВыпРегион1" />
+      <xs:element name="улицаField" nillable="true" type="tns:АдрРФТипВыпУлица1" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="АдрРФТипВып1" nillable="true" type="tns:АдрРФТипВып1" />
+  <xs:complexType name="АдрРФТипВыпГород1">
+    <xs:sequence>
+      <xs:element name="наимГородField" nillable="true" type="xs:string" />
+      <xs:element name="типГородField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="АдрРФТипВыпГород1" nillable="true" type="tns:АдрРФТипВыпГород1" />
+  <xs:complexType name="АдрРФТипВыпНаселПункт1">
+    <xs:sequence>
+      <xs:element name="наимНаселПунктField" nillable="true" type="xs:string" />
+      <xs:element name="типНаселПунктField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="АдрРФТипВыпНаселПункт1" nillable="true" type="tns:АдрРФТипВыпНаселПункт1" />
+  <xs:complexType name="АдрРФТипВыпРайон1">
+    <xs:sequence>
+      <xs:element name="наимРайонField" nillable="true" type="xs:string" />
+      <xs:element name="типРайонField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="АдрРФТипВыпРайон1" nillable="true" type="tns:АдрРФТипВыпРайон1" />
+  <xs:complexType name="АдрРФТипВыпРегион1">
+    <xs:sequence>
+      <xs:element name="наимРегионField" nillable="true" type="xs:string" />
+      <xs:element name="типРегионField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="АдрРФТипВыпРегион1" nillable="true" type="tns:АдрРФТипВыпРегион1" />
+  <xs:complexType name="АдрРФТипВыпУлица1">
+    <xs:sequence>
+      <xs:element name="наимУлицаField" nillable="true" type="xs:string" />
+      <xs:element name="типУлицаField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="АдрРФТипВыпУлица1" nillable="true" type="tns:АдрРФТипВыпУлица1" />
+  <xs:complexType name="ДокументСвЮЛСвДержРеестрАО">
+    <xs:sequence>
+      <xs:element name="гРНField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="иННЮЛField" nillable="true" type="xs:string" />
+      <xs:element name="наимЮЛПолнField" nillable="true" type="xs:string" />
+      <xs:element name="оГРНField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвДержРеестрАО" nillable="true" type="tns:ДокументСвЮЛСвДержРеестрАО" />
+  <xs:complexType name="ДокументСвЮЛСвДоляООО">
+    <xs:sequence>
+      <xs:element name="itemElementNameField" type="tns:ItemChoiceType3" />
+      <xs:element name="itemField" nillable="true" type="xs:anyType" />
+      <xs:element name="гРНField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="номинСтоимField" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвДоляООО" nillable="true" type="tns:ДокументСвЮЛСвДоляООО" />
+  <xs:simpleType name="ItemChoiceType3">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ДробДесят" />
+      <xs:enumeration value="ДробПрост" />
+      <xs:enumeration value="Процент" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ItemChoiceType3" nillable="true" type="tns:ItemChoiceType3" />
+  <xs:complexType name="ArrayOfДокументСвЮЛСвЗапДейств">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ДокументСвЮЛСвЗапДейств" nillable="true" type="tns:ДокументСвЮЛСвЗапДейств" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfДокументСвЮЛСвЗапДейств" nillable="true" type="tns:ArrayOfДокументСвЮЛСвЗапДейств" />
+  <xs:complexType name="ДокументСвЮЛСвЗапДейств">
+    <xs:sequence>
+      <xs:element name="видЗапField" nillable="true" type="tns:ДокументСвЮЛСвЗапДействВидЗап" />
+      <xs:element name="гРНField" nillable="true" type="xs:string" />
+      <xs:element name="датаЗапField" type="xs:dateTime" />
+      <xs:element name="свРегОргField" nillable="true" type="tns:СвРегОргТип" />
+      <xs:element name="свСвидField" nillable="true" type="tns:ArrayOfДокументСвЮЛСвЗапДействСвСвид" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвЗапДейств" nillable="true" type="tns:ДокументСвЮЛСвЗапДейств" />
+  <xs:complexType name="ДокументСвЮЛСвЗапДействВидЗап">
+    <xs:sequence>
+      <xs:element name="кодСПВЗField" nillable="true" type="xs:string" />
+      <xs:element name="наимВидЗапField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвЗапДействВидЗап" nillable="true" type="tns:ДокументСвЮЛСвЗапДействВидЗап" />
+  <xs:complexType name="СвРегОргТип">
+    <xs:sequence>
+      <xs:element name="кодНОField" nillable="true" type="xs:string" />
+      <xs:element name="наимНОField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="СвРегОргТип" nillable="true" type="tns:СвРегОргТип" />
+  <xs:complexType name="ArrayOfДокументСвЮЛСвЗапДействСвСвид">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ДокументСвЮЛСвЗапДействСвСвид" nillable="true" type="tns:ДокументСвЮЛСвЗапДействСвСвид" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfДокументСвЮЛСвЗапДействСвСвид" nillable="true" type="tns:ArrayOfДокументСвЮЛСвЗапДействСвСвид" />
+  <xs:complexType name="ДокументСвЮЛСвЗапДействСвСвид">
+    <xs:sequence>
+      <xs:element name="гРНField" nillable="true" type="xs:string" />
+      <xs:element name="датаЗапField" type="xs:dateTime" />
+      <xs:element name="номерField" nillable="true" type="xs:string" />
+      <xs:element name="серияField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвЗапДействСвСвид" nillable="true" type="tns:ДокументСвЮЛСвЗапДействСвСвид" />
+  <xs:complexType name="ArrayOfДокументСвЮЛСвЗапНеДейств">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ДокументСвЮЛСвЗапНеДейств" nillable="true" type="tns:ДокументСвЮЛСвЗапНеДейств" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfДокументСвЮЛСвЗапНеДейств" nillable="true" type="tns:ArrayOfДокументСвЮЛСвЗапНеДейств" />
+  <xs:complexType name="ДокументСвЮЛСвЗапНеДейств">
+    <xs:sequence>
+      <xs:element name="видЗапField" nillable="true" type="tns:ДокументСвЮЛСвЗапНеДействВидЗап" />
+      <xs:element name="гРНField" nillable="true" type="xs:string" />
+      <xs:element name="датаЗапField" type="xs:dateTime" />
+      <xs:element name="свПризнНедField" nillable="true" type="tns:ArrayOfДокументСвЮЛСвЗапНеДействСвПризнНед" />
+      <xs:element name="свРегОргField" nillable="true" type="tns:СвРегОргТип" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвЗапНеДейств" nillable="true" type="tns:ДокументСвЮЛСвЗапНеДейств" />
+  <xs:complexType name="ДокументСвЮЛСвЗапНеДействВидЗап">
+    <xs:sequence>
+      <xs:element name="кодСПВЗField" nillable="true" type="xs:string" />
+      <xs:element name="наимВидЗапField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвЗапНеДействВидЗап" nillable="true" type="tns:ДокументСвЮЛСвЗапНеДействВидЗап" />
+  <xs:complexType name="ArrayOfДокументСвЮЛСвЗапНеДействСвПризнНед">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ДокументСвЮЛСвЗапНеДействСвПризнНед" nillable="true" type="tns:ДокументСвЮЛСвЗапНеДействСвПризнНед" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfДокументСвЮЛСвЗапНеДействСвПризнНед" nillable="true" type="tns:ArrayOfДокументСвЮЛСвЗапНеДействСвПризнНед" />
+  <xs:complexType name="ДокументСвЮЛСвЗапНеДействСвПризнНед">
+    <xs:sequence>
+      <xs:element name="гРНField" nillable="true" type="xs:string" />
+      <xs:element name="датаЗапField" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвЗапНеДействСвПризнНед" nillable="true" type="tns:ДокументСвЮЛСвЗапНеДействСвПризнНед" />
+  <xs:complexType name="ArrayOfДокументСвЮЛСвЛицензия">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ДокументСвЮЛСвЛицензия" nillable="true" type="tns:ДокументСвЮЛСвЛицензия" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfДокументСвЮЛСвЛицензия" nillable="true" type="tns:ArrayOfДокументСвЮЛСвЛицензия" />
+  <xs:complexType name="ДокументСвЮЛСвЛицензия">
+    <xs:sequence>
+      <xs:element name="видЛицField" nillable="true" type="xs:string" />
+      <xs:element name="гРНField" nillable="true" type="xs:string" />
+      <xs:element name="датаЛицField" type="xs:dateTime" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="датаНачЛицField" type="xs:dateTime" />
+      <xs:element name="датаОкончЛицField" type="xs:dateTime" />
+      <xs:element name="датаОкончЛицFieldSpecified" type="xs:boolean" />
+      <xs:element name="лицОргВыдЛицField" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="местоДейстЛицField" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="наимЛицВидДеятField" nillable="true" type="q2:ArrayOfstring" />
+      <xs:element name="номЛицField" nillable="true" type="xs:string" />
+      <xs:element name="свПриостЛицField" nillable="true" type="tns:ДокументСвЮЛСвЛицензияСвПриостЛиц" />
+      <xs:element name="серЛицField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвЛицензия" nillable="true" type="tns:ДокументСвЮЛСвЛицензия" />
+  <xs:complexType name="ДокументСвЮЛСвЛицензияСвПриостЛиц">
+    <xs:sequence>
+      <xs:element name="датаПриостЛицField" type="xs:dateTime" />
+      <xs:element name="лицОргПриостЛицField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвЛицензияСвПриостЛиц" nillable="true" type="tns:ДокументСвЮЛСвЛицензияСвПриостЛиц" />
+  <xs:complexType name="ДокументСвЮЛСвНаимЮЛ">
+    <xs:sequence>
+      <xs:element name="гРНField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="наимЮЛПолнField" nillable="true" type="xs:string" />
+      <xs:element name="наимЮЛСокрField" nillable="true" type="xs:string" />
+      <xs:element name="наимЮЛФирмField" nillable="true" type="xs:string" />
+      <xs:element name="оПФField" nillable="true" type="tns:ОПФВыпТип" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвНаимЮЛ" nillable="true" type="tns:ДокументСвЮЛСвНаимЮЛ" />
+  <xs:complexType name="ОПФВыпТип">
+    <xs:sequence>
+      <xs:element name="кодОПФField" nillable="true" type="xs:string" />
+      <xs:element name="полнНаимОПФField" nillable="true" type="xs:string" />
+      <xs:element name="спрОПФField" type="tns:ОПФВыпТипСпрОПФ" />
+      <xs:element name="спрОПФFieldSpecified" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ОПФВыпТип" nillable="true" type="tns:ОПФВыпТип" />
+  <xs:simpleType name="ОПФВыпТипСпрОПФ">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ОКОПФ" />
+      <xs:enumeration value="КОПФ" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ОПФВыпТипСпрОПФ" nillable="true" type="tns:ОПФВыпТипСпрОПФ" />
+  <xs:complexType name="ArrayOfДокументСвЮЛСвОКВЭД">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ДокументСвЮЛСвОКВЭД" nillable="true" type="tns:ДокументСвЮЛСвОКВЭД" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfДокументСвЮЛСвОКВЭД" nillable="true" type="tns:ArrayOfДокументСвЮЛСвОКВЭД" />
+  <xs:complexType name="ДокументСвЮЛСвОКВЭД">
+    <xs:sequence>
+      <xs:element name="гРНField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="кодОКВЭДField" nillable="true" type="xs:string" />
+      <xs:element name="прОснДопField" type="tns:ДокументСвЮЛСвОКВЭДПрОснДоп" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвОКВЭД" nillable="true" type="tns:ДокументСвЮЛСвОКВЭД" />
+  <xs:simpleType name="ДокументСвЮЛСвОКВЭДПрОснДоп">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Item1" />
+      <xs:enumeration value="Item2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ДокументСвЮЛСвОКВЭДПрОснДоп" nillable="true" type="tns:ДокументСвЮЛСвОКВЭДПрОснДоп" />
+  <xs:complexType name="ДокументСвЮЛСвОбрЮЛ">
+    <xs:sequence>
+      <xs:element name="гРНField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="датаОбрЮЛField" type="xs:dateTime" />
+      <xs:element name="наимРОField" nillable="true" type="xs:string" />
+      <xs:element name="регНомField" nillable="true" type="xs:string" />
+      <xs:element name="спОбрЮЛField" nillable="true" type="tns:ДокументСвЮЛСвОбрЮЛСпОбрЮЛ" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвОбрЮЛ" nillable="true" type="tns:ДокументСвЮЛСвОбрЮЛ" />
+  <xs:complexType name="ДокументСвЮЛСвОбрЮЛСпОбрЮЛ">
+    <xs:sequence>
+      <xs:element name="кодСпОбрЮЛField" nillable="true" type="xs:string" />
+      <xs:element name="наимСпОбрЮЛField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвОбрЮЛСпОбрЮЛ" nillable="true" type="tns:ДокументСвЮЛСвОбрЮЛСпОбрЮЛ" />
+  <xs:complexType name="ArrayOfДокументСвЮЛСвПодразд">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ДокументСвЮЛСвПодразд" nillable="true" type="tns:ДокументСвЮЛСвПодразд" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfДокументСвЮЛСвПодразд" nillable="true" type="tns:ArrayOfДокументСвЮЛСвПодразд" />
+  <xs:complexType name="ДокументСвЮЛСвПодразд">
+    <xs:sequence>
+      <xs:element name="itemField" nillable="true" type="xs:anyType" />
+      <xs:element name="видПодрField" type="tns:ДокументСвЮЛСвПодраздВидПодр" />
+      <xs:element name="гРНField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="наимПолнField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвПодразд" nillable="true" type="tns:ДокументСвЮЛСвПодразд" />
+  <xs:simpleType name="ДокументСвЮЛСвПодраздВидПодр">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Item1" />
+      <xs:enumeration value="Item2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ДокументСвЮЛСвПодраздВидПодр" nillable="true" type="tns:ДокументСвЮЛСвПодраздВидПодр" />
+  <xs:complexType name="ДокументСвЮЛСвПреемств">
+    <xs:sequence>
+      <xs:element name="свПредшField" nillable="true" type="tns:ArrayOfДокументСвЮЛСвПреемствСвПредш" />
+      <xs:element name="свПреемField" nillable="true" type="tns:ArrayOfДокументСвЮЛСвПреемствСвПреем" />
+      <xs:element name="сведПреемКФХField" nillable="true" type="tns:ArrayOfДокументСвЮЛСвПреемствСведПреемКФХ" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвПреемств" nillable="true" type="tns:ДокументСвЮЛСвПреемств" />
+  <xs:complexType name="ArrayOfДокументСвЮЛСвПреемствСвПредш">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ДокументСвЮЛСвПреемствСвПредш" nillable="true" type="tns:ДокументСвЮЛСвПреемствСвПредш" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfДокументСвЮЛСвПреемствСвПредш" nillable="true" type="tns:ArrayOfДокументСвЮЛСвПреемствСвПредш" />
+  <xs:complexType name="ДокументСвЮЛСвПреемствСвПредш">
+    <xs:sequence>
+      <xs:element name="гРНField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="иННField" nillable="true" type="xs:string" />
+      <xs:element name="наимЮЛПолнField" nillable="true" type="xs:string" />
+      <xs:element name="оГРНField" nillable="true" type="xs:string" />
+      <xs:element name="свВидПреемField" nillable="true" type="tns:ДокументСвЮЛСвПреемствСвПредшСвВидПреем" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвПреемствСвПредш" nillable="true" type="tns:ДокументСвЮЛСвПреемствСвПредш" />
+  <xs:complexType name="ДокументСвЮЛСвПреемствСвПредшСвВидПреем">
+    <xs:sequence>
+      <xs:element name="кодПреемField" nillable="true" type="xs:string" />
+      <xs:element name="наимПреемField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвПреемствСвПредшСвВидПреем" nillable="true" type="tns:ДокументСвЮЛСвПреемствСвПредшСвВидПреем" />
+  <xs:complexType name="ArrayOfДокументСвЮЛСвПреемствСвПреем">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ДокументСвЮЛСвПреемствСвПреем" nillable="true" type="tns:ДокументСвЮЛСвПреемствСвПреем" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfДокументСвЮЛСвПреемствСвПреем" nillable="true" type="tns:ArrayOfДокументСвЮЛСвПреемствСвПреем" />
+  <xs:complexType name="ДокументСвЮЛСвПреемствСвПреем">
+    <xs:sequence>
+      <xs:element name="гРНField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="иННField" nillable="true" type="xs:string" />
+      <xs:element name="наимЮЛПолнField" nillable="true" type="xs:string" />
+      <xs:element name="оГРНField" nillable="true" type="xs:string" />
+      <xs:element name="свВидПреемField" nillable="true" type="tns:ДокументСвЮЛСвПреемствСвПреемСвВидПреем" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвПреемствСвПреем" nillable="true" type="tns:ДокументСвЮЛСвПреемствСвПреем" />
+  <xs:complexType name="ДокументСвЮЛСвПреемствСвПреемСвВидПреем">
+    <xs:sequence>
+      <xs:element name="кодПреемField" nillable="true" type="xs:string" />
+      <xs:element name="наимПреемField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвПреемствСвПреемСвВидПреем" nillable="true" type="tns:ДокументСвЮЛСвПреемствСвПреемСвВидПреем" />
+  <xs:complexType name="ArrayOfДокументСвЮЛСвПреемствСведПреемКФХ">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ДокументСвЮЛСвПреемствСведПреемКФХ" nillable="true" type="tns:ДокументСвЮЛСвПреемствСведПреемКФХ" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfДокументСвЮЛСвПреемствСведПреемКФХ" nillable="true" type="tns:ArrayOfДокументСвЮЛСвПреемствСведПреемКФХ" />
+  <xs:complexType name="ДокументСвЮЛСвПреемствСведПреемКФХ">
+    <xs:sequence>
+      <xs:element name="адресМЖРФField" nillable="true" type="tns:АдрРФТипВып1" />
+      <xs:element name="гРНField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="иННФЛField" nillable="true" type="xs:string" />
+      <xs:element name="кодПреемField" type="tns:ДокументСвЮЛСвПреемствСведПреемКФХКодПреем" />
+      <xs:element name="оГРНИПField" nillable="true" type="xs:string" />
+      <xs:element name="удЛичнФЛField" nillable="true" type="tns:УдЛичнТипР" />
+      <xs:element name="фИОField" nillable="true" type="tns:ФИОТип1" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвПреемствСведПреемКФХ" nillable="true" type="tns:ДокументСвЮЛСвПреемствСведПреемКФХ" />
+  <xs:simpleType name="ДокументСвЮЛСвПреемствСведПреемКФХКодПреем">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Item111" />
+      <xs:enumeration value="Item211" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ДокументСвЮЛСвПреемствСведПреемКФХКодПреем" nillable="true" type="tns:ДокументСвЮЛСвПреемствСведПреемКФХКодПреем" />
+  <xs:complexType name="УдЛичнТипР">
+    <xs:sequence>
+      <xs:element name="выдДокField" nillable="true" type="xs:string" />
+      <xs:element name="датаДокField" type="xs:dateTime" />
+      <xs:element name="кодВидДокField" nillable="true" type="xs:string" />
+      <xs:element name="кодВыдДокField" nillable="true" type="xs:string" />
+      <xs:element name="наимДокField" nillable="true" type="xs:string" />
+      <xs:element name="серНомДокField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="УдЛичнТипР" nillable="true" type="tns:УдЛичнТипР" />
+  <xs:complexType name="ФИОТип1">
+    <xs:sequence>
+      <xs:element name="имяField" nillable="true" type="xs:string" />
+      <xs:element name="отчествоField" nillable="true" type="xs:string" />
+      <xs:element name="фамилияField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ФИОТип1" nillable="true" type="tns:ФИОТип1" />
+  <xs:complexType name="ДокументСвЮЛСвПрекрЮЛ">
+    <xs:sequence>
+      <xs:element name="гРНField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="датаПрекрЮЛField" type="xs:dateTime" />
+      <xs:element name="свРегОргField" nillable="true" type="tns:СвРегОргТип" />
+      <xs:element name="спПрекрЮЛField" nillable="true" type="tns:ДокументСвЮЛСвПрекрЮЛСпПрекрЮЛ" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвПрекрЮЛ" nillable="true" type="tns:ДокументСвЮЛСвПрекрЮЛ" />
+  <xs:complexType name="ДокументСвЮЛСвПрекрЮЛСпПрекрЮЛ">
+    <xs:sequence>
+      <xs:element name="кодСпПрекрЮЛField" nillable="true" type="xs:string" />
+      <xs:element name="наимСпПрекрЮЛField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвПрекрЮЛСпПрекрЮЛ" nillable="true" type="tns:ДокументСвЮЛСвПрекрЮЛСпПрекрЮЛ" />
+  <xs:complexType name="ДокументСвЮЛСвРегПФ">
+    <xs:sequence>
+      <xs:element name="гРНField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="датаРегField" type="xs:dateTime" />
+      <xs:element name="датаСнУчField" type="xs:dateTime" />
+      <xs:element name="датаСнУчFieldSpecified" type="xs:boolean" />
+      <xs:element name="регНомПФField" nillable="true" type="xs:string" />
+      <xs:element name="свОргПФField" nillable="true" type="tns:ДокументСвЮЛСвРегПФСвОргПФ" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвРегПФ" nillable="true" type="tns:ДокументСвЮЛСвРегПФ" />
+  <xs:complexType name="ДокументСвЮЛСвРегПФСвОргПФ">
+    <xs:sequence>
+      <xs:element name="кодПФField" nillable="true" type="xs:string" />
+      <xs:element name="наимПФField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвРегПФСвОргПФ" nillable="true" type="tns:ДокументСвЮЛСвРегПФСвОргПФ" />
+  <xs:complexType name="ДокументСвЮЛСвРегФСС">
+    <xs:sequence>
+      <xs:element name="гРНField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="датаРегField" type="xs:dateTime" />
+      <xs:element name="датаСнУчField" type="xs:dateTime" />
+      <xs:element name="датаСнУчFieldSpecified" type="xs:boolean" />
+      <xs:element name="регНомФССField" nillable="true" type="xs:string" />
+      <xs:element name="свОргФССField" nillable="true" type="tns:ДокументСвЮЛСвРегФСССвОргФСС" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвРегФСС" nillable="true" type="tns:ДокументСвЮЛСвРегФСС" />
+  <xs:complexType name="ДокументСвЮЛСвРегФСССвОргФСС">
+    <xs:sequence>
+      <xs:element name="кодФССField" nillable="true" type="xs:string" />
+      <xs:element name="наимФССField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвРегФСССвОргФСС" nillable="true" type="tns:ДокументСвЮЛСвРегФСССвОргФСС" />
+  <xs:complexType name="ДокументСвЮЛСвСтатус_РО">
+    <xs:sequence>
+      <xs:element name="гРНField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="свРегОргField" nillable="true" type="tns:СвРегОргТип" />
+      <xs:element name="свСтатусField" nillable="true" type="tns:ДокументСвЮЛСвСтатус_РОСвСтатус" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвСтатус_РО" nillable="true" type="tns:ДокументСвЮЛСвСтатус_РО" />
+  <xs:complexType name="ДокументСвЮЛСвСтатус_РОСвСтатус">
+    <xs:sequence>
+      <xs:element name="кодСтатусЮЛField" nillable="true" type="xs:string" />
+      <xs:element name="наимСтатусЮЛField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвСтатус_РОСвСтатус" nillable="true" type="tns:ДокументСвЮЛСвСтатус_РОСвСтатус" />
+  <xs:complexType name="ДокументСвЮЛСвУправлДеят">
+    <xs:sequence>
+      <xs:element name="itemField" nillable="true" type="xs:anyType" />
+      <xs:element name="сведДолжнФЛField" nillable="true" type="tns:ArrayOfДокументСвЮЛСвУправлДеятСведДолжнФЛ" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвУправлДеят" nillable="true" type="tns:ДокументСвЮЛСвУправлДеят" />
+  <xs:complexType name="ArrayOfДокументСвЮЛСвУправлДеятСведДолжнФЛ">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ДокументСвЮЛСвУправлДеятСведДолжнФЛ" nillable="true" type="tns:ДокументСвЮЛСвУправлДеятСведДолжнФЛ" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfДокументСвЮЛСвУправлДеятСведДолжнФЛ" nillable="true" type="tns:ArrayOfДокументСвЮЛСвУправлДеятСведДолжнФЛ" />
+  <xs:complexType name="ДокументСвЮЛСвУправлДеятСведДолжнФЛ">
+    <xs:sequence>
+      <xs:element name="адрМЖИнField" nillable="true" type="tns:АдрИнТип" />
+      <xs:element name="адресМЖРФField" nillable="true" type="tns:АдрРФТипВып1" />
+      <xs:element name="гРНField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="иННФЛField" nillable="true" type="xs:string" />
+      <xs:element name="наимДолжнField" nillable="true" type="xs:string" />
+      <xs:element name="номТелField" nillable="true" type="xs:string" />
+      <xs:element name="свДисквField" nillable="true" type="tns:ArrayOfДокументСвЮЛСвУправлДеятСведДолжнФЛСвДискв" />
+      <xs:element name="удЛичнФЛField" nillable="true" type="tns:УдЛичнТипР" />
+      <xs:element name="фИОField" nillable="true" type="tns:ФИОТип1" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвУправлДеятСведДолжнФЛ" nillable="true" type="tns:ДокументСвЮЛСвУправлДеятСведДолжнФЛ" />
+  <xs:complexType name="АдрИнТип">
+    <xs:sequence>
+      <xs:element name="адрИнField" nillable="true" type="xs:string" />
+      <xs:element name="наимСтранField" nillable="true" type="xs:string" />
+      <xs:element name="оКСМField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="АдрИнТип" nillable="true" type="tns:АдрИнТип" />
+  <xs:complexType name="ArrayOfДокументСвЮЛСвУправлДеятСведДолжнФЛСвДискв">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ДокументСвЮЛСвУправлДеятСведДолжнФЛСвДискв" nillable="true" type="tns:ДокументСвЮЛСвУправлДеятСведДолжнФЛСвДискв" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfДокументСвЮЛСвУправлДеятСведДолжнФЛСвДискв" nillable="true" type="tns:ArrayOfДокументСвЮЛСвУправлДеятСведДолжнФЛСвДискв" />
+  <xs:complexType name="ДокументСвЮЛСвУправлДеятСведДолжнФЛСвДискв">
+    <xs:sequence>
+      <xs:element name="гРНField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="датаНачДисквField" type="xs:dateTime" />
+      <xs:element name="датаОкончДисквField" type="xs:dateTime" />
+      <xs:element name="срокДисквField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвУправлДеятСведДолжнФЛСвДискв" nillable="true" type="tns:ДокументСвЮЛСвУправлДеятСведДолжнФЛСвДискв" />
+  <xs:complexType name="ДокументСвЮЛСвУстКап">
+    <xs:sequence>
+      <xs:element name="гРНField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="наимВидКапField" type="tns:ДокументСвЮЛСвУстКапНаимВидКап" />
+      <xs:element name="сумКапField" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвУстКап" nillable="true" type="tns:ДокументСвЮЛСвУстКап" />
+  <xs:simpleType name="ДокументСвЮЛСвУстКапНаимВидКап">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Уставныйкапитал" />
+      <xs:enumeration value="Складочныйкапитал" />
+      <xs:enumeration value="Уставнойфонд" />
+      <xs:enumeration value="Паевыевзносы" />
+      <xs:enumeration value="Паевойфонд" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ДокументСвЮЛСвУстКапНаимВидКап" nillable="true" type="tns:ДокументСвЮЛСвУстКапНаимВидКап" />
+  <xs:complexType name="ДокументСвЮЛСвУчетНО">
+    <xs:sequence>
+      <xs:element name="гРНField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="датаПостУчField" type="xs:dateTime" />
+      <xs:element name="датаСнУчField" type="xs:dateTime" />
+      <xs:element name="датаСнУчFieldSpecified" type="xs:boolean" />
+      <xs:element name="иННField" nillable="true" type="xs:string" />
+      <xs:element name="кППField" nillable="true" type="xs:string" />
+      <xs:element name="свНОField" nillable="true" type="tns:ДокументСвЮЛСвУчетНОСвНО" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвУчетНО" nillable="true" type="tns:ДокументСвЮЛСвУчетНО" />
+  <xs:complexType name="ДокументСвЮЛСвУчетНОСвНО">
+    <xs:sequence>
+      <xs:element name="кодНОField" nillable="true" type="xs:string" />
+      <xs:element name="наимНОField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвУчетНОСвНО" nillable="true" type="tns:ДокументСвЮЛСвУчетНОСвНО" />
+  <xs:complexType name="ДокументСвЮЛСвУчредит">
+    <xs:sequence>
+      <xs:element name="учрВлПИФField" nillable="true" type="tns:ArrayOfДокументСвЮЛСвУчредитУчрВлПИФ" />
+      <xs:element name="учрРФСубМОField" nillable="true" type="tns:ArrayOfДокументСвЮЛСвУчредитУчрРФСубМО" />
+      <xs:element name="учрФЛField" nillable="true" type="tns:ArrayOfДокументСвЮЛСвУчредитУчрФЛ" />
+      <xs:element name="учрЮЛИнField" nillable="true" type="tns:ArrayOfДокументСвЮЛСвУчредитУчрЮЛИн" />
+      <xs:element name="учрЮЛРосField" nillable="true" type="tns:ArrayOfДокументСвЮЛСвУчредитУчрЮЛРос" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвУчредит" nillable="true" type="tns:ДокументСвЮЛСвУчредит" />
+  <xs:complexType name="ArrayOfДокументСвЮЛСвУчредитУчрВлПИФ">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ДокументСвЮЛСвУчредитУчрВлПИФ" nillable="true" type="tns:ДокументСвЮЛСвУчредитУчрВлПИФ" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfДокументСвЮЛСвУчредитУчрВлПИФ" nillable="true" type="tns:ArrayOfДокументСвЮЛСвУчредитУчрВлПИФ" />
+  <xs:complexType name="ДокументСвЮЛСвУчредитУчрВлПИФ">
+    <xs:sequence>
+      <xs:element name="гРНField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="доляУстКапField" nillable="true" type="tns:ДоляУстКапТип" />
+      <xs:element name="наимПИФField" nillable="true" type="xs:string" />
+      <xs:element name="свУпрКомпДоверField" nillable="true" type="tns:ДокументСвЮЛСвУчредитУчрВлПИФСвУпрКомпДовер" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвУчредитУчрВлПИФ" nillable="true" type="tns:ДокументСвЮЛСвУчредитУчрВлПИФ" />
+  <xs:complexType name="ДоляУстКапТип">
+    <xs:sequence>
+      <xs:element name="itemElementNameField" type="tns:ItemChoiceType2" />
+      <xs:element name="itemField" nillable="true" type="xs:anyType" />
+      <xs:element name="номинСтоимField" type="xs:decimal" />
+      <xs:element name="прЗалогField" type="tns:ДоляУстКапТипПрЗалог" />
+      <xs:element name="прЗалогFieldSpecified" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДоляУстКапТип" nillable="true" type="tns:ДоляУстКапТип" />
+  <xs:simpleType name="ItemChoiceType2">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ДробДесят" />
+      <xs:enumeration value="ДробПрост" />
+      <xs:enumeration value="Процент" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ItemChoiceType2" nillable="true" type="tns:ItemChoiceType2" />
+  <xs:simpleType name="ДоляУстКапТипПрЗалог">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Item1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ДоляУстКапТипПрЗалог" nillable="true" type="tns:ДоляУстКапТипПрЗалог" />
+  <xs:complexType name="ДокументСвЮЛСвУчредитУчрВлПИФСвУпрКомпДовер">
+    <xs:sequence>
+      <xs:element name="иННЮЛField" nillable="true" type="xs:string" />
+      <xs:element name="наимЮЛПолнField" nillable="true" type="xs:string" />
+      <xs:element name="оГРНField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвУчредитУчрВлПИФСвУпрКомпДовер" nillable="true" type="tns:ДокументСвЮЛСвУчредитУчрВлПИФСвУпрКомпДовер" />
+  <xs:complexType name="ArrayOfДокументСвЮЛСвУчредитУчрРФСубМО">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ДокументСвЮЛСвУчредитУчрРФСубМО" nillable="true" type="tns:ДокументСвЮЛСвУчредитУчрРФСубМО" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfДокументСвЮЛСвУчредитУчрРФСубМО" nillable="true" type="tns:ArrayOfДокументСвЮЛСвУчредитУчрРФСубМО" />
+  <xs:complexType name="ДокументСвЮЛСвУчредитУчрРФСубМО">
+    <xs:sequence>
+      <xs:element name="гРНField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="доляУстКапField" nillable="true" type="tns:ДоляУстКапТип" />
+      <xs:element name="кодРегионField" nillable="true" type="xs:string" />
+      <xs:element name="кодУчрРФСубМОField" type="tns:ДокументСвЮЛСвУчредитУчрРФСубМОКодУчрРФСубМО" />
+      <xs:element name="наимМОField" nillable="true" type="xs:string" />
+      <xs:element name="наимРегионField" nillable="true" type="xs:string" />
+      <xs:element name="свОсущПрField" nillable="true" type="tns:ДокументСвЮЛСвУчредитУчрРФСубМОСвОсущПр" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвУчредитУчрРФСубМО" nillable="true" type="tns:ДокументСвЮЛСвУчредитУчрРФСубМО" />
+  <xs:simpleType name="ДокументСвЮЛСвУчредитУчрРФСубМОКодУчрРФСубМО">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Item1" />
+      <xs:enumeration value="Item2" />
+      <xs:enumeration value="Item3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ДокументСвЮЛСвУчредитУчрРФСубМОКодУчрРФСубМО" nillable="true" type="tns:ДокументСвЮЛСвУчредитУчрРФСубМОКодУчрРФСубМО" />
+  <xs:complexType name="ДокументСвЮЛСвУчредитУчрРФСубМОСвОсущПр">
+    <xs:sequence>
+      <xs:element name="itemField" nillable="true" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвУчредитУчрРФСубМОСвОсущПр" nillable="true" type="tns:ДокументСвЮЛСвУчредитУчрРФСубМОСвОсущПр" />
+  <xs:complexType name="ArrayOfДокументСвЮЛСвУчредитУчрФЛ">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ДокументСвЮЛСвУчредитУчрФЛ" nillable="true" type="tns:ДокументСвЮЛСвУчредитУчрФЛ" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfДокументСвЮЛСвУчредитУчрФЛ" nillable="true" type="tns:ArrayOfДокументСвЮЛСвУчредитУчрФЛ" />
+  <xs:complexType name="ДокументСвЮЛСвУчредитУчрФЛ">
+    <xs:sequence>
+      <xs:element name="адрМЖИнField" nillable="true" type="tns:АдрИнТип" />
+      <xs:element name="адрМЖРФField" nillable="true" type="tns:АдрРФТипВып1" />
+      <xs:element name="гРНField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="доляУстКапField" nillable="true" type="tns:ДоляУстКапТип" />
+      <xs:element name="иННФЛField" nillable="true" type="xs:string" />
+      <xs:element name="лицоУпрНаслField" nillable="true" type="tns:ДокументСвЮЛСвУчредитУчрФЛЛицоУпрНасл" />
+      <xs:element name="удЛичнФЛField" nillable="true" type="tns:УдЛичнТипР" />
+      <xs:element name="фИОField" nillable="true" type="tns:ФИОТип1" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвУчредитУчрФЛ" nillable="true" type="tns:ДокументСвЮЛСвУчредитУчрФЛ" />
+  <xs:complexType name="ДокументСвЮЛСвУчредитУчрФЛЛицоУпрНасл">
+    <xs:sequence>
+      <xs:element name="адрМЖИнField" nillable="true" type="tns:АдрИнТип" />
+      <xs:element name="адресМЖРФField" nillable="true" type="tns:АдрРФТипВып1" />
+      <xs:element name="гРНField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="датаОткрНаслField" nillable="true" type="xs:string" />
+      <xs:element name="иННФЛField" nillable="true" type="xs:string" />
+      <xs:element name="удЛичнФЛField" nillable="true" type="tns:УдЛичнТипР" />
+      <xs:element name="фИОField" nillable="true" type="tns:ФИОТип1" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвУчредитУчрФЛЛицоУпрНасл" nillable="true" type="tns:ДокументСвЮЛСвУчредитУчрФЛЛицоУпрНасл" />
+  <xs:complexType name="ArrayOfДокументСвЮЛСвУчредитУчрЮЛИн">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ДокументСвЮЛСвУчредитУчрЮЛИн" nillable="true" type="tns:ДокументСвЮЛСвУчредитУчрЮЛИн" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfДокументСвЮЛСвУчредитУчрЮЛИн" nillable="true" type="tns:ArrayOfДокументСвЮЛСвУчредитУчрЮЛИн" />
+  <xs:complexType name="ДокументСвЮЛСвУчредитУчрЮЛИн">
+    <xs:sequence>
+      <xs:element name="гРНField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="доляУстКапField" nillable="true" type="tns:ДоляУстКапТип" />
+      <xs:element name="иННЮЛField" nillable="true" type="xs:string" />
+      <xs:element name="наимЮЛПолнField" nillable="true" type="xs:string" />
+      <xs:element name="свРегИнField" nillable="true" type="tns:СвРегИнТип" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвУчредитУчрЮЛИн" nillable="true" type="tns:ДокументСвЮЛСвУчредитУчрЮЛИн" />
+  <xs:complexType name="СвРегИнТип">
+    <xs:sequence>
+      <xs:element name="адрСтрField" nillable="true" type="xs:string" />
+      <xs:element name="датаРегField" type="xs:dateTime" />
+      <xs:element name="датаРегFieldSpecified" type="xs:boolean" />
+      <xs:element name="наимРегОргField" nillable="true" type="xs:string" />
+      <xs:element name="наимСтранField" nillable="true" type="xs:string" />
+      <xs:element name="оКСМField" nillable="true" type="xs:string" />
+      <xs:element name="регНомерField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="СвРегИнТип" nillable="true" type="tns:СвРегИнТип" />
+  <xs:complexType name="ArrayOfДокументСвЮЛСвУчредитУчрЮЛРос">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ДокументСвЮЛСвУчредитУчрЮЛРос" nillable="true" type="tns:ДокументСвЮЛСвУчредитУчрЮЛРос" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfДокументСвЮЛСвУчредитУчрЮЛРос" nillable="true" type="tns:ArrayOfДокументСвЮЛСвУчредитУчрЮЛРос" />
+  <xs:complexType name="ДокументСвЮЛСвУчредитУчрЮЛРос">
+    <xs:sequence>
+      <xs:element name="гРНField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="доляУстКапField" nillable="true" type="tns:ДоляУстКапТип" />
+      <xs:element name="иННЮЛField" nillable="true" type="xs:string" />
+      <xs:element name="наимЮЛПолнField" nillable="true" type="xs:string" />
+      <xs:element name="оГРНField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСвУчредитУчрЮЛРос" nillable="true" type="tns:ДокументСвЮЛСвУчредитУчрЮЛРос" />
+  <xs:complexType name="ДокументСвЮЛСведУмУК">
+    <xs:sequence>
+      <xs:element name="велУмУКField" type="xs:decimal" />
+      <xs:element name="видУмУКField" type="tns:ДокументСвЮЛСведУмУКВидУмУК" />
+      <xs:element name="гРНField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="датаРешField" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвЮЛСведУмУК" nillable="true" type="tns:ДокументСвЮЛСведУмУК" />
+  <xs:simpleType name="ДокументСвЮЛСведУмУКВидУмУК">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Item1" />
+      <xs:enumeration value="Item2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ДокументСвЮЛСведУмУКВидУмУК" nillable="true" type="tns:ДокументСвЮЛСведУмУКВидУмУК" />
+  <xs:complexType name="Документ5">
+    <xs:sequence>
+      <xs:element name="версФормField" type="tns:ДокументВерсФорм5" />
+      <xs:element name="идДокField" nillable="true" type="xs:string" />
+      <xs:element name="свЮЛField" nillable="true" type="tns:ДокументСвЮЛ4" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Документ5" nillable="true" type="tns:Документ5" />
+  <xs:simpleType name="ДокументВерсФорм5">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Item401" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ДокументВерсФорм5" nillable="true" type="tns:ДокументВерсФорм5" />
+  <xs:simpleType name="ДокументОтветКодОбр1">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Item01" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ДокументОтветКодОбр1" nillable="true" type="tns:ДокументОтветКодОбр1" />
+  <xs:complexType name="ДокументОтветСвИП">
+    <xs:sequence>
+      <xs:element name="адресРФField" nillable="true" type="tns:АдрРФТипВып2" />
+      <xs:element name="датаОГРНИПField" type="xs:dateTime" />
+      <xs:element name="иННФЛField" nillable="true" type="xs:string" />
+      <xs:element name="кодВидИПField" type="tns:ДокументОтветСвИПКодВидИП" />
+      <xs:element name="наимВидИПField" nillable="true" type="xs:string" />
+      <xs:element name="оГРНИПField" nillable="true" type="xs:string" />
+      <xs:element name="свРегОргField" nillable="true" type="tns:ДокументОтветСвИПСвРегОрг" />
+      <xs:element name="свСтатусField" nillable="true" type="tns:ДокументОтветСвИПСвСтатус" />
+      <xs:element name="сведУчетНОField" nillable="true" type="tns:ДокументОтветСвИПСведУчетНО" />
+      <xs:element name="фИОField" nillable="true" type="tns:ФИОТип2" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументОтветСвИП" nillable="true" type="tns:ДокументОтветСвИП" />
+  <xs:complexType name="АдрРФТипВып2">
+    <xs:sequence>
+      <xs:element name="городField" nillable="true" type="tns:АдрРФТипВыпГород2" />
+      <xs:element name="домField" nillable="true" type="xs:string" />
+      <xs:element name="индексField" nillable="true" type="xs:string" />
+      <xs:element name="квартField" nillable="true" type="xs:string" />
+      <xs:element name="кодАдрКладрField" nillable="true" type="xs:string" />
+      <xs:element name="кодРегионField" nillable="true" type="xs:string" />
+      <xs:element name="корпусField" nillable="true" type="xs:string" />
+      <xs:element name="населПунктField" nillable="true" type="tns:АдрРФТипВыпНаселПункт2" />
+      <xs:element name="районField" nillable="true" type="tns:АдрРФТипВыпРайон2" />
+      <xs:element name="регионField" nillable="true" type="tns:АдрРФТипВыпРегион2" />
+      <xs:element name="улицаField" nillable="true" type="tns:АдрРФТипВыпУлица2" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="АдрРФТипВып2" nillable="true" type="tns:АдрРФТипВып2" />
+  <xs:complexType name="АдрРФТипВыпГород2">
+    <xs:sequence>
+      <xs:element name="наимГородField" nillable="true" type="xs:string" />
+      <xs:element name="типГородField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="АдрРФТипВыпГород2" nillable="true" type="tns:АдрРФТипВыпГород2" />
+  <xs:complexType name="АдрРФТипВыпНаселПункт2">
+    <xs:sequence>
+      <xs:element name="наимНаселПунктField" nillable="true" type="xs:string" />
+      <xs:element name="типНаселПунктField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="АдрРФТипВыпНаселПункт2" nillable="true" type="tns:АдрРФТипВыпНаселПункт2" />
+  <xs:complexType name="АдрРФТипВыпРайон2">
+    <xs:sequence>
+      <xs:element name="наимРайонField" nillable="true" type="xs:string" />
+      <xs:element name="типРайонField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="АдрРФТипВыпРайон2" nillable="true" type="tns:АдрРФТипВыпРайон2" />
+  <xs:complexType name="АдрРФТипВыпРегион2">
+    <xs:sequence>
+      <xs:element name="наимРегионField" nillable="true" type="xs:string" />
+      <xs:element name="типРегионField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="АдрРФТипВыпРегион2" nillable="true" type="tns:АдрРФТипВыпРегион2" />
+  <xs:complexType name="АдрРФТипВыпУлица2">
+    <xs:sequence>
+      <xs:element name="наимУлицаField" nillable="true" type="xs:string" />
+      <xs:element name="типУлицаField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="АдрРФТипВыпУлица2" nillable="true" type="tns:АдрРФТипВыпУлица2" />
+  <xs:simpleType name="ДокументОтветСвИПКодВидИП">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Item1" />
+      <xs:enumeration value="Item2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ДокументОтветСвИПКодВидИП" nillable="true" type="tns:ДокументОтветСвИПКодВидИП" />
+  <xs:complexType name="ДокументОтветСвИПСвРегОрг">
+    <xs:sequence>
+      <xs:element name="кодНОField" nillable="true" type="xs:string" />
+      <xs:element name="наимНОField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументОтветСвИПСвРегОрг" nillable="true" type="tns:ДокументОтветСвИПСвРегОрг" />
+  <xs:complexType name="ДокументОтветСвИПСвСтатус">
+    <xs:sequence>
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="кодСтатусField" nillable="true" type="xs:string" />
+      <xs:element name="наимСтатусField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументОтветСвИПСвСтатус" nillable="true" type="tns:ДокументОтветСвИПСвСтатус" />
+  <xs:complexType name="ДокументОтветСвИПСведУчетНО">
+    <xs:sequence>
+      <xs:element name="датаПостУчField" type="xs:dateTime" />
+      <xs:element name="датаСнУчField" type="xs:dateTime" />
+      <xs:element name="датаСнУчFieldSpecified" type="xs:boolean" />
+      <xs:element name="свНОField" nillable="true" type="tns:ДокументОтветСвИПСведУчетНОСвНО" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументОтветСвИПСведУчетНО" nillable="true" type="tns:ДокументОтветСвИПСведУчетНО" />
+  <xs:complexType name="ДокументОтветСвИПСведУчетНОСвНО">
+    <xs:sequence>
+      <xs:element name="кодНОField" nillable="true" type="xs:string" />
+      <xs:element name="наимНОField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументОтветСвИПСведУчетНОСвНО" nillable="true" type="tns:ДокументОтветСвИПСведУчетНОСвНО" />
+  <xs:complexType name="ФИОТип2">
+    <xs:sequence>
+      <xs:element name="имяField" nillable="true" type="xs:string" />
+      <xs:element name="отчествоField" nillable="true" type="xs:string" />
+      <xs:element name="фамилияField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ФИОТип2" nillable="true" type="tns:ФИОТип2" />
+  <xs:simpleType name="ItemChoiceType4">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ИНН" />
+      <xs:enumeration value="ОГРНИП" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ItemChoiceType4" nillable="true" type="tns:ItemChoiceType4" />
+  <xs:complexType name="ДокументОтвет1">
+    <xs:sequence>
+      <xs:element name="itemField" nillable="true" type="xs:anyType" />
+      <xs:element name="датаВыпField" type="xs:dateTime" />
+      <xs:element name="идЗапросField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументОтвет1" nillable="true" type="tns:ДокументОтвет1" />
+  <xs:complexType name="ДокументСвИП">
+    <xs:sequence>
+      <xs:element name="датаВыпField" type="xs:dateTime" />
+      <xs:element name="иННФЛField" nillable="true" type="xs:string" />
+      <xs:element name="кодВидИПField" type="tns:ДокументСвИПКодВидИП" />
+      <xs:element name="оГРНИПField" nillable="true" type="xs:string" />
+      <xs:element name="свАдрМЖField" nillable="true" type="tns:ДокументСвИПСвАдрМЖ" />
+      <xs:element name="свГраждField" nillable="true" type="tns:ДокументСвИПСвГражд" />
+      <xs:element name="свЗапДействField" nillable="true" type="tns:ArrayOfДокументСвИПСвЗапДейств" />
+      <xs:element name="свЗапНеДействField" nillable="true" type="tns:ArrayOfДокументСвИПСвЗапНеДейств" />
+      <xs:element name="свКФХField" nillable="true" type="tns:ДокументСвИПСвКФХ" />
+      <xs:element name="свЛицензияField" nillable="true" type="tns:ArrayOfДокументСвИПСвЛицензия" />
+      <xs:element name="свНовЮЛField" nillable="true" type="tns:ДокументСвИПСвНовЮЛ" />
+      <xs:element name="свОКВЭДField" nillable="true" type="tns:ArrayOfДокументСвИПСвОКВЭД" />
+      <xs:element name="свПравЖитРФField" nillable="true" type="tns:ДокументСвИПСвПравЖитРФ" />
+      <xs:element name="свРегИПField" nillable="true" type="tns:ДокументСвИПСвРегИП" />
+      <xs:element name="свРегПФField" nillable="true" type="tns:ДокументСвИПСвРегПФ" />
+      <xs:element name="свРегФССField" nillable="true" type="tns:ДокументСвИПСвРегФСС" />
+      <xs:element name="свСтатус_РОField" nillable="true" type="tns:ДокументСвИПСвСтатус_РО" />
+      <xs:element name="свУдЛичнФЛField" nillable="true" type="tns:ДокументСвИПСвУдЛичнФЛ" />
+      <xs:element name="свУчетНОField" nillable="true" type="tns:ДокументСвИПСвУчетНО" />
+      <xs:element name="свФЛField" nillable="true" type="tns:ДокументСвИПСвФЛ" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвИП" nillable="true" type="tns:ДокументСвИП" />
+  <xs:simpleType name="ДокументСвИПКодВидИП">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Item1" />
+      <xs:enumeration value="Item2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ДокументСвИПКодВидИП" nillable="true" type="tns:ДокументСвИПКодВидИП" />
+  <xs:complexType name="ДокументСвИПСвАдрМЖ">
+    <xs:sequence>
+      <xs:element name="адресРФField" nillable="true" type="tns:АдрРФТипВып3" />
+      <xs:element name="гРНИПField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвИПСвАдрМЖ" nillable="true" type="tns:ДокументСвИПСвАдрМЖ" />
+  <xs:complexType name="АдрРФТипВып3">
+    <xs:sequence>
+      <xs:element name="городField" nillable="true" type="tns:АдрРФТипВыпГород3" />
+      <xs:element name="домField" nillable="true" type="xs:string" />
+      <xs:element name="индексField" nillable="true" type="xs:string" />
+      <xs:element name="квартField" nillable="true" type="xs:string" />
+      <xs:element name="кодАдрКладрField" nillable="true" type="xs:string" />
+      <xs:element name="кодРегионField" nillable="true" type="xs:string" />
+      <xs:element name="корпусField" nillable="true" type="xs:string" />
+      <xs:element name="населПунктField" nillable="true" type="tns:АдрРФТипВыпНаселПункт3" />
+      <xs:element name="районField" nillable="true" type="tns:АдрРФТипВыпРайон3" />
+      <xs:element name="регионField" nillable="true" type="tns:АдрРФТипВыпРегион3" />
+      <xs:element name="улицаField" nillable="true" type="tns:АдрРФТипВыпУлица3" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="АдрРФТипВып3" nillable="true" type="tns:АдрРФТипВып3" />
+  <xs:complexType name="АдрРФТипВыпГород3">
+    <xs:sequence>
+      <xs:element name="наимГородField" nillable="true" type="xs:string" />
+      <xs:element name="типГородField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="АдрРФТипВыпГород3" nillable="true" type="tns:АдрРФТипВыпГород3" />
+  <xs:complexType name="АдрРФТипВыпНаселПункт3">
+    <xs:sequence>
+      <xs:element name="наимНаселПунктField" nillable="true" type="xs:string" />
+      <xs:element name="типНаселПунктField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="АдрРФТипВыпНаселПункт3" nillable="true" type="tns:АдрРФТипВыпНаселПункт3" />
+  <xs:complexType name="АдрРФТипВыпРайон3">
+    <xs:sequence>
+      <xs:element name="наимРайонField" nillable="true" type="xs:string" />
+      <xs:element name="типРайонField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="АдрРФТипВыпРайон3" nillable="true" type="tns:АдрРФТипВыпРайон3" />
+  <xs:complexType name="АдрРФТипВыпРегион3">
+    <xs:sequence>
+      <xs:element name="наимРегионField" nillable="true" type="xs:string" />
+      <xs:element name="типРегионField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="АдрРФТипВыпРегион3" nillable="true" type="tns:АдрРФТипВыпРегион3" />
+  <xs:complexType name="АдрРФТипВыпУлица3">
+    <xs:sequence>
+      <xs:element name="наимУлицаField" nillable="true" type="xs:string" />
+      <xs:element name="типУлицаField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="АдрРФТипВыпУлица3" nillable="true" type="tns:АдрРФТипВыпУлица3" />
+  <xs:complexType name="ДокументСвИПСвГражд">
+    <xs:sequence>
+      <xs:element name="видГраждField" type="tns:ДокументСвИПСвГраждВидГражд" />
+      <xs:element name="гРНИПField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="наимСтранField" nillable="true" type="xs:string" />
+      <xs:element name="оКСМField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвИПСвГражд" nillable="true" type="tns:ДокументСвИПСвГражд" />
+  <xs:simpleType name="ДокументСвИПСвГраждВидГражд">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Item1" />
+      <xs:enumeration value="Item2" />
+      <xs:enumeration value="Item3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ДокументСвИПСвГраждВидГражд" nillable="true" type="tns:ДокументСвИПСвГраждВидГражд" />
+  <xs:complexType name="ArrayOfДокументСвИПСвЗапДейств">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ДокументСвИПСвЗапДейств" nillable="true" type="tns:ДокументСвИПСвЗапДейств" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfДокументСвИПСвЗапДейств" nillable="true" type="tns:ArrayOfДокументСвИПСвЗапДейств" />
+  <xs:complexType name="ДокументСвИПСвЗапДейств">
+    <xs:sequence>
+      <xs:element name="видЗапField" nillable="true" type="tns:ДокументСвИПСвЗапДействВидЗап" />
+      <xs:element name="гРНИПField" nillable="true" type="xs:string" />
+      <xs:element name="датаЗапField" type="xs:dateTime" />
+      <xs:element name="свРегОргField" nillable="true" type="tns:СвРегОргТип1" />
+      <xs:element name="свСвидField" nillable="true" type="tns:ArrayOfДокументСвИПСвЗапДействСвСвид" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвИПСвЗапДейств" nillable="true" type="tns:ДокументСвИПСвЗапДейств" />
+  <xs:complexType name="ДокументСвИПСвЗапДействВидЗап">
+    <xs:sequence>
+      <xs:element name="кодСПВЗField" nillable="true" type="xs:string" />
+      <xs:element name="наимВидЗапField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвИПСвЗапДействВидЗап" nillable="true" type="tns:ДокументСвИПСвЗапДействВидЗап" />
+  <xs:complexType name="СвРегОргТип1">
+    <xs:sequence>
+      <xs:element name="кодНОField" nillable="true" type="xs:string" />
+      <xs:element name="наимНОField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="СвРегОргТип1" nillable="true" type="tns:СвРегОргТип1" />
+  <xs:complexType name="ArrayOfДокументСвИПСвЗапДействСвСвид">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ДокументСвИПСвЗапДействСвСвид" nillable="true" type="tns:ДокументСвИПСвЗапДействСвСвид" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfДокументСвИПСвЗапДействСвСвид" nillable="true" type="tns:ArrayOfДокументСвИПСвЗапДействСвСвид" />
+  <xs:complexType name="ДокументСвИПСвЗапДействСвСвид">
+    <xs:sequence>
+      <xs:element name="гРНИПField" nillable="true" type="xs:string" />
+      <xs:element name="датаЗапField" type="xs:dateTime" />
+      <xs:element name="номерField" nillable="true" type="xs:string" />
+      <xs:element name="серияField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвИПСвЗапДействСвСвид" nillable="true" type="tns:ДокументСвИПСвЗапДействСвСвид" />
+  <xs:complexType name="ArrayOfДокументСвИПСвЗапНеДейств">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ДокументСвИПСвЗапНеДейств" nillable="true" type="tns:ДокументСвИПСвЗапНеДейств" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfДокументСвИПСвЗапНеДейств" nillable="true" type="tns:ArrayOfДокументСвИПСвЗапНеДейств" />
+  <xs:complexType name="ДокументСвИПСвЗапНеДейств">
+    <xs:sequence>
+      <xs:element name="видЗапField" nillable="true" type="tns:ДокументСвИПСвЗапНеДействВидЗап" />
+      <xs:element name="гРНИПField" nillable="true" type="xs:string" />
+      <xs:element name="датаЗапField" type="xs:dateTime" />
+      <xs:element name="свПризнНедField" nillable="true" type="tns:ArrayOfДокументСвИПСвЗапНеДействСвПризнНед" />
+      <xs:element name="свРегОргField" nillable="true" type="tns:СвРегОргТип1" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвИПСвЗапНеДейств" nillable="true" type="tns:ДокументСвИПСвЗапНеДейств" />
+  <xs:complexType name="ДокументСвИПСвЗапНеДействВидЗап">
+    <xs:sequence>
+      <xs:element name="кодСПВЗField" nillable="true" type="xs:string" />
+      <xs:element name="наимВидЗапField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвИПСвЗапНеДействВидЗап" nillable="true" type="tns:ДокументСвИПСвЗапНеДействВидЗап" />
+  <xs:complexType name="ArrayOfДокументСвИПСвЗапНеДействСвПризнНед">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ДокументСвИПСвЗапНеДействСвПризнНед" nillable="true" type="tns:ДокументСвИПСвЗапНеДействСвПризнНед" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfДокументСвИПСвЗапНеДействСвПризнНед" nillable="true" type="tns:ArrayOfДокументСвИПСвЗапНеДействСвПризнНед" />
+  <xs:complexType name="ДокументСвИПСвЗапНеДействСвПризнНед">
+    <xs:sequence>
+      <xs:element name="гРНИПField" nillable="true" type="xs:string" />
+      <xs:element name="датаЗапField" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвИПСвЗапНеДействСвПризнНед" nillable="true" type="tns:ДокументСвИПСвЗапНеДействСвПризнНед" />
+  <xs:complexType name="ДокументСвИПСвКФХ">
+    <xs:sequence>
+      <xs:element name="гРНИПField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="иННField" nillable="true" type="xs:string" />
+      <xs:element name="наимЮЛПолнField" nillable="true" type="xs:string" />
+      <xs:element name="оГРНField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвИПСвКФХ" nillable="true" type="tns:ДокументСвИПСвКФХ" />
+  <xs:complexType name="ArrayOfДокументСвИПСвЛицензия">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ДокументСвИПСвЛицензия" nillable="true" type="tns:ДокументСвИПСвЛицензия" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfДокументСвИПСвЛицензия" nillable="true" type="tns:ArrayOfДокументСвИПСвЛицензия" />
+  <xs:complexType name="ДокументСвИПСвЛицензия">
+    <xs:sequence>
+      <xs:element name="видЛицField" nillable="true" type="xs:string" />
+      <xs:element name="гРНИПField" nillable="true" type="xs:string" />
+      <xs:element name="датаЛицField" type="xs:dateTime" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="датаНачЛицField" type="xs:dateTime" />
+      <xs:element name="датаОкончЛицField" type="xs:dateTime" />
+      <xs:element name="датаОкончЛицFieldSpecified" type="xs:boolean" />
+      <xs:element name="лицОргВыдЛицField" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="местоДейстЛицField" nillable="true" type="q3:ArrayOfstring" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="наимЛицВидДеятField" nillable="true" type="q4:ArrayOfstring" />
+      <xs:element name="номЛицField" nillable="true" type="xs:string" />
+      <xs:element name="свПриостЛицField" nillable="true" type="tns:ДокументСвИПСвЛицензияСвПриостЛиц" />
+      <xs:element name="серЛицField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвИПСвЛицензия" nillable="true" type="tns:ДокументСвИПСвЛицензия" />
+  <xs:complexType name="ДокументСвИПСвЛицензияСвПриостЛиц">
+    <xs:sequence>
+      <xs:element name="датаПриостЛицField" type="xs:dateTime" />
+      <xs:element name="лицОргПриостЛицField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвИПСвЛицензияСвПриостЛиц" nillable="true" type="tns:ДокументСвИПСвЛицензияСвПриостЛиц" />
+  <xs:complexType name="ДокументСвИПСвНовЮЛ">
+    <xs:sequence>
+      <xs:element name="гРНИПField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="иННField" nillable="true" type="xs:string" />
+      <xs:element name="наимЮЛПолнField" nillable="true" type="xs:string" />
+      <xs:element name="оГРНField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвИПСвНовЮЛ" nillable="true" type="tns:ДокументСвИПСвНовЮЛ" />
+  <xs:complexType name="ArrayOfДокументСвИПСвОКВЭД">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ДокументСвИПСвОКВЭД" nillable="true" type="tns:ДокументСвИПСвОКВЭД" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfДокументСвИПСвОКВЭД" nillable="true" type="tns:ArrayOfДокументСвИПСвОКВЭД" />
+  <xs:complexType name="ДокументСвИПСвОКВЭД">
+    <xs:sequence>
+      <xs:element name="гРНИПField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="кодОКВЭДField" nillable="true" type="xs:string" />
+      <xs:element name="прОснДопField" type="tns:ДокументСвИПСвОКВЭДПрОснДоп" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвИПСвОКВЭД" nillable="true" type="tns:ДокументСвИПСвОКВЭД" />
+  <xs:simpleType name="ДокументСвИПСвОКВЭДПрОснДоп">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Item1" />
+      <xs:enumeration value="Item2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ДокументСвИПСвОКВЭДПрОснДоп" nillable="true" type="tns:ДокументСвИПСвОКВЭДПрОснДоп" />
+  <xs:complexType name="ДокументСвИПСвПравЖитРФ">
+    <xs:sequence>
+      <xs:element name="гРНИПField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="докПравЖитРФField" nillable="true" type="tns:УдЛичнТипР1" />
+      <xs:element name="срокДействДокField" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвИПСвПравЖитРФ" nillable="true" type="tns:ДокументСвИПСвПравЖитРФ" />
+  <xs:complexType name="УдЛичнТипР1">
+    <xs:sequence>
+      <xs:element name="выдДокField" nillable="true" type="xs:string" />
+      <xs:element name="датаДокField" type="xs:dateTime" />
+      <xs:element name="кодВидДокField" nillable="true" type="xs:string" />
+      <xs:element name="кодВыдДокField" nillable="true" type="xs:string" />
+      <xs:element name="наимДокField" nillable="true" type="xs:string" />
+      <xs:element name="серНомДокField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="УдЛичнТипР1" nillable="true" type="tns:УдЛичнТипР1" />
+  <xs:complexType name="ДокументСвИПСвРегИП">
+    <xs:sequence>
+      <xs:element name="гРНИПField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="датаРегField" type="xs:dateTime" />
+      <xs:element name="наимРОField" nillable="true" type="xs:string" />
+      <xs:element name="регНомField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвИПСвРегИП" nillable="true" type="tns:ДокументСвИПСвРегИП" />
+  <xs:complexType name="ДокументСвИПСвРегПФ">
+    <xs:sequence>
+      <xs:element name="гРНИПField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="датаРегField" type="xs:dateTime" />
+      <xs:element name="датаСнУчField" type="xs:dateTime" />
+      <xs:element name="датаСнУчFieldSpecified" type="xs:boolean" />
+      <xs:element name="регНомПФField" nillable="true" type="xs:string" />
+      <xs:element name="свОргПФField" nillable="true" type="tns:ДокументСвИПСвРегПФСвОргПФ" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвИПСвРегПФ" nillable="true" type="tns:ДокументСвИПСвРегПФ" />
+  <xs:complexType name="ДокументСвИПСвРегПФСвОргПФ">
+    <xs:sequence>
+      <xs:element name="кодПФField" nillable="true" type="xs:string" />
+      <xs:element name="наимПФField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвИПСвРегПФСвОргПФ" nillable="true" type="tns:ДокументСвИПСвРегПФСвОргПФ" />
+  <xs:complexType name="ДокументСвИПСвРегФСС">
+    <xs:sequence>
+      <xs:element name="гРНИПField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="датаРегField" type="xs:dateTime" />
+      <xs:element name="датаСнУчField" type="xs:dateTime" />
+      <xs:element name="датаСнУчFieldSpecified" type="xs:boolean" />
+      <xs:element name="регНомФССField" nillable="true" type="xs:string" />
+      <xs:element name="свОргФССField" nillable="true" type="tns:ДокументСвИПСвРегФСССвОргФСС" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвИПСвРегФСС" nillable="true" type="tns:ДокументСвИПСвРегФСС" />
+  <xs:complexType name="ДокументСвИПСвРегФСССвОргФСС">
+    <xs:sequence>
+      <xs:element name="кодФССField" nillable="true" type="xs:string" />
+      <xs:element name="наимФССField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвИПСвРегФСССвОргФСС" nillable="true" type="tns:ДокументСвИПСвРегФСССвОргФСС" />
+  <xs:complexType name="ДокументСвИПСвСтатус_РО">
+    <xs:sequence>
+      <xs:element name="гРНИПField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="свРегОргField" nillable="true" type="tns:СвРегОргТип1" />
+      <xs:element name="свСтатусField" nillable="true" type="tns:ДокументСвИПСвСтатус_РОСвСтатус" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвИПСвСтатус_РО" nillable="true" type="tns:ДокументСвИПСвСтатус_РО" />
+  <xs:complexType name="ДокументСвИПСвСтатус_РОСвСтатус">
+    <xs:sequence>
+      <xs:element name="кодСтатусField" nillable="true" type="xs:string" />
+      <xs:element name="наимСтатусField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвИПСвСтатус_РОСвСтатус" nillable="true" type="tns:ДокументСвИПСвСтатус_РОСвСтатус" />
+  <xs:complexType name="ДокументСвИПСвУдЛичнФЛ">
+    <xs:sequence>
+      <xs:element name="гРНИПField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="удЛичнФЛField" nillable="true" type="tns:УдЛичнТипР1" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвИПСвУдЛичнФЛ" nillable="true" type="tns:ДокументСвИПСвУдЛичнФЛ" />
+  <xs:complexType name="ДокументСвИПСвУчетНО">
+    <xs:sequence>
+      <xs:element name="гРНИПField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="датаПостУчField" type="xs:dateTime" />
+      <xs:element name="датаСнУчField" type="xs:dateTime" />
+      <xs:element name="датаСнУчFieldSpecified" type="xs:boolean" />
+      <xs:element name="свНОField" nillable="true" type="tns:ДокументСвИПСвУчетНОСвНО" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвИПСвУчетНО" nillable="true" type="tns:ДокументСвИПСвУчетНО" />
+  <xs:complexType name="ДокументСвИПСвУчетНОСвНО">
+    <xs:sequence>
+      <xs:element name="кодНОField" nillable="true" type="xs:string" />
+      <xs:element name="наимНОField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвИПСвУчетНОСвНО" nillable="true" type="tns:ДокументСвИПСвУчетНОСвНО" />
+  <xs:complexType name="ДокументСвИПСвФЛ">
+    <xs:sequence>
+      <xs:element name="гРНИПField" nillable="true" type="xs:string" />
+      <xs:element name="датаНачДействField" type="xs:dateTime" />
+      <xs:element name="полField" type="tns:ДокументСвИПСвФЛПол" />
+      <xs:element name="свРождField" nillable="true" type="tns:СведРождТип" />
+      <xs:element name="фИОЛатField" nillable="true" type="tns:ФИОТип3" />
+      <xs:element name="фИОРусField" nillable="true" type="tns:ФИОТип3" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ДокументСвИПСвФЛ" nillable="true" type="tns:ДокументСвИПСвФЛ" />
+  <xs:simpleType name="ДокументСвИПСвФЛПол">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Item1" />
+      <xs:enumeration value="Item2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ДокументСвИПСвФЛПол" nillable="true" type="tns:ДокументСвИПСвФЛПол" />
+  <xs:complexType name="СведРождТип">
+    <xs:sequence>
+      <xs:element name="датаРождField" type="xs:dateTime" />
+      <xs:element name="местоРождField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="СведРождТип" nillable="true" type="tns:СведРождТип" />
+  <xs:complexType name="ФИОТип3">
+    <xs:sequence>
+      <xs:element name="имяField" nillable="true" type="xs:string" />
+      <xs:element name="отчествоField" nillable="true" type="xs:string" />
+      <xs:element name="фамилияField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ФИОТип3" nillable="true" type="tns:ФИОТип3" />
+  <xs:complexType name="Документ9">
+    <xs:sequence>
+      <xs:element name="версФормField" type="tns:ДокументВерсФорм9" />
+      <xs:element name="идДокField" nillable="true" type="xs:string" />
+      <xs:element name="свИПField" nillable="true" type="tns:ДокументСвИП" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Документ9" nillable="true" type="tns:Документ9" />
+  <xs:simpleType name="ДокументВерсФорм9">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Item401" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ДокументВерсФорм9" nillable="true" type="tns:ДокументВерсФорм9" />
+</xs:schema>

@@ -1,0 +1,13 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+	<S:Body>
+		<soap:Fault xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+			<faultcode>S:Server</faultcode>
+			<faultstring>SendShortULRequestFault_81</faultstring>
+			<detail>
+				<Документ ВерсФорм="4.01" ИдДок="56e757f4-bdd2-4a18-9dda-1be9435365dd" КодОбр="81" Ошибка="Несовпадение сигнатур цифровой подписи" xmlns="http://ws.unisoft/EGRNXX/Response">
+					<СвЮЛ ОКОГУ="13312" НаимЮЛ=" Федеральная Налоговая Служба" ИННЮЛ="7707329152" ОГРН="1047707030513"/>
+				</Документ>
+			</detail>
+		</soap:Fault>
+	</S:Body>
+</S:Envelope>

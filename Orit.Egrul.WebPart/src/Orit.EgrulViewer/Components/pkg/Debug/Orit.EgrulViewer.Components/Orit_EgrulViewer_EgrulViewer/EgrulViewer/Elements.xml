@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Code initially generated with SharePoint Software Factory 2010, Version 3.2 , spsf.codeplex.com -->
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+	<!--
+    ************************************************************************
+       Application: Orit.EgrulViewer
+      Created date: 2012-04-11 13:05:52Z
+        Created by: NVXLAB\holinov
+              Name: EgrulViewer
+       Description: Получение информации по ЕГРЮЛ          
+    ************************************************************************
+    -->
+	<Module
+		Name="EgrulViewer"
+		List="113"
+		Url="_catalogs/wp">
+		<File
+			Path="EgrulViewer\EgrulViewer.webpart"
+			Url="EgrulViewer.webpart"
+			Type="GhostableInLibrary">
+			<Property
+				Name="Group"
+				Value="Orit Webparts" />
+			<Property
+				Name="QuickAddGroups"
+				Value="Orit QuickAdd Webparts" />
+		</File>
+	</Module>
+</Elements>

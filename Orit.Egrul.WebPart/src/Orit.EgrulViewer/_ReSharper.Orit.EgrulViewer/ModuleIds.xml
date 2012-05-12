@@ -1,0 +1,4 @@
+<Modules>
+  <Module PersistentId="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0" ModuleId="Components" />
+  <Module PersistentId="itextsharp, Version=5.2.1.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca" ModuleId="itextsharp" />
+</Modules>

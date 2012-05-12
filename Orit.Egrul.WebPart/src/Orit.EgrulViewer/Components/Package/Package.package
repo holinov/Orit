@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="70b0d75c-70fc-4b4f-981f-8b3ddb28a8cf" solutionId="70b0d75c-70fc-4b4f-981f-8b3ddb28a8cf" resetWebServer="true" sharePointProductVersion="" name="Orit.EgrulViewer.Components" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <assemblies>
+    <customAssembly location="EO.Pdf.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="..\EO.Pdf.dll" />
+    <customAssembly location="EO.Web.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="..\EO.Web.dll" />
+    <customAssembly location="itextsharp.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="..\itextsharp.dll" />
+    <customAssembly location="itextsharp.xtra.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="..\itextsharp.xtra.dll" />
+    <customAssembly location="itextsharp.xmlworker.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="..\itextsharp.xmlworker.dll" />
+  </assemblies>
+  <features>
+    <featureReference itemId="4137459f-36e5-4e13-a272-8091caa720d8" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="3cf24361-e3fa-4e77-ad83-58dbf6c29dc6" />
+  </projectItems>
+</package>

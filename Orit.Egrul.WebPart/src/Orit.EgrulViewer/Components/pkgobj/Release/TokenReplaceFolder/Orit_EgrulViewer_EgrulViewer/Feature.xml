@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+************************************************************************
+       Company: Orit
+   Application: Orit.EgrulViewer
+  Created date: 2012-04-11 13:05:51Z
+    Created by: NVXLAB\holinov
+  Feature Name: EgrulViewer
+ Feature Title: EgrulViewer Feature
+   Description: EgrulViewer Feature Description
+       History: Initial Version 1.0.0.0 
+************************************************************************
+-->
+<!-- Code initially generated with SharePoint Software Factory 2010, Version 3.2 , spsf.codeplex.com -->
+<Feature xmlns="http://schemas.microsoft.com/sharepoint/" Description="EgrulViewer Feature Description" Id="628d164b-f49e-436e-9db4-1a1c3eb0aaa5" ImageUrl="Orit_EgrulViewer\FeatureIcon_EgrulViewer.gif" ImageUrlAltText="EgrulViewer Feature" Scope="Site" SolutionId="70b0d75c-70fc-4b4f-981f-8b3ddb28a8cf" Title="EgrulViewer Feature" Version="1.0.0.0">
+  <ElementManifests>
+    <ElementManifest Location="EgrulViewer\Elements.xml" />
+    <ElementFile Location="EgrulViewer\EgrulViewer.webpart" />
+    <ElementManifest Location="XsltTemplate\Elements.xml" />
+    <ElementManifest Location="ErgulTemplatesList\Elements.xml" />
+    <ElementFile Location="ErgulTemplatesList\EditDlg.htm" />
+    <ElementFile Location="ErgulTemplatesList\FileDlg.htm" />
+    <ElementFile Location="ErgulTemplatesList\Repair.aspx" />
+    <ElementFile Location="ErgulTemplatesList\schema.xml" />
+    <ElementFile Location="ErgulTemplatesList\Upload.aspx" />
+    <ElementManifest Location="ШаблонывыписокЕГРЮЛ\EGRIP\Elements.xml" />
+  </ElementManifests>
+</Feature>

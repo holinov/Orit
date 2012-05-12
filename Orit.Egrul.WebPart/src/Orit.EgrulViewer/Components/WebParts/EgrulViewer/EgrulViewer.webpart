@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<webParts>
+	<webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
+		<metaData>
+			<type name="Orit.EgrulViewer.Components.EgrulViewer, Orit.EgrulViewer.Components, Version=1.0.0.0, Culture=neutral, PublicKeyToken=22d60dabbca5b3e8" />
+			<importErrorMessage>Cannot import Получение информации по ЕГРЮЛ Web Part.</importErrorMessage>
+		</metaData>
+		<data>
+			<properties>
+				<property name="Title" type="string">Получение информации по ЕГРЮЛ</property>
+				<property name="Description" type="string">Получение информации по ЕГРЮЛ</property>
+				<property name="CatalogIconImageUrl" type="string">/_layouts/images/Orit_EgrulViewer/WebPartIcon_EgrulViewer.gif</property>
+				<property name="TitleIconImageUrl" type="string">/_layouts/images/Orit_EgrulViewer/WebPartIcon_EgrulViewer.gif</property>
+			</properties>
+		</data>
+	</webPart>
+</webParts>
