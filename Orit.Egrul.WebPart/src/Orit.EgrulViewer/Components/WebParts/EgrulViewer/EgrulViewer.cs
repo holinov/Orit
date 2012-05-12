@@ -21,7 +21,7 @@ using iTextSharp.text;
 using iTextSharp.text.html.simpleparser;
 using iTextSharp.text.pdf;
 using iTextSharp.tool.xml;
-using PdfDocument = EO.Pdf.PdfDocument;
+
 
 namespace Orit.EgrulViewer.Components
 {

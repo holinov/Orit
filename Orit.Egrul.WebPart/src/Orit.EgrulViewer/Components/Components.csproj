@@ -34,12 +34,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EO.Pdf">
-      <HintPath>..\EO.Pdf.dll</HintPath>
-    </Reference>
-    <Reference Include="EO.Web">
-      <HintPath>..\EO.Web.dll</HintPath>
-    </Reference>
     <Reference Include="itextsharp">
       <HintPath>..\itextsharp.dll</HintPath>
     </Reference>
