@@ -11,41 +11,37 @@
     <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:ListDefinitions/d:ErgulTemplatesList/f:Upload.aspx" caret="2002" fromTop="0" />
     <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:Fields/d:XsltTemplate/f:Elements.xml" caret="0" fromTop="0" />
     <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewerUserControl.ascx.cs" caret="556" fromTop="17" />
-    <File id="4FF0483C-6845-4B64-9DF9-3EE1DE267B35/f:StyleSheet.cs" caret="482" fromTop="13" />
     <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewerUserControl.ascx.designer.cs" caret="503" fromTop="14" />
     <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewerUserControl.ascx" caret="0" fromTop="0" />
-    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="2340" fromTop="16" />
+    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="4737" fromTop="13" />
   </RecentFiles>
   <RecentEdits>
-    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="4110" fromTop="18" />
-    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="3807" fromTop="8" />
-    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="3654" fromTop="4" />
+    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="4071" fromTop="18" />
+    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="3768" fromTop="8" />
+    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="3615" fromTop="4" />
     <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewerUserControl.ascx" caret="1105" fromTop="2" />
-    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="4083" fromTop="14" />
-    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="6406" fromTop="29" />
-    <File id="4FF0483C-6845-4B64-9DF9-3EE1DE267B35/f:StyleSheet.cs" caret="0" fromTop="0" />
-    <File id="4FF0483C-6845-4B64-9DF9-3EE1DE267B35/f:StyleSheet.cs" caret="1432" fromTop="12" />
-    <File id="4FF0483C-6845-4B64-9DF9-3EE1DE267B35/f:StyleSheet.cs" caret="1137" fromTop="13" />
-    <File id="4FF0483C-6845-4B64-9DF9-3EE1DE267B35/f:StyleSheet.cs" caret="482" fromTop="13" />
-    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="4048" fromTop="18" />
-    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="6322" fromTop="19" />
-    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="5668" fromTop="15" />
-    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="6261" fromTop="15" />
-    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="5181" fromTop="14" />
+    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="4044" fromTop="14" />
+    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="6367" fromTop="29" />
+    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="4009" fromTop="18" />
+    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="6283" fromTop="19" />
+    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="5629" fromTop="15" />
+    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="6222" fromTop="15" />
+    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="5142" fromTop="14" />
     <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewerUserControl.ascx.designer.cs" caret="503" fromTop="14" />
     <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewerUserControl.ascx" caret="0" fromTop="0" />
-    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="4647" fromTop="11" />
-    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="4711" fromTop="6" />
-    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="5167" fromTop="18" />
-    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="5868" fromTop="26" />
-    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="5597" fromTop="16" />
-    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="5636" fromTop="18" />
-    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="5636" fromTop="18" />
-    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="5636" fromTop="18" />
-    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="5307" fromTop="10" />
-    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="5637" fromTop="102" />
-    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="2016" fromTop="3" />
-    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="2147" fromTop="9" />
-    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="2340" fromTop="16" />
+    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="4608" fromTop="11" />
+    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="4672" fromTop="6" />
+    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="5128" fromTop="18" />
+    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="5829" fromTop="26" />
+    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="5558" fromTop="16" />
+    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="5597" fromTop="18" />
+    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="5597" fromTop="18" />
+    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="5597" fromTop="18" />
+    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="5268" fromTop="10" />
+    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="5598" fromTop="102" />
+    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="1977" fromTop="3" />
+    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="2108" fromTop="9" />
+    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="2301" fromTop="16" />
+    <File id="BD3A5D0D-5EE3-49E6-B187-973E51FCB5C0/d:WebParts/d:EgrulViewer/f:EgrulViewer.cs" caret="671" fromTop="23" />
   </RecentEdits>
 </RecentFiles>

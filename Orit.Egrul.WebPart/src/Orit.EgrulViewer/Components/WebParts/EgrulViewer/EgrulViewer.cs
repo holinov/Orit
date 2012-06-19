@@ -21,7 +21,7 @@ using iTextSharp.text;
 using iTextSharp.text.html.simpleparser;
 using iTextSharp.text.pdf;
 using iTextSharp.tool.xml;
-
+using PdfDocument = EO.Pdf.PdfDocument;
 
 namespace Orit.EgrulViewer.Components
 {
@@ -258,14 +258,13 @@ namespace Orit.EgrulViewer.Components
             SqlXml xml=new SqlXml();
             if (doc != null)
             {
-                sb.AppendFormat(@"<br\>ItemField: {0} = {1}", doc.itemField.GetType().Name, doc.itemField);
-                sb.AppendLine(@"<br\>Дата выписки: " + doc.датаВыпField);
-                sb.AppendLine(@"<br\>Ид запроса: " + doc.идЗапросField);
-
+                sb.AppendFormat(@"<br\>ItemField: {0} = {1}", doc.Item.GetType().Name, doc.Item);
+                //sb.AppendLine(@"<br\>Дата выписки: " + doc.датаВыпField);
+                //sb.AppendLine(@"<br\>Ид запроса: " + doc.идЗапросField);
 
                 MemoryStream stream = new MemoryStream();
-                XmlSerializer serializer = new XmlSerializer(doc.itemField.GetType());
-                serializer.Serialize(stream, doc.itemField);
+                XmlSerializer serializer = new XmlSerializer(doc.GetType());
+                serializer.Serialize(stream, doc);
                 // reset the stream to the beginning
                 stream.Position = 0;
                 xml = new SqlXml(stream);
@@ -334,6 +333,7 @@ namespace Orit.EgrulViewer.Components
 
         private void UpdateEgrulInfo()
         {
+            resultLabel.Text = "";
             try
             {
                 var ltype = LType.SelectedValue; //Юр. лица|Физ. лица
@@ -373,6 +373,8 @@ namespace Orit.EgrulViewer.Components
                         {
                             xmlResult.DocumentContent = GetFLLong(txtField.Text);
                             ApplyXslt("FLLong");
+                            txtField.Enabled = true;
+                            GetPdfButton.Visible = true;
                         }
                     }
                 }
@@ -385,7 +387,7 @@ namespace Orit.EgrulViewer.Components
                 }
             }catch(System.ServiceModel.FaultException fault)
             {
-                resultLabel.Text = @"Сервис получения выписок из ЕГРЮЛ\ЕГРИП временно недоступен";
+                resultLabel.Text += @"<br\> Сервис получения выписок из ЕГРЮЛ\ЕГРИП временно недоступен";
                 txtField.Enabled = true;
                 GetPdfButton.Visible = false;
             }
@@ -429,14 +431,24 @@ namespace Orit.EgrulViewer.Components
                 sb.AppendLine("Request Id: " + gi.RequestId);
                 resultLabel.Text = "Загрузка данных";
                 //UpdateTimer.Enabled = true;
-
-                if (gi.GateReturnCode == GateReturnCode.RequestAcceptedByFNS)
+                var retrCont = 0;
+                while (gi!=null && (gi.GateReturnCode == GateReturnCode.RequestAcceptedByFNS || gi.GateReturnCode == GateReturnCode.NotReady))
                 {
-                    System.Threading.Thread.Sleep(30000);
+                    System.Threading.Thread.Sleep(3000);
                     var doc1 = service.GetLongInfo_FL(gi.RequestId);
                     doc = doc1.GateInfoORДокумент9 as Документ9;
-                    GetPdfButton.Visible = true;
+                    gi = doc1.GateInfoORДокумент9 as GateInfo;
+                    retrCont++;
+
+                    if (retrCont > 10)
+                    {
+                        resultLabel.Text = "Ошибка Гейта. Ответ на запрос не получен после " + retrCont + " запросов";
+                        break;
+                        
+                    }
                 }
+                if (doc != null)
+                    GetPdfButton.Visible = true;
             }
 
             if (doc != null)
@@ -444,7 +456,7 @@ namespace Orit.EgrulViewer.Components
                 resultLabel.Text = "";
                 MemoryStream stream = new MemoryStream();
                 XmlSerializer serializer = new XmlSerializer(doc.GetType());
-                serializer.Serialize(stream, doc.свИПField);
+                serializer.Serialize(stream, doc);
                 // reset the stream to the beginning
                 stream.Position = 0;
                 xml = new SqlXml(stream);
@@ -480,9 +492,9 @@ namespace Orit.EgrulViewer.Components
             SqlXml xml = new SqlXml();
             if (doc != null)
             {
-                sb.AppendFormat(@"<br\>ItemField: {0} = {1}", doc.itemField.GetType().Name, doc.itemField);
-                sb.AppendLine(@"<br\>Дата выписки: " + doc.датаВыпField);
-                sb.AppendLine(@"<br\>Ид запроса: " + doc.идЗапросField);
+                sb.AppendFormat(@"<br\>ItemField: {0} = {1}", doc.GetType().Name, doc);
+                sb.AppendLine(@"<br\>Дата выписки: " + doc.ДатаВып);
+                sb.AppendLine(@"<br\>Ид запроса: " + doc.ИдЗапрос);
 
 
                 MemoryStream stream = new MemoryStream();

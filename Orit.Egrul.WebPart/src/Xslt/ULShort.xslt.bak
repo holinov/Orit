@@ -1,0 +1,325 @@
+<?xml version="1.0"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+xmlns:i="http://www.w3.org/2001/XMLSchema-instance"  
+xmlns:a="http://ws.unisoft/EGRNXX/ResponseKSUL">
+	<xsl:output method="html" version="1.0" encoding="UTF-8" indent="yes"/>
+
+	<xsl:template match="/ДокументОтвет">
+	<p>aaa</p>
+		<xsl:apply-templates select="a:СвЮЛ"/>
+	</xsl:template>
+
+	<xsl:template match="a:СвЮЛ">
+		<div class="docHeader">
+			<h2>Из Единого государственного реестра юридических лиц
+				(предоставляется на основании Решения ФНС России №1044 от 15.12.2006 г.)</h2>
+			<div>
+				<strong>Дата формирования:</strong>
+				<span class="date">
+					<xsl:value-of select="../@ДатаВып"/>
+				</span>
+			</div>
+			<h4>Настоящая справка содержит краткие сведения о юридическом лице:</h4>
+			<h5>
+				<xsl:value-of select="@НаимЮЛПолн"/>
+			</h5>
+		</div>
+		<div class="MainInfo  infoblock">
+			<table width="100%">
+				<caption>
+					<h5>Основные сведения о ЮЛ</h5>
+				</caption>
+				<tr>
+					<td>ОРГН</td>
+					<td>
+						<xsl:value-of select="@ОГРН"/>
+					</td>
+				</tr>
+				<tr>
+					<td>ИНН</td>
+					<td>
+						<xsl:value-of select="@ИНН"/>
+					</td>
+				</tr>
+				<tr>
+					<td>Полное наименование</td>
+					<td>
+						<xsl:value-of select="@НаимЮЛПолн"/>
+					</td>
+				</tr>
+				<tr>
+					<td>Сокращенное наименование</td>
+					<td>
+						<xsl:value-of select="@НаимЮЛСокр"/>
+					</td>
+				</tr>
+				<tr>
+					<td>Сведения о размере уставного капитала</td>
+					<td>
+						<xsl:value-of select="@СумКап"/>
+					</td>
+				</tr>
+				<tr>
+					<td>Сведения о местоположении</td>
+					<td>
+						<xsl:apply-templates select="a:АдресРФ"/>
+					</td>
+				</tr>
+				<xsl:if test="a:СвСтатус/НаимСтатусЮЛ != ''">
+					<tr>
+						<td>Сведения о состоянии юр.лица</td>
+						<td>
+							<xsl:value-of select="a:СвСтатус/НаимСтатусЮЛ"/>
+						</td>
+					</tr>
+				</xsl:if>
+			</table>
+		</div>
+
+		<div class="infoblock">
+			<xsl:apply-templates select="a:СвРегОрг"/>
+		</div>
+
+		<div class="infoblock">
+			<xsl:apply-templates select="a:СведУчетНО"/>
+		</div>
+
+		<div class="infoblock">
+			<xsl:apply-templates select="a:СведУправлДеят"/>
+		</div>
+	</xsl:template>
+
+	<xsl:template match="a:АдресРФ">
+
+		<xsl:value-of select="@Индекс"/>
+		<xsl:text> </xsl:text>
+		<xsl:value-of select="a:Район/@ТипРайон"/>
+		<xsl:text> </xsl:text>
+		<xsl:value-of select="a:Район/@НаимРайон"/>
+		<xsl:text>, </xsl:text>
+
+		<xsl:value-of select="a:Город/@ТипГород"/>
+		<xsl:text> </xsl:text>
+		<xsl:value-of select="a:Город/@НаимГород"/>
+		<xsl:text> </xsl:text>
+
+		<xsl:value-of select="a:Улица/@НаимУлица"/>
+		<xsl:text> </xsl:text>
+
+		<xsl:value-of select="a:Улица/@ТипУлица"/>
+		<xsl:text> </xsl:text>
+
+		<xsl:value-of select="@Дом"/>
+		<xsl:text> </xsl:text>
+
+		<xsl:value-of select="@Корпус"/>
+		<xsl:text> </xsl:text>
+
+		<xsl:if test="not(АдресРФ/Кварт/@i:nil)">
+			<xsl:value-of select="a:АдресРФ/Кварт"/>
+		</xsl:if>
+	</xsl:template>
+
+	<xsl:template match="a:СвРегОрг">
+		<table>
+			<caption>
+				<h5>Сведения о регистрирующем (налоговом) органе, по месту нахождения юридического лица</h5>
+			</caption>
+			<tr>
+				<td>Код органа по справочнику СОНО</td>
+				<td>
+					<xsl:value-of select="@КодНО"/>
+				</td>
+			</tr>
+			<tr>
+				<td>Наименование регистрирующего (налогового) органа</td>
+				<td>
+					<xsl:value-of select="@НаимНО"/>
+				</td>
+			</tr>
+		</table>
+	</xsl:template>
+
+	<xsl:template match="a:СведУчетНО">
+		<table width="100%">
+			<caption>
+				<h5>Сведения об учете в налоговом органе</h5>
+			</caption>
+			<xsl:if test="@ДатаПостУч != ''">
+				<tr>
+					<td>Дата постановки на учет в налоговом органе</td>
+					<td>
+						<xsl:value-of select="@ДатаПостУч"/>
+					</td>
+				</tr>
+			</xsl:if>
+
+
+			<xsl:if test="@ДатаСнУч != ''">
+				<tr>
+					<td>Дата снятия с учета в налоговом органе</td>
+					<td>
+						<xsl:value-of select="@ДатаСнУч"/>
+					</td>
+				</tr>
+			</xsl:if>
+			<tr>
+				<td>Код органа по справочнику СОНО</td>
+				<td>
+					<xsl:value-of select="a:СвНО/@КодНО"/>
+				</td>
+			</tr>
+			<tr>
+				<td>Наименование регистрирующего (налогового) органа</td>
+				<td>
+					<xsl:value-of select="a:СвНО/@НаимНО"/>
+				</td>
+			</tr>
+		</table>
+	</xsl:template>
+
+	<xsl:template match="a:СведУправлДеят">
+
+			<xsl:apply-templates select="a:СведДолжнФЛ"/>
+
+			<xsl:apply-templates select="a:УпрКомпРос"/>
+
+			<xsl:apply-templates select="a:УпрКомпИн"/>
+
+	</xsl:template>
+
+
+	<xsl:template match="a:СведДолжнФЛ">
+		<table width="100%">
+			<caption>
+				<h5>Сведения о физическом лице, имеющем право без доверенности действовать от имени юридического лица</h5>
+			</caption>
+			<tr>
+				<td>Должность</td>
+				<td>
+					<xsl:value-of select="@НаимДолжн"/>
+				</td>
+			</tr>
+			<xsl:apply-templates select="a:ФИО"/>
+			<tr>
+				<td>ИНН</td>
+				<td>
+					<xsl:value-of select="@ИННФЛ"/>
+				</td>
+			</tr>
+		</table>
+	</xsl:template>
+
+	<xsl:template match="a:ФИО">
+		<tr>
+			<td>Фамилия</td>
+			<td>
+				<xsl:value-of select="@Фамилия"/>
+			</td>
+		</tr>
+		<tr>
+			<td>Имя</td>
+			<td>
+				<xsl:value-of select="@Имя"/>
+			</td>
+		</tr>
+		<tr>
+			<td>Отчество</td>
+			<td>
+				<xsl:value-of select="@Отчество"/>
+			</td>
+		</tr>
+	</xsl:template>
+
+	<xsl:template match="a:УпрКомпРос">
+		<table width="100%">
+			<caption>
+				<h5>Сведения об Российской управляющей компании</h5>
+			</caption>
+			<tr>
+				<td>Основной государственный регистрационный номер юридического лица</td>
+				<td>
+					<xsl:value-of select="@ОГРН"/>
+				</td>
+			</tr>
+			<tr>
+				<td>ИНН юридического лица</td>
+				<td>
+					<xsl:value-of select="@ИНН"/>
+				</td>
+			</tr>
+			<tr>
+				<td>Полное наименование юридического лица</td>
+				<td>
+					<xsl:value-of select="@НаимЮЛПолн"/>
+				</td>
+			</tr>
+		</table>
+	</xsl:template>
+
+	<xsl:template match="a:УпрКомпИн">
+		<table width="100%">
+			<caption>
+				<h5>Сведения об иностранной управляющей компании</h5>
+			</caption>
+			<tr>
+				<td>ИНН юридического лица</td>
+				<td>
+					<xsl:value-of select="@ОГРН"/>
+				</td>
+			</tr>
+			<tr>
+				<td>Полное наименование юридического лица</td>
+				<td>
+					<xsl:value-of select="@НаимЮЛПолн"/>
+				</td>
+			</tr>
+			<tr>
+				<td>Код страны регистрации (инкорпорации) по справочнику ОКСМ</td>
+				<td>
+					<xsl:value-of select="@ОКСМ"/>
+				</td>
+			</tr>
+			<tr>
+				<td>Наименование страны регистрации (инкорпорации) по справочнику ОКСМ</td>
+				<td>
+					<xsl:value-of select="@НаимСтр"/>
+				</td>
+			</tr>
+			<tr>
+				<td>Место нахождения  иностранного юридического лица в стране регистрации (инкорпорации)</td>
+				<td>
+					<xsl:value-of select="@АдрИн"/>
+				</td>
+			</tr>
+		</table>
+	</xsl:template>
+</xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2009. Progress Software Corporation. All rights reserved.
+
+<metaInformation>
+	<scenarios>
+		<scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="no" url="ULShort.xml" htmlbaseurl="" outputurl="" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml=""
+		          commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
+			<advancedProp name="sInitialMode" value=""/>
+			<advancedProp name="bXsltOneIsOkay" value="true"/>
+			<advancedProp name="bSchemaAware" value="true"/>
+			<advancedProp name="bXml11" value="false"/>
+			<advancedProp name="iValidation" value="0"/>
+			<advancedProp name="bExtensions" value="true"/>
+			<advancedProp name="iWhitespace" value="0"/>
+			<advancedProp name="sInitialTemplate" value=""/>
+			<advancedProp name="bTinyTree" value="true"/>
+			<advancedProp name="xsltVersion" value="2.0"/>
+			<advancedProp name="bWarnings" value="true"/>
+			<advancedProp name="bUseDTD" value="false"/>
+			<advancedProp name="iErrorHandling" value="fatal"/>
+		</scenario>
+	</scenarios>
+	<MapperMetaTag>
+		<MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/>
+		<MapperBlockPosition></MapperBlockPosition>
+		<TemplateContext></TemplateContext>
+		<MapperFilter side="source"></MapperFilter>
+	</MapperMetaTag>
+</metaInformation>
+-->

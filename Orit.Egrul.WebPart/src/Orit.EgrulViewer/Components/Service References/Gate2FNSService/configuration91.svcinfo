@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="rLUuNggnBaL+F2SrnjZ4x/39WDE=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="IBJZVzeiIfefH94J+s+26WbQgmQ=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IGate2FNSService">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IGate2FNSService" contract="Gate2FNSService.IGate2FNSService" bindingType="basicHttpBinding" address="http://win-1q3nf1en0g9:8000/Gate2FNSService.svc" bindingConfiguration="BasicHttpBinding_IGate2FNSService">
+    <endpoint name="BasicHttpBinding_IGate2FNSService" contract="Gate2FNSService.IGate2FNSService" bindingType="basicHttpBinding" address="http://fnsgate:8000/Gate2FNSService.svc" bindingConfiguration="BasicHttpBinding_IGate2FNSService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://win-1q3nf1en0g9:8000/Gate2FNSService.svc</serializedValue>
+          <serializedValue>http://fnsgate:8000/Gate2FNSService.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

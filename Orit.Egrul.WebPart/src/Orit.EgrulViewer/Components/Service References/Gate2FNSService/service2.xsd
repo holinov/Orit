@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="GetShortInfo_UL">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="str" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="type" type="tns:ItemChoiceType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="ItemChoiceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ИННЮЛ" />
+      <xs:enumeration value="ОГРН" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="GetShortInfo_ULResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetShortInfo_ULResult" type="tns:ShortInfoResponseUL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ShortInfoResponseUL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="GateInfoORДокументОтвет" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GateInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="RequestId" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="GateReturnCode" type="tns:GateReturnCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="GateReturnCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="InQueue" />
+      <xs:enumeration value="RequestAcceptedByFNS" />
+      <xs:enumeration value="NotReady" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RequestGetLongInfo_UL">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="str" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="type" type="tns:ItemChoiceType" />
+        <xs:element minOccurs="0" maxOccurs="1" name="CaseNum" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="LongInfoResponseUL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="GateInfoORДокумент5" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequestGetLongInfo_ULResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="RequestGetLongInfo_ULResult" type="tns:LongInfoResponseUL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLongInfo_UL">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="docId" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLongInfo_ULResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetLongInfo_ULResult" type="tns:LongInfoResponseUL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetShortInfo_FL">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="str" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="type" type="tns:ItemChoiceType4" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="ItemChoiceType4">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ИНН" />
+      <xs:enumeration value="ОГРНИП" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ShortInfoResponseFL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="GateInfoORДокументОтвет1" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetShortInfo_FLResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetShortInfo_FLResult" type="tns:ShortInfoResponseFL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RequestGetLongInfo_FL">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="str" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="type" type="tns:ItemChoiceType4" />
+        <xs:element minOccurs="0" maxOccurs="1" name="CaseNum" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="LongInfoResponseFL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="GateInfoORДокумент9" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequestGetLongInfo_FLResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="RequestGetLongInfo_FLResult" type="tns:LongInfoResponseFL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLongInfo_FL">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="docId" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLongInfo_FLResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="GetLongInfo_FLResult" type="tns:LongInfoResponseFL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

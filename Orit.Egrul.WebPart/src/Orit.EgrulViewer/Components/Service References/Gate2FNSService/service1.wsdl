@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Gate2FNSService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Gate2FNSServiceLibrary" />
+      <xsd:import namespace="http://ws.unisoft/EGRNXX/ResponseVIPFL" />
+      <xsd:import namespace="http://ws.unisoft/EGRNXX/ResponseVIPUL" />
+      <xsd:import namespace="http://ws.unisoft/EGRNXX/ResponseKSUL" />
+      <xsd:import namespace="http://ws.unisoft/EGRNXX/ResponseKSIP" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IGate2FNSService_GetShortInfo_UL_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetShortInfo_UL" />
+  </wsdl:message>
+  <wsdl:message name="IGate2FNSService_GetShortInfo_UL_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetShortInfo_ULResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGate2FNSService_GetShortInfo_UL_FaultRequestFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Gate2FNSServiceLibrary" name="detail" element="q1:FaultRequest" />
+  </wsdl:message>
+  <wsdl:message name="IGate2FNSService_RequestGetLongInfo_UL_InputMessage">
+    <wsdl:part name="parameters" element="tns:RequestGetLongInfo_UL" />
+  </wsdl:message>
+  <wsdl:message name="IGate2FNSService_RequestGetLongInfo_UL_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RequestGetLongInfo_ULResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGate2FNSService_RequestGetLongInfo_UL_FaultRequestFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Gate2FNSServiceLibrary" name="detail" element="q2:FaultRequest" />
+  </wsdl:message>
+  <wsdl:message name="IGate2FNSService_GetLongInfo_UL_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLongInfo_UL" />
+  </wsdl:message>
+  <wsdl:message name="IGate2FNSService_GetLongInfo_UL_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLongInfo_ULResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGate2FNSService_GetLongInfo_UL_FaultRequestFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Gate2FNSServiceLibrary" name="detail" element="q3:FaultRequest" />
+  </wsdl:message>
+  <wsdl:message name="IGate2FNSService_GetShortInfo_FL_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetShortInfo_FL" />
+  </wsdl:message>
+  <wsdl:message name="IGate2FNSService_GetShortInfo_FL_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetShortInfo_FLResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGate2FNSService_GetShortInfo_FL_FaultRequestFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Gate2FNSServiceLibrary" name="detail" element="q4:FaultRequest" />
+  </wsdl:message>
+  <wsdl:message name="IGate2FNSService_RequestGetLongInfo_FL_InputMessage">
+    <wsdl:part name="parameters" element="tns:RequestGetLongInfo_FL" />
+  </wsdl:message>
+  <wsdl:message name="IGate2FNSService_RequestGetLongInfo_FL_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RequestGetLongInfo_FLResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGate2FNSService_RequestGetLongInfo_FL_FaultRequestFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Gate2FNSServiceLibrary" name="detail" element="q5:FaultRequest" />
+  </wsdl:message>
+  <wsdl:message name="IGate2FNSService_GetLongInfo_FL_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLongInfo_FL" />
+  </wsdl:message>
+  <wsdl:message name="IGate2FNSService_GetLongInfo_FL_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLongInfo_FLResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGate2FNSService_GetLongInfo_FL_FaultRequestFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/Gate2FNSServiceLibrary" name="detail" element="q6:FaultRequest" />
+  </wsdl:message>
+  <wsdl:portType name="IGate2FNSService">
+    <wsdl:operation name="GetShortInfo_UL">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGate2FNSService/GetShortInfo_UL" message="tns:IGate2FNSService_GetShortInfo_UL_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGate2FNSService/GetShortInfo_ULResponse" message="tns:IGate2FNSService_GetShortInfo_UL_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IGate2FNSService/GetShortInfo_ULFaultRequestFault" name="FaultRequestFault" message="tns:IGate2FNSService_GetShortInfo_UL_FaultRequestFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RequestGetLongInfo_UL">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGate2FNSService/RequestGetLongInfo_UL" message="tns:IGate2FNSService_RequestGetLongInfo_UL_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGate2FNSService/RequestGetLongInfo_ULResponse" message="tns:IGate2FNSService_RequestGetLongInfo_UL_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IGate2FNSService/RequestGetLongInfo_ULFaultRequestFault" name="FaultRequestFault" message="tns:IGate2FNSService_RequestGetLongInfo_UL_FaultRequestFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLongInfo_UL">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGate2FNSService/GetLongInfo_UL" message="tns:IGate2FNSService_GetLongInfo_UL_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGate2FNSService/GetLongInfo_ULResponse" message="tns:IGate2FNSService_GetLongInfo_UL_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IGate2FNSService/GetLongInfo_ULFaultRequestFault" name="FaultRequestFault" message="tns:IGate2FNSService_GetLongInfo_UL_FaultRequestFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShortInfo_FL">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGate2FNSService/GetShortInfo_FL" message="tns:IGate2FNSService_GetShortInfo_FL_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGate2FNSService/GetShortInfo_FLResponse" message="tns:IGate2FNSService_GetShortInfo_FL_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IGate2FNSService/GetShortInfo_FLFaultRequestFault" name="FaultRequestFault" message="tns:IGate2FNSService_GetShortInfo_FL_FaultRequestFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RequestGetLongInfo_FL">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGate2FNSService/RequestGetLongInfo_FL" message="tns:IGate2FNSService_RequestGetLongInfo_FL_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGate2FNSService/RequestGetLongInfo_FLResponse" message="tns:IGate2FNSService_RequestGetLongInfo_FL_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IGate2FNSService/RequestGetLongInfo_FLFaultRequestFault" name="FaultRequestFault" message="tns:IGate2FNSService_RequestGetLongInfo_FL_FaultRequestFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLongInfo_FL">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGate2FNSService/GetLongInfo_FL" message="tns:IGate2FNSService_GetLongInfo_FL_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGate2FNSService/GetLongInfo_FLResponse" message="tns:IGate2FNSService_GetLongInfo_FL_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IGate2FNSService/GetLongInfo_FLFaultRequestFault" name="FaultRequestFault" message="tns:IGate2FNSService_GetLongInfo_FL_FaultRequestFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IGate2FNSService" type="tns:IGate2FNSService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetShortInfo_UL">
+      <soap:operation soapAction="http://tempuri.org/IGate2FNSService/GetShortInfo_UL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultRequestFault">
+        <soap:fault use="literal" name="FaultRequestFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RequestGetLongInfo_UL">
+      <soap:operation soapAction="http://tempuri.org/IGate2FNSService/RequestGetLongInfo_UL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultRequestFault">
+        <soap:fault use="literal" name="FaultRequestFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetLongInfo_UL">
+      <soap:operation soapAction="http://tempuri.org/IGate2FNSService/GetLongInfo_UL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultRequestFault">
+        <soap:fault use="literal" name="FaultRequestFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetShortInfo_FL">
+      <soap:operation soapAction="http://tempuri.org/IGate2FNSService/GetShortInfo_FL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultRequestFault">
+        <soap:fault use="literal" name="FaultRequestFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RequestGetLongInfo_FL">
+      <soap:operation soapAction="http://tempuri.org/IGate2FNSService/RequestGetLongInfo_FL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultRequestFault">
+        <soap:fault use="literal" name="FaultRequestFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetLongInfo_FL">
+      <soap:operation soapAction="http://tempuri.org/IGate2FNSService/GetLongInfo_FL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultRequestFault">
+        <soap:fault use="literal" name="FaultRequestFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Gate2FNSService">
+    <wsdl:port name="BasicHttpBinding_IGate2FNSService" binding="tns:BasicHttpBinding_IGate2FNSService">
+      <soap:address location="http://fnsgate:8000/Gate2FNSService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

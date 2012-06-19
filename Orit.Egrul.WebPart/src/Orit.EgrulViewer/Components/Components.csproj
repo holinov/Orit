@@ -34,6 +34,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EO.Pdf">
+      <HintPath>..\EO.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="EO.Web">
+      <HintPath>..\EO.Web.dll</HintPath>
+    </Reference>
     <Reference Include="itextsharp">
       <HintPath>..\itextsharp.dll</HintPath>
     </Reference>
@@ -77,6 +83,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Fields\XsltTemplate\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{97706ce3-da82-4093-bec9-54bbe49ef29b}</SharePointProjectItemId>
     </None>
@@ -88,6 +95,9 @@
     </None>
     <None Include="Service References\Gate2FNSService\configuration91.svcinfo" />
     <None Include="Service References\Gate2FNSService\configuration.svcinfo" />
+    <None Include="Service References\Gate2FNSService\Gate2FNSServiceLibrary1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\Gate2FNSService\Orit.EgrulViewer.Components.Gate2FNSService.LongInfoResponseFL.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -118,6 +128,25 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="WebParts\EgrulViewer\WebPartIcon_EgrulViewer.gif" />
+    <None Include="Service References\Gate2FNSService\ResponseKSIP.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Gate2FNSService\ResponseKSUL.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Gate2FNSService\ResponseVIPFL.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Gate2FNSService\ResponseVIPUL.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Gate2FNSService\service1.wsdl" />
+    <None Include="Service References\Gate2FNSService\service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Gate2FNSService\service21.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web.config" />
     <None Include="Features\Orit_EgrulViewer_EgrulViewer\Orit_EgrulViewer_EgrulViewer.feature">
       <FeatureId>{4137459f-36e5-4e13-a272-8091caa720d8}</FeatureId>
@@ -127,22 +156,6 @@
     </None>
     <None Include="Package\Package.Template.xml">
       <DependentUpon>Package.package</DependentUpon>
-    </None>
-    <None Include="Service References\Gate2FNSService\Arrays.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Gate2FNSService\FNS.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Gate2FNSService\Gate2FNSServiceLibrary.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Gate2FNSService\service.wsdl" />
-    <None Include="Service References\Gate2FNSService\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Gate2FNSService\service1.xsd">
-      <SubType>Designer</SubType>
     </None>
     <None Include="Template\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{3cf24361-e3fa-4e77-ad83-58dbf6c29dc6}</SharePointProjectItemId>

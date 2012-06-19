@@ -1,0 +1,685 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ws.unisoft/EGRNXX/ResponseVIPUL" elementFormDefault="qualified" targetNamespace="http://ws.unisoft/EGRNXX/ResponseVIPUL" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Документ5">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="СвЮЛ">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="СвНаимЮЛ">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" name="ОПФ" type="tns:ОПФВыпТип" />
+                </xs:sequence>
+                <xs:attribute name="НаимЮЛСокр" type="xs:string" />
+                <xs:attribute name="НаимЮЛФирм" type="xs:string" />
+                <xs:attribute name="НаимЮЛПолн" type="xs:string" />
+                <xs:attribute name="ДатаНачДейств" type="xs:date" use="required" />
+                <xs:attribute name="ГРН" type="xs:string" />
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="СвАдрес">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" name="АдресРФ" type="tns:АдрРФТипВып" />
+                </xs:sequence>
+                <xs:attribute name="ГРН" type="xs:string" />
+                <xs:attribute name="ДатаНачДейств" type="xs:date" use="required" />
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="СвСтатус_РО">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" name="СвСтатус">
+                    <xs:complexType>
+                      <xs:attribute name="КодСтатусЮЛ" type="xs:string" />
+                      <xs:attribute name="НаимСтатусЮЛ" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element minOccurs="0" maxOccurs="1" name="СвРегОрг" type="tns:СвРегОргТип" />
+                </xs:sequence>
+                <xs:attribute name="ГРН" type="xs:string" />
+                <xs:attribute name="ДатаНачДейств" type="xs:date" use="required" />
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="СвОбрЮЛ">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" name="СпОбрЮЛ">
+                    <xs:complexType>
+                      <xs:attribute name="КодСпОбрЮЛ" type="xs:string" />
+                      <xs:attribute name="НаимСпОбрЮЛ" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+                <xs:attribute name="РегНом" type="xs:string" />
+                <xs:attribute name="НаимРО" type="xs:string" />
+                <xs:attribute name="ДатаОбрЮЛ" type="xs:date" use="required" />
+                <xs:attribute name="ДатаНачДейств" type="xs:date" use="required" />
+                <xs:attribute name="ГРН" type="xs:string" />
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="СвПрекрЮЛ">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" name="СпПрекрЮЛ">
+                    <xs:complexType>
+                      <xs:attribute name="КодСпПрекрЮЛ" type="xs:string" />
+                      <xs:attribute name="НаимСпПрекрЮЛ" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element minOccurs="0" maxOccurs="1" name="СвРегОрг" type="tns:СвРегОргТип" />
+                </xs:sequence>
+                <xs:attribute name="ДатаПрекрЮЛ" type="xs:date" use="required" />
+                <xs:attribute name="ГРН" type="xs:string" />
+                <xs:attribute name="ДатаНачДейств" type="xs:date" use="required" />
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="СвПреемств">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="unbounded" name="СвПредш">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="1" name="СвВидПреем">
+                          <xs:complexType>
+                            <xs:attribute name="КодПреем" type="xs:string" />
+                            <xs:attribute name="НаимПреем" type="xs:string" />
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                      <xs:attribute name="ИНН" type="xs:string" />
+                      <xs:attribute name="НаимЮЛПолн" type="xs:string" />
+                      <xs:attribute name="ОГРН" type="xs:string" />
+                      <xs:attribute name="ДатаНачДейств" type="xs:date" use="required" />
+                      <xs:attribute name="ГРН" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element minOccurs="0" maxOccurs="unbounded" name="СвПреем">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="1" name="СвВидПреем">
+                          <xs:complexType>
+                            <xs:attribute name="КодПреем" type="xs:string" />
+                            <xs:attribute name="НаимПреем" type="xs:string" />
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                      <xs:attribute name="ИНН" type="xs:string" />
+                      <xs:attribute name="НаимЮЛПолн" type="xs:string" />
+                      <xs:attribute name="ОГРН" type="xs:string" />
+                      <xs:attribute name="ДатаНачДейств" type="xs:date" use="required" />
+                      <xs:attribute name="ГРН" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element minOccurs="0" maxOccurs="unbounded" name="СведПреемКФХ">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="1" name="ФИО" type="tns:ФИОТип" />
+                        <xs:element minOccurs="0" maxOccurs="1" name="УдЛичнФЛ" type="tns:УдЛичнТипР" />
+                        <xs:element minOccurs="0" maxOccurs="1" name="АдресМЖРФ" type="tns:АдрРФТипВып" />
+                      </xs:sequence>
+                      <xs:attribute name="ОГРНИП" type="xs:string" />
+                      <xs:attribute name="ИННФЛ" type="xs:string" />
+                      <xs:attribute name="КодПреем" use="required">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:enumeration value="111" />
+                            <xs:enumeration value="211" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:attribute>
+                      <xs:attribute name="ДатаНачДейств" type="xs:date" use="required" />
+                      <xs:attribute name="ГРН" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="СвУстКап">
+              <xs:complexType>
+                <xs:attribute name="ДатаНачДейств" type="xs:date" use="required" />
+                <xs:attribute name="ГРН" type="xs:string" />
+                <xs:attribute name="НаимВидКап" use="required">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:enumeration value="Уставный капитал" />
+                      <xs:enumeration value="Складочный капитал" />
+                      <xs:enumeration value="Уставной фонд" />
+                      <xs:enumeration value="Паевые взносы" />
+                      <xs:enumeration value="Паевой фонд" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:attribute>
+                <xs:attribute name="СумКап" type="xs:decimal" use="required" />
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="СведУмУК">
+              <xs:complexType>
+                <xs:attribute name="ДатаНачДейств" type="xs:date" use="required" />
+                <xs:attribute name="ГРН" type="xs:string" />
+                <xs:attribute name="ВидУмУК" use="required">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:enumeration value="1" />
+                      <xs:enumeration value="2" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:attribute>
+                <xs:attribute name="ВелУмУК" type="xs:decimal" use="required" />
+                <xs:attribute name="ДатаРеш" type="xs:date" use="required" />
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="СвУчредит">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="unbounded" name="УчрЮЛРос">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="1" name="ДоляУстКап" type="tns:ДоляУстКапТип" />
+                      </xs:sequence>
+                      <xs:attribute name="ИННЮЛ" type="xs:string" />
+                      <xs:attribute name="НаимЮЛПолн" type="xs:string" />
+                      <xs:attribute name="ОГРН" type="xs:string" />
+                      <xs:attribute name="ДатаНачДейств" type="xs:date" use="required" />
+                      <xs:attribute name="ГРН" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element minOccurs="0" maxOccurs="unbounded" name="УчрЮЛИн">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="1" name="СвРегИн" type="tns:СвРегИнТип" />
+                        <xs:element minOccurs="0" maxOccurs="1" name="ДоляУстКап" type="tns:ДоляУстКапТип" />
+                      </xs:sequence>
+                      <xs:attribute name="НаимЮЛПолн" type="xs:string" />
+                      <xs:attribute name="ИННЮЛ" type="xs:string" />
+                      <xs:attribute name="ДатаНачДейств" type="xs:date" use="required" />
+                      <xs:attribute name="ГРН" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element minOccurs="0" maxOccurs="unbounded" name="УчрФЛ">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="1" name="ФИО" type="tns:ФИОТип" />
+                        <xs:element minOccurs="0" maxOccurs="1" name="УдЛичнФЛ" type="tns:УдЛичнТипР" />
+                        <xs:element minOccurs="0" maxOccurs="1" name="АдрМЖРФ" type="tns:АдрРФТипВып" />
+                        <xs:element minOccurs="0" maxOccurs="1" name="АдрМЖИн" type="tns:АдрИнТип" />
+                        <xs:element minOccurs="0" maxOccurs="1" name="ДоляУстКап" type="tns:ДоляУстКапТип" />
+                        <xs:element minOccurs="0" maxOccurs="1" name="ЛицоУпрНасл">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element minOccurs="0" maxOccurs="1" name="ФИО" type="tns:ФИОТип" />
+                              <xs:element minOccurs="0" maxOccurs="1" name="УдЛичнФЛ" type="tns:УдЛичнТипР" />
+                              <xs:element minOccurs="0" maxOccurs="1" name="АдресМЖРФ" type="tns:АдрРФТипВып" />
+                              <xs:element minOccurs="0" maxOccurs="1" name="АдрМЖИн" type="tns:АдрИнТип" />
+                            </xs:sequence>
+                            <xs:attribute name="ДатаОткрНасл" type="xs:string" />
+                            <xs:attribute name="ИННФЛ" type="xs:string" />
+                            <xs:attribute name="ДатаНачДейств" type="xs:date" use="required" />
+                            <xs:attribute name="ГРН" type="xs:string" />
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                      <xs:attribute name="ИННФЛ" type="xs:string" />
+                      <xs:attribute name="ГРН" type="xs:string" />
+                      <xs:attribute name="ДатаНачДейств" type="xs:date" use="required" />
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element minOccurs="0" maxOccurs="unbounded" name="УчрРФСубМО">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="1" name="СвОсущПр">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:choice minOccurs="1" maxOccurs="1">
+                                <xs:element minOccurs="0" maxOccurs="1" name="СвОргОсущПр">
+                                  <xs:complexType>
+                                    <xs:attribute name="ОГРН" type="xs:string" />
+                                    <xs:attribute name="НаимЮЛПолн" type="xs:string" />
+                                    <xs:attribute name="ИННЮЛ" type="xs:string" />
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element minOccurs="0" maxOccurs="1" name="СвФЛОсущПр">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element minOccurs="0" maxOccurs="1" name="ФИО" type="tns:ФИОТип" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="УдЛичнФЛ" type="tns:УдЛичнТипР" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="АдресМЖРФ" type="tns:АдрРФТипВып" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="АдрМЖИн" type="tns:АдрИнТип" />
+                                    </xs:sequence>
+                                    <xs:attribute name="ИННФЛ" type="xs:string" />
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:choice>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" maxOccurs="1" name="ДоляУстКап" type="tns:ДоляУстКапТип" />
+                      </xs:sequence>
+                      <xs:attribute name="КодРегион" type="xs:string" />
+                      <xs:attribute name="НаимРегион" type="xs:string" />
+                      <xs:attribute name="НаимМО" type="xs:string" />
+                      <xs:attribute name="ДатаНачДейств" type="xs:date" use="required" />
+                      <xs:attribute name="ГРН" type="xs:string" />
+                      <xs:attribute name="КодУчрРФСубМО" use="required">
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:enumeration value="1" />
+                            <xs:enumeration value="2" />
+                            <xs:enumeration value="3" />
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:attribute>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element minOccurs="0" maxOccurs="unbounded" name="УчрВлПИФ">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="1" name="СвУпрКомпДовер">
+                          <xs:complexType>
+                            <xs:attribute name="ОГРН" type="xs:string" />
+                            <xs:attribute name="ИННЮЛ" type="xs:string" />
+                            <xs:attribute name="НаимЮЛПолн" type="xs:string" />
+                          </xs:complexType>
+                        </xs:element>
+                        <xs:element minOccurs="0" maxOccurs="1" name="ДоляУстКап" type="tns:ДоляУстКапТип" />
+                      </xs:sequence>
+                      <xs:attribute name="НаимПИФ" type="xs:string" />
+                      <xs:attribute name="ГРН" type="xs:string" />
+                      <xs:attribute name="ДатаНачДейств" type="xs:date" use="required" />
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="СвДоляООО">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:choice minOccurs="1" maxOccurs="1">
+                    <xs:element minOccurs="1" maxOccurs="1" name="ДробДесят" type="xs:decimal" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="ДробПрост" type="tns:ДробьТип" />
+                    <xs:element minOccurs="1" maxOccurs="1" name="Процент" type="xs:decimal" />
+                  </xs:choice>
+                </xs:sequence>
+                <xs:attribute name="НоминСтоим" type="xs:decimal" use="required" />
+                <xs:attribute name="ГРН" type="xs:string" />
+                <xs:attribute name="ДатаНачДейств" type="xs:date" use="required" />
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="СвДержРеестрАО">
+              <xs:complexType>
+                <xs:attribute name="ДатаНачДейств" type="xs:date" use="required" />
+                <xs:attribute name="ГРН" type="xs:string" />
+                <xs:attribute name="ОГРН" type="xs:string" />
+                <xs:attribute name="ИННЮЛ" type="xs:string" />
+                <xs:attribute name="НаимЮЛПолн" type="xs:string" />
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="СвУправлДеят">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="unbounded" name="СведДолжнФЛ">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element minOccurs="0" maxOccurs="1" name="ФИО" type="tns:ФИОТип" />
+                        <xs:element minOccurs="0" maxOccurs="1" name="УдЛичнФЛ" type="tns:УдЛичнТипР" />
+                        <xs:element minOccurs="0" maxOccurs="1" name="АдресМЖРФ" type="tns:АдрРФТипВып" />
+                        <xs:element minOccurs="0" maxOccurs="1" name="АдрМЖИн" type="tns:АдрИнТип" />
+                        <xs:element minOccurs="0" maxOccurs="unbounded" name="СвДискв">
+                          <xs:complexType>
+                            <xs:attribute name="ДатаНачДейств" type="xs:date" use="required" />
+                            <xs:attribute name="ГРН" type="xs:string" />
+                            <xs:attribute name="СрокДискв" type="xs:integer" />
+                            <xs:attribute name="ДатаНачДискв" type="xs:date" use="required" />
+                            <xs:attribute name="ДатаОкончДискв" type="xs:date" use="required" />
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                      <xs:attribute name="НаимДолжн" type="xs:string" />
+                      <xs:attribute name="НомТел" type="xs:string" />
+                      <xs:attribute name="ИННФЛ" type="xs:string" />
+                      <xs:attribute name="ДатаНачДейств" type="xs:date" use="required" />
+                      <xs:attribute name="ГРН" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:choice minOccurs="1" maxOccurs="1">
+                    <xs:element minOccurs="0" maxOccurs="1" name="УправлИП">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" maxOccurs="1" name="ФИО" type="tns:ФИОТип" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="УдЛичнФЛ" type="tns:УдЛичнТипР" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="АдресМЖРФ" type="tns:АдрРФТипВып" />
+                          <xs:element minOccurs="0" maxOccurs="unbounded" name="СвДискв">
+                            <xs:complexType>
+                              <xs:attribute name="ДатаНачДейств" type="xs:date" use="required" />
+                              <xs:attribute name="ГРН" type="xs:string" />
+                              <xs:attribute name="СрокДискв" type="xs:integer" />
+                              <xs:attribute name="ДатаНачДискв" type="xs:date" use="required" />
+                              <xs:attribute name="ДатаОкончДискв" type="xs:date" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="ИННФЛ" type="xs:string" />
+                        <xs:attribute name="НомТел" type="xs:string" />
+                        <xs:attribute name="ОГРНИП" type="xs:string" />
+                        <xs:attribute name="ДатаНачДейств" type="xs:date" use="required" />
+                        <xs:attribute name="ГРН" type="xs:string" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" name="УпрОргРос">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" maxOccurs="1" name="АдрМНРФ" type="tns:АдрРФТипВып" />
+                        </xs:sequence>
+                        <xs:attribute name="ИНН" type="xs:string" />
+                        <xs:attribute name="НаимЮЛПолн" type="xs:string" />
+                        <xs:attribute name="ОГРН" type="xs:string" />
+                        <xs:attribute name="ДатаНачДейств" type="xs:date" use="required" />
+                        <xs:attribute name="ГРН" type="xs:string" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" name="УпрОргИн">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" maxOccurs="1" name="СвРегИн" type="tns:СвРегИнТип" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="АдрМНРФ" type="tns:АдрРФТипВып" />
+                          <xs:element minOccurs="0" maxOccurs="1" name="ПредИнЮЛ">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element minOccurs="0" maxOccurs="1" name="ФИО" type="tns:ФИОТип" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="УдЛичнФЛ" type="tns:УдЛичнТипР" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="АдресМЖРФ" type="tns:АдрРФТипВып" />
+                                <xs:element minOccurs="0" maxOccurs="1" name="АдрМЖИн" type="tns:АдрИнТип" />
+                              </xs:sequence>
+                              <xs:attribute name="НомТел" type="xs:string" />
+                              <xs:attribute name="ИННФЛ" type="xs:string" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="НаимЮЛПолн" type="xs:string" />
+                        <xs:attribute name="НаимПредЮЛ" type="xs:string" />
+                        <xs:attribute name="НомТел" type="xs:string" />
+                        <xs:attribute name="ДатаНачДейств" type="xs:date" use="required" />
+                        <xs:attribute name="ГРН" type="xs:string" />
+                        <xs:attribute name="ИНН" type="xs:string" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:choice>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="СвПодразд">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:choice minOccurs="1" maxOccurs="1">
+                    <xs:element minOccurs="0" maxOccurs="1" name="АдрМНРФ" type="tns:АдрРФТипВып" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="АдрМНИн" type="tns:АдрИнТип" />
+                  </xs:choice>
+                </xs:sequence>
+                <xs:attribute name="ВидПодр" use="required">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:enumeration value="1" />
+                      <xs:enumeration value="2" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:attribute>
+                <xs:attribute name="НаимПолн" type="xs:string" />
+                <xs:attribute name="ДатаНачДейств" type="xs:date" use="required" />
+                <xs:attribute name="ГРН" type="xs:string" />
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="СвОКВЭД">
+              <xs:complexType>
+                <xs:attribute name="ДатаНачДейств" type="xs:date" use="required" />
+                <xs:attribute name="ГРН" type="xs:string" />
+                <xs:attribute name="ПрОснДоп" use="required">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:enumeration value="1" />
+                      <xs:enumeration value="2" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:attribute>
+                <xs:attribute name="КодОКВЭД" type="xs:string" />
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="СвУчетНО">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" name="СвНО">
+                    <xs:complexType>
+                      <xs:attribute name="КодНО" type="xs:string" />
+                      <xs:attribute name="НаимНО" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+                <xs:attribute name="КПП" type="xs:string" />
+                <xs:attribute name="ДатаПостУч" type="xs:date" use="required" />
+                <xs:attribute name="ДатаСнУч" type="xs:date" />
+                <xs:attribute name="ДатаНачДейств" type="xs:date" use="required" />
+                <xs:attribute name="ГРН" type="xs:string" />
+                <xs:attribute name="ИНН" type="xs:string" />
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="СвРегПФ">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" name="СвОргПФ">
+                    <xs:complexType>
+                      <xs:attribute name="КодПФ" type="xs:string" />
+                      <xs:attribute name="НаимПФ" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+                <xs:attribute name="ДатаРег" type="xs:date" use="required" />
+                <xs:attribute name="ДатаСнУч" type="xs:date" />
+                <xs:attribute name="РегНомПФ" type="xs:string" />
+                <xs:attribute name="ДатаНачДейств" type="xs:date" use="required" />
+                <xs:attribute name="ГРН" type="xs:string" />
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="СвРегФСС">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" name="СвОргФСС">
+                    <xs:complexType>
+                      <xs:attribute name="КодФСС" type="xs:string" />
+                      <xs:attribute name="НаимФСС" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+                <xs:attribute name="ДатаРег" type="xs:date" use="required" />
+                <xs:attribute name="ДатаСнУч" type="xs:date" />
+                <xs:attribute name="РегНомФСС" type="xs:string" />
+                <xs:attribute name="ДатаНачДейств" type="xs:date" use="required" />
+                <xs:attribute name="ГРН" type="xs:string" />
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="СвЛицензия">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="unbounded" name="НаимЛицВидДеят" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="unbounded" name="МестоДейстЛиц" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="ЛицОргВыдЛиц" type="xs:string" />
+                  <xs:element minOccurs="0" maxOccurs="1" name="СвПриостЛиц">
+                    <xs:complexType>
+                      <xs:attribute name="ДатаПриостЛиц" type="xs:date" use="required" />
+                      <xs:attribute name="ЛицОргПриостЛиц" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+                <xs:attribute name="ДатаЛиц" type="xs:date" use="required" />
+                <xs:attribute name="ВидЛиц" type="xs:string" />
+                <xs:attribute name="ДатаОкончЛиц" type="xs:date" />
+                <xs:attribute name="ДатаНачЛиц" type="xs:date" use="required" />
+                <xs:attribute name="ГРН" type="xs:string" />
+                <xs:attribute name="ДатаНачДейств" type="xs:date" use="required" />
+                <xs:attribute name="НомЛиц" type="xs:string" />
+                <xs:attribute name="СерЛиц" type="xs:string" />
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="СвЗапДейств">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" name="ВидЗап">
+                    <xs:complexType>
+                      <xs:attribute name="КодСПВЗ" type="xs:string" />
+                      <xs:attribute name="НаимВидЗап" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element minOccurs="0" maxOccurs="1" name="СвРегОрг" type="tns:СвРегОргТип" />
+                  <xs:element minOccurs="0" maxOccurs="unbounded" name="СвСвид">
+                    <xs:complexType>
+                      <xs:attribute name="ДатаЗап" type="xs:date" use="required" />
+                      <xs:attribute name="ГРН" type="xs:string" />
+                      <xs:attribute name="Серия" type="xs:string" />
+                      <xs:attribute name="Номер" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+                <xs:attribute name="ГРН" type="xs:string" />
+                <xs:attribute name="ДатаЗап" type="xs:date" use="required" />
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="СвЗапНеДейств">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" maxOccurs="1" name="ВидЗап">
+                    <xs:complexType>
+                      <xs:attribute name="КодСПВЗ" type="xs:string" />
+                      <xs:attribute name="НаимВидЗап" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element minOccurs="0" maxOccurs="1" name="СвРегОрг" type="tns:СвРегОргТип" />
+                  <xs:element minOccurs="0" maxOccurs="unbounded" name="СвПризнНед">
+                    <xs:complexType>
+                      <xs:attribute name="ДатаЗап" type="xs:date" use="required" />
+                      <xs:attribute name="ГРН" type="xs:string" />
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+                <xs:attribute name="ГРН" type="xs:string" />
+                <xs:attribute name="ДатаЗап" type="xs:date" use="required" />
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute name="ДатаОГРН" type="xs:date" use="required" />
+          <xs:attribute name="ИНН" type="xs:string" />
+          <xs:attribute name="ДатаВып" type="xs:date" use="required" />
+          <xs:attribute name="ОГРН" type="xs:string" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="ИдДок" type="xs:string" />
+    <xs:attribute name="ВерсФорм" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="4.01" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="ОПФВыпТип">
+    <xs:attribute name="СпрОПФ">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="ОКОПФ" />
+          <xs:enumeration value="КОПФ" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="КодОПФ" type="xs:string" />
+    <xs:attribute name="ПолнНаимОПФ" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="АдрРФТипВып">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Регион">
+        <xs:complexType>
+          <xs:attribute name="ТипРегион" type="xs:string" />
+          <xs:attribute name="НаимРегион" type="xs:string" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Район">
+        <xs:complexType>
+          <xs:attribute name="ТипРайон" type="xs:string" />
+          <xs:attribute name="НаимРайон" type="xs:string" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Город">
+        <xs:complexType>
+          <xs:attribute name="ТипГород" type="xs:string" />
+          <xs:attribute name="НаимГород" type="xs:string" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="НаселПункт">
+        <xs:complexType>
+          <xs:attribute name="ТипНаселПункт" type="xs:string" />
+          <xs:attribute name="НаимНаселПункт" type="xs:string" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Улица">
+        <xs:complexType>
+          <xs:attribute name="ТипУлица" type="xs:string" />
+          <xs:attribute name="НаимУлица" type="xs:string" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Дом" type="xs:string" />
+    <xs:attribute name="Корпус" type="xs:string" />
+    <xs:attribute name="Кварт" type="xs:string" />
+    <xs:attribute name="Индекс" type="xs:string" />
+    <xs:attribute name="КодРегион" type="xs:string" />
+    <xs:attribute name="КодАдрКладр" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="СвРегОргТип">
+    <xs:attribute name="КодНО" type="xs:string" />
+    <xs:attribute name="НаимНО" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="ФИОТип">
+    <xs:attribute name="Фамилия" type="xs:string" />
+    <xs:attribute name="Имя" type="xs:string" />
+    <xs:attribute name="Отчество" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="УдЛичнТипР">
+    <xs:attribute name="КодВидДок" type="xs:string" />
+    <xs:attribute name="НаимДок" type="xs:string" />
+    <xs:attribute name="СерНомДок" type="xs:string" />
+    <xs:attribute name="ДатаДок" type="xs:date" use="required" />
+    <xs:attribute name="ВыдДок" type="xs:string" />
+    <xs:attribute name="КодВыдДок" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="ДоляУстКапТип">
+    <xs:sequence>
+      <xs:choice minOccurs="1" maxOccurs="1">
+        <xs:element minOccurs="0" maxOccurs="1" name="ДробПрост" type="tns:ДробьТип" />
+        <xs:element minOccurs="1" maxOccurs="1" name="Процент" type="xs:decimal" />
+        <xs:element minOccurs="1" maxOccurs="1" name="ДробДесят" type="xs:decimal" />
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="ПрЗалог">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="1" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="НоминСтоим" type="xs:decimal" use="required" />
+  </xs:complexType>
+  <xs:complexType name="ДробьТип">
+    <xs:attribute name="Числит" type="xs:integer" />
+    <xs:attribute name="Знаменат" type="xs:integer" />
+  </xs:complexType>
+  <xs:complexType name="СвРегИнТип">
+    <xs:attribute name="ОКСМ" type="xs:string" />
+    <xs:attribute name="НаимСтран" type="xs:string" />
+    <xs:attribute name="ДатаРег" type="xs:date" />
+    <xs:attribute name="РегНомер" type="xs:string" />
+    <xs:attribute name="НаимРегОрг" type="xs:string" />
+    <xs:attribute name="АдрСтр" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="АдрИнТип">
+    <xs:attribute name="ОКСМ" type="xs:string" />
+    <xs:attribute name="НаимСтран" type="xs:string" />
+    <xs:attribute name="АдрИн" type="xs:string" />
+  </xs:complexType>
+</xs:schema>

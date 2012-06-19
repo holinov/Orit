@@ -18,15 +18,17 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://193.46.207.194:8000/Gate2FNSService.svc/mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="http://193.46.207.196:8000/Gate2FNSService.svc/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="cb4c660a-eaac-40ee-b3d5-3f4bd5677ae5" SourceId="1" SourceUrl="http://193.46.207.194:8000/Gate2FNSService.svc/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="3a0e0f29-65dc-43df-8b3e-aa5a4607f365" SourceId="1" SourceUrl="http://193.46.207.194:8000/Gate2FNSService.svc/mex" />
-    <MetadataFile FileName="FNS.xsd" MetadataType="Schema" ID="d2d85660-4412-4ca2-b70b-c6ddb845862b" SourceId="1" SourceUrl="http://193.46.207.194:8000/Gate2FNSService.svc/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="0b99c32c-5d68-47ea-a4b1-ff4963771061" SourceId="1" SourceUrl="http://193.46.207.194:8000/Gate2FNSService.svc/mex" />
-    <MetadataFile FileName="Gate2FNSServiceLibrary.xsd" MetadataType="Schema" ID="ba2b2b69-67d2-4d57-ae8b-38fb9bb43a90" SourceId="1" SourceUrl="http://193.46.207.194:8000/Gate2FNSService.svc/mex" />
-    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="8c6a7a60-8a8b-4244-8289-f0aa1a131118" SourceId="1" SourceUrl="http://193.46.207.194:8000/Gate2FNSService.svc/mex" />
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="e439f423-1f8a-4a00-a469-3ce7cda2a074" SourceId="1" SourceUrl="http://193.46.207.196:8000/Gate2FNSService.svc/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="07321299-004e-4448-8e60-6f109932072a" SourceId="1" SourceUrl="http://193.46.207.196:8000/Gate2FNSService.svc/mex" />
+    <MetadataFile FileName="ResponseVIPFL.xsd" MetadataType="Schema" ID="3c1f3e9f-2d43-4764-82c1-1df0ec2cbb61" SourceId="1" SourceUrl="http://193.46.207.196:8000/Gate2FNSService.svc/mex" />
+    <MetadataFile FileName="ResponseVIPUL.xsd" MetadataType="Schema" ID="4381ec8b-e661-4150-9597-e9c7a9ade5db" SourceId="1" SourceUrl="http://193.46.207.196:8000/Gate2FNSService.svc/mex" />
+    <MetadataFile FileName="ResponseKSUL.xsd" MetadataType="Schema" ID="8f7c8a5b-49c5-4414-ba1f-e76709d3aec8" SourceId="1" SourceUrl="http://193.46.207.196:8000/Gate2FNSService.svc/mex" />
+    <MetadataFile FileName="ResponseKSIP.xsd" MetadataType="Schema" ID="503696c3-d7f8-40a8-8dbd-e8952d655999" SourceId="1" SourceUrl="http://193.46.207.196:8000/Gate2FNSService.svc/mex" />
+    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="8cbfcd71-d2fa-4ce8-9499-e78f3ea9a8f2" SourceId="1" SourceUrl="http://193.46.207.196:8000/Gate2FNSService.svc/mex" />
+    <MetadataFile FileName="Gate2FNSServiceLibrary1.xsd" MetadataType="Schema" ID="d21933b9-be99-4b2c-afe3-b0e06ccea096" SourceId="1" SourceUrl="http://193.46.207.196:8000/Gate2FNSService.svc/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

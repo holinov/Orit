@@ -1,20 +1,21 @@
 <?xml version="1.0"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
 	<xsl:output method="html" version="1.0" encoding="UTF-8" indent="yes"/>
 
-	<xsl:template match="cвЮЛField">
+	<xsl:template match="cвЮЛ">
 		<div class="docHeader">
 			<h2>Из Единого государственного реестра юридических лиц
 				(предоставляется на основании Решения ФНС России №1044 от 15.12.2006 г.)</h2>
 			<div>
 				<strong>Дата формирования:</strong>
 				<span class="date">
-					<xsl:value-of select="../@датаВыпField"/>
+					<xsl:value-of select="../@ДатаВып"/>
 				</span>
 			</div>
 			<h4>Настоящая справка содержит краткие сведения о юридическом лице:</h4>
 			<h5>
-				<xsl:value-of select="@наимЮЛПолнField"/>
+				<xsl:value-of select="@НаимЮЛПолн"/>
 			</h5>
 		</div>
 		<div class="MainInfo  infoblock">
@@ -25,44 +26,44 @@
 				<tr>
 					<td>ОРГН</td>
 					<td>
-						<xsl:value-of select="@оГРНField"/>
+						<xsl:value-of select="@ОГРН"/>
 					</td>
 				</tr>
 				<tr>
 					<td>ИНН</td>
 					<td>
-						<xsl:value-of select="@иННField"/>
+						<xsl:value-of select="@ИНН"/>
 					</td>
 				</tr>
 				<tr>
 					<td>Полное наименование</td>
 					<td>
-						<xsl:value-of select="@наимЮЛПолнField"/>
+						<xsl:value-of select="@НаимЮЛПолн"/>
 					</td>
 				</tr>
 				<tr>
 					<td>Сокращенное наименование</td>
 					<td>
-						<xsl:value-of select="@наимЮЛСокрField"/>
+						<xsl:value-of select="@НаимЮЛСокр"/>
 					</td>
 				</tr>
 				<tr>
 					<td>Сведения о размере уставного капитала</td>
 					<td>
-						<xsl:value-of select="@сумКапField"/>
+						<xsl:value-of select="@СумКап"/>
 					</td>
 				</tr>
 				<tr>
 					<td>Сведения о местоположении</td>
 					<td>
-						<xsl:apply-templates select="адресРФField"/>
+						<xsl:apply-templates select="АдресРФ"/>
 					</td>
 				</tr>
-				<xsl:if test="свСтатусField/наимСтатусЮЛField != ''">
+				<xsl:if test="СвСтатус/НаимСтатусЮЛ != ''">
 					<tr>
 						<td>Сведения о состоянии юр.лица</td>
 						<td>
-							<xsl:value-of select="свСтатусField/наимСтатусЮЛField"/>
+							<xsl:value-of select="СвСтатус/НаимСтатусЮЛ"/>
 						</td>
 					</tr>
 				</xsl:if>
@@ -70,50 +71,50 @@
 		</div>
 
 		<div class="infoblock">
-			<xsl:apply-templates select="свРегОргField"/>
+			<xsl:apply-templates select="СвРегОрг"/>
 		</div>
 
 		<div class="infoblock">
-			<xsl:apply-templates select="сведУчетНОField"/>
+			<xsl:apply-templates select="СведУчетНО"/>
 		</div>
 
 		<div class="infoblock">
-			<xsl:apply-templates select="сведУправлДеятField"/>
+			<xsl:apply-templates select="СведУправлДеят"/>
 		</div>
 	</xsl:template>
 
-	<xsl:template match="адресРФField">
+	<xsl:template match="АдресРФ">
 
-		<xsl:value-of select="индексField"/>
+		<xsl:value-of select="Индекс"/>
 		<xsl:text> </xsl:text>
-		<xsl:value-of select="районField/@типРайонField"/>
+		<xsl:value-of select="Район/@ТипРайон"/>
 		<xsl:text> </xsl:text>
-		<xsl:value-of select="районField/@наимРайонField"/>
+		<xsl:value-of select="Район/@НаимРайон"/>
 		<xsl:text>, </xsl:text>
 
-		<xsl:value-of select="городField/@типГородField"/>
+		<xsl:value-of select="Город/@ТипГород"/>
 		<xsl:text> </xsl:text>
-		<xsl:value-of select="городField/@наимГородField"/>
-		<xsl:text> </xsl:text>
-
-		<xsl:value-of select="улицаField/@наимУлицаField"/>
+		<xsl:value-of select="Город/@НаимГород"/>
 		<xsl:text> </xsl:text>
 
-		<xsl:value-of select="улицаField/@типУлицаField"/>
+		<xsl:value-of select="Улица/@НаимУлица"/>
 		<xsl:text> </xsl:text>
 
-		<xsl:value-of select="@домField"/>
+		<xsl:value-of select="Улица/@ТипУлица"/>
 		<xsl:text> </xsl:text>
 
-		<xsl:value-of select="@корпусField"/>
+		<xsl:value-of select="@Дом"/>
 		<xsl:text> </xsl:text>
 
-		<xsl:if test="not(адресРФField/квартField/@i:nil)">
-			<xsl:value-of select="адресРФField/квартField"/>
+		<xsl:value-of select="@Корпус"/>
+		<xsl:text> </xsl:text>
+
+		<xsl:if test="not(АдресРФ/Кварт/@i:nil)">
+			<xsl:value-of select="АдресРФ/Кварт"/>
 		</xsl:if>
 	</xsl:template>
 
-	<xsl:template match="свРегОргField">
+	<xsl:template match="СвРегОрг">
 		<table>
 			<caption>
 				<h5>Сведения о регистрирующем (налоговом) органе, по месту нахождения юридического лица</h5>
@@ -121,68 +122,68 @@
 			<tr>
 				<td>Код органа по справочнику СОНО</td>
 				<td>
-					<xsl:value-of select="@кодНО"/>
+					<xsl:value-of select="@КодНО"/>
 				</td>
 			</tr>
 			<tr>
 				<td>Наименование регистрирующего (налогового) органа</td>
 				<td>
-					<xsl:value-of select="@наимНО"/>
+					<xsl:value-of select="@НаимНО"/>
 				</td>
 			</tr>
 		</table>
 	</xsl:template>
 
-	<xsl:template match="сведУчетНОField">
+	<xsl:template match="СведУчетНО">
 		<table width="100%">
 			<caption>
 				<h5>Сведения об учете в налоговом органе</h5>
 			</caption>
-			<xsl:if test="@датаПостУч != ''">
+			<xsl:if test="@ДатаПостУч != ''">
 				<tr>
 					<td>Дата постановки на учет в налоговом органе</td>
 					<td>
-						<xsl:value-of select="@датаПостУч"/>
+						<xsl:value-of select="@ДатаПостУч"/>
 					</td>
 				</tr>
 			</xsl:if>
 
 
-			<xsl:if test="@датаСнУч != ''">
+			<xsl:if test="@ДатаСнУч != ''">
 				<tr>
 					<td>Дата снятия с учета в налоговом органе</td>
 					<td>
-						<xsl:value-of select="@датаСнУч"/>
+						<xsl:value-of select="@ДатаСнУч"/>
 					</td>
 				</tr>
 			</xsl:if>
 			<tr>
 				<td>Код органа по справочнику СОНО</td>
 				<td>
-					<xsl:value-of select="свНОField/@кодНОField"/>
+					<xsl:value-of select="СвНО/@КодНО"/>
 				</td>
 			</tr>
 			<tr>
 				<td>Наименование регистрирующего (налогового) органа</td>
 				<td>
-					<xsl:value-of select="свНОField/@наимНОField"/>
+					<xsl:value-of select="СвНО/@НаимНО"/>
 				</td>
 			</tr>
 		</table>
 	</xsl:template>
 
-	<xsl:template match="сведУправлДеятField">
+	<xsl:template match="СведУправлДеят">
 
-			<xsl:apply-templates select="сведДолжнФЛField"/>
+			<xsl:apply-templates select="СведДолжнФЛ"/>
 
-			<xsl:apply-templates select="упрКомпРосField"/>
+			<xsl:apply-templates select="УпрКомпРос"/>
 
-			<xsl:apply-templates select="упрКомпИнField"/>
+			<xsl:apply-templates select="УпрКомпИн"/>
 
 	</xsl:template>
 
 
-	<xsl:template match="сведДолжнФЛField">
+	<xsl:template match="СведДолжнФЛ">
 		<table width="100%">
 			<caption>
 				<h5>Сведения о физическом лице, имеющем право без доверенности действовать от имени юридического лица</h5>
@@ -190,41 +191,41 @@
 			<tr>
 				<td>Должность</td>
 				<td>
-					<xsl:value-of select="@наимДолжнField"/>
+					<xsl:value-of select="@НаимДолжн"/>
 				</td>
 			</tr>
-			<xsl:apply-templates select="фИОField"/>
+			<xsl:apply-templates select="ФИО"/>
 			<tr>
 				<td>ИНН</td>
 				<td>
-					<xsl:value-of select="@иННФЛField"/>
+					<xsl:value-of select="@ИННФЛ"/>
 				</td>
 			</tr>
 		</table>
 	</xsl:template>
 
-	<xsl:template match="фИОField">
+	<xsl:template match="ФИО">
 		<tr>
 			<td>Фамилия</td>
 			<td>
-				<xsl:value-of select="@фамилияField"/>
+				<xsl:value-of select="@Фамилия"/>
 			</td>
 		</tr>
 		<tr>
 			<td>Имя</td>
 			<td>
-				<xsl:value-of select="@имяField"/>
+				<xsl:value-of select="@Имя"/>
 			</td>
 		</tr>
 		<tr>
 			<td>Отчество</td>
 			<td>
-				<xsl:value-of select="@отчествоField"/>
+				<xsl:value-of select="@Отчество"/>
 			</td>
 		</tr>
 	</xsl:template>
 
-	<xsl:template match="упрКомпРосField">
+	<xsl:template match="УпрКомпРос">
 		<table width="100%">
 			<caption>
 				<h5>Сведения об Российской управляющей компании</h5>
@@ -232,25 +233,25 @@
 			<tr>
 				<td>Основной государственный регистрационный номер юридического лица</td>
 				<td>
-					<xsl:value-of select="@оГРНField"/>
+					<xsl:value-of select="@ОГРН"/>
 				</td>
 			</tr>
 			<tr>
 				<td>ИНН юридического лица</td>
 				<td>
-					<xsl:value-of select="@иННField"/>
+					<xsl:value-of select="@ИНН"/>
 				</td>
 			</tr>
 			<tr>
 				<td>Полное наименование юридического лица</td>
 				<td>
-					<xsl:value-of select="@наимЮЛПолнFeild"/>
+					<xsl:value-of select="@НаимЮЛПолн"/>
 				</td>
 			</tr>
 		</table>
 	</xsl:template>
 
-	<xsl:template match="упрКомпИнField">
+	<xsl:template match="УпрКомпИн">
 		<table width="100%">
 			<caption>
 				<h5>Сведения об иностранной управляющей компании</h5>
@@ -258,31 +259,31 @@
 			<tr>
 				<td>ИНН юридического лица</td>
 				<td>
-					<xsl:value-of select="@оГРНField"/>
+					<xsl:value-of select="@ОГРН"/>
 				</td>
 			</tr>
 			<tr>
 				<td>Полное наименование юридического лица</td>
 				<td>
-					<xsl:value-of select="@наимЮЛПолнFeild"/>
+					<xsl:value-of select="@НаимЮЛПолн"/>
 				</td>
 			</tr>
 			<tr>
 				<td>Код страны регистрации (инкорпорации) по справочнику ОКСМ</td>
 				<td>
-					<xsl:value-of select="@оКСМField"/>
+					<xsl:value-of select="@ОКСМ"/>
 				</td>
 			</tr>
 			<tr>
 				<td>Наименование страны регистрации (инкорпорации) по справочнику ОКСМ</td>
 				<td>
-					<xsl:value-of select="@наимСтрField"/>
+					<xsl:value-of select="@НаимСтр"/>
 				</td>
 			</tr>
 			<tr>
 				<td>Место нахождения  иностранного юридического лица в стране регистрации (инкорпорации)</td>
 				<td>
-					<xsl:value-of select="@АдрИнField"/>
+					<xsl:value-of select="@АдрИн"/>
 				</td>
 			</tr>
 		</table>
@@ -294,17 +295,17 @@
 		<scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="no" url="ULShort.xml" htmlbaseurl="" outputurl="" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml=""
 		          commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
 			<advancedProp name="sInitialMode" value=""/>
-			<advancedProp name="bSchemaAware" value="true"/>
 			<advancedProp name="bXsltOneIsOkay" value="true"/>
+			<advancedProp name="bSchemaAware" value="true"/>
 			<advancedProp name="bXml11" value="false"/>
 			<advancedProp name="iValidation" value="0"/>
 			<advancedProp name="bExtensions" value="true"/>
 			<advancedProp name="iWhitespace" value="0"/>
 			<advancedProp name="sInitialTemplate" value=""/>
 			<advancedProp name="bTinyTree" value="true"/>
-			<advancedProp name="bUseDTD" value="false"/>
-			<advancedProp name="bWarnings" value="true"/>
 			<advancedProp name="xsltVersion" value="2.0"/>
+			<advancedProp name="bWarnings" value="true"/>
+			<advancedProp name="bUseDTD" value="false"/>
 			<advancedProp name="iErrorHandling" value="fatal"/>
 		</scenario>
 	</scenarios>
